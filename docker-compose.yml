@@ -1,0 +1,79 @@
+# The whole stack: PostgreSQL, the Go API, and the built frontend behind nginx.
+#
+# Before the first `docker compose up`, server/.env must exist and carry a real
+# JWT_SECRET and GitHub OAuth credentials — see server/.env.example. It is read
+# as-is, so the same file works for `make run` and for Compose; only the DSN is
+# overridden below, because "localhost" means something different inside a
+# container.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: mihomo
+      # Defaults to the same throwaway value as server/.env.example and
+      # `make db-up`, so a local stack needs no configuration. A deployment that
+      # anyone else can reach should set POSTGRES_PASSWORD in the .env beside
+      # this file; the DSN below reads the same variable, so it moves with it.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mihomo}
+      POSTGRES_DB: mihomo
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # No published port, deliberately. The API reaches it over the Compose
+    # network, nothing else needs to, and publishing 5432 would both expose the
+    # database to the host's network and collide with any PostgreSQL already
+    # running there — including the one `make db-up` starts.
+    healthcheck:
+      # The server refuses to boot without a database, so it must not start
+      # until this passes. "The container is running" is not the same as
+      # "PostgreSQL is accepting connections": the official image starts, runs
+      # its init scripts, and restarts the server once before it is ready.
+      test: ["CMD-SHELL", "pg_isready -U mihomo -d mihomo"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  server:
+    build:
+      context: ./server
+    env_file:
+      # Secrets live here and only here. Compose reads the file at run time and
+      # passes the values to the container; nothing is baked into the image.
+      - ./server/.env
+    environment:
+      # The one value that cannot come from server/.env. Inside a container
+      # "localhost" is the container itself, so the DSN has to name the service.
+      POSTGRESQL_DSN: postgres://mihomo:${POSTGRES_PASSWORD:-mihomo}@db:5432/mihomo?sslmode=disable
+      # Everything else — PUBLIC_BASE_URL, CORS_ORIGINS, JWT_TTL, LOG_LEVEL — is
+      # taken from server/.env unchanged, so one file describes the deployment
+      # however it is run.
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-8080}:8080"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: deploy/web.Dockerfile
+      args:
+        # Build-time, not run-time: Vite inlines these into the bundle, so
+        # changing one needs `docker compose build web`, not a restart.
+        #
+        # Compose reads a .env in this directory for these, which is the same
+        # file Vite itself reads during development — see .env.example.
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080}
+        VITE_GITHUB_CLIENT_ID: ${VITE_GITHUB_CLIENT_ID:-}
+        VITE_OAUTH_REDIRECT_URI: ${VITE_OAUTH_REDIRECT_URI:-}
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    # Not depends_on: nginx serves static files and the browser calls the API
+    # directly, so the frontend is useful — and correctly says the server is
+    # unreachable — whether or not the API is up.
+    restart: unless-stopped
+
+volumes:
+  db-data:
