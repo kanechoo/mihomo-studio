@@ -1,0 +1,22 @@
+servers:
+  - example.com
+listeners:
+  - name: vmess-node
+    type: vmess
+    port: 10814
+    listen: 0.0.0.0
+    routing-mark: 0
+    users:
+      - username: carol
+        uuid: cccccccc-3333-4ef6-897d-6c6b3ccf9e68
+        alterId: 2
+    ws-path: /vmws
+    certificate: ./server.crt
+    private-key: ./server.key
+    client-auth-type: verify-if-given
+    ech-key: |
+      -----BEGIN ECH KEYS-----
+      ACATwY30o/RKgD6hgeQxwrSiApLaCgU+HKh7B6SUrAHaDwBD/g0APwAAIAAgHjzK
+      -----END ECH KEYS-----
+    mux-option:
+      padding: true

@@ -1,0 +1,13 @@
+servers:
+  - example.com
+listeners:
+  - name: anytls-node
+    type: anytls
+    port: 10818
+    listen: 0.0.0.0
+    users:
+      user1: anytls-password-1
+      user2: anytls-password-2
+    certificate: ./server.crt
+    private-key: ./server.key
+    padding-scheme: ""

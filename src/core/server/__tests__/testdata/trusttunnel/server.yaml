@@ -1,0 +1,19 @@
+servers:
+  - example.com
+listeners:
+  - name: trusttunnel-node
+    type: trusttunnel
+    port: 10821
+    listen: 0.0.0.0
+    users:
+      - username: tt-user-1
+        password: tt-password-1
+      - username: tt-user-2
+        password: tt-password-2
+    certificate: ./server.crt
+    private-key: ./server.key
+    network:
+      - tcp
+      - udp
+    congestion-controller: bbr
+    bbr-profile: conservative

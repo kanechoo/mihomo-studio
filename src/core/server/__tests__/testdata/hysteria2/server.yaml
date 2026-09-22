@@ -1,0 +1,29 @@
+servers:
+  - example.com
+listeners:
+  - name: hy2-node
+    type: hysteria2
+    port: 20000-30000
+    listen: 0.0.0.0
+    users:
+      user1: hy-password-1
+      user2: hy-password-2
+    up: 1000
+    down: 1000
+    ignore-client-bandwidth: false
+    obfs: salamander
+    obfs-password: obfuscate-pass
+    masquerade: https://news.ycombinator.com
+    bbr-profile: standard
+    alpn:
+      - h3
+    certificate: ./server.crt
+    private-key: ./server.key
+    realm-opts:
+      enable: true
+      server-url: https://realm.hy2.io
+      token: public
+      realm-id: my-cabin-1f3a8c2e9b
+      stun-servers:
+        - stun.nextcloud.com:3478
+      proxy: DIRECT

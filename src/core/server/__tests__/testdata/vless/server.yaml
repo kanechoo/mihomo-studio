@@ -1,0 +1,62 @@
+servers:
+  - example.com
+listeners:
+  - name: vless-node
+    type: vless
+    port: 10817
+    listen: 0.0.0.0
+    rule: sub-rule-name1
+    proxy: proxy
+    users:
+      - username: alice
+        uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+        flow: xtls-rprx-vision
+      - username: bob
+        uuid: bbbbbb1b-2222-4ef6-897d-6c6b3ccf9e68
+    xhttp-config:
+      path: /xp
+      host: cdn.example.com
+      mode: stream-one
+      no-sse-header: true
+      x-padding-bytes: 100-1000
+      x-padding-obfs-mode: true
+      x-padding-key: x_padding
+      x-padding-header: Referer
+      x-padding-placement: queryInHeader
+      x-padding-method: tokenish
+      uplink-http-method: POST
+      session-placement: path
+      session-key: sk
+      session-table: uuid
+      session-length: 16-32
+      seq-placement: path
+      seq-key: seqkey
+      uplink-data-placement: cookie
+      uplink-data-key: udata
+      uplink-chunk-size: 3072
+      sc-max-buffered-posts: 30
+      sc-stream-up-server-secs: 20-80
+      sc-max-each-post-bytes: 1000000
+    reality-config:
+      dest: test.com:443
+      private-key: jNXHt1yRo0vDuchQlIP6Z0ZvjT3KtzVI-T4E7RoLJS0
+      short-id:
+        - 0123456789abcdef
+      server-names:
+        - test.com
+      max-time-difference: 0
+      limit-fallback-upload:
+        after-bytes: 0
+        bytes-per-sec: 0
+        burst-bytes-per-sec: 0
+      limit-fallback-download:
+        after-bytes: 0
+        bytes-per-sec: 0
+        burst-bytes-per-sec: 0
+    mux-option:
+      padding: true
+      brutal:
+        enabled: true
+        up: 1000
+        down: 1000
+    allow-insecure: false

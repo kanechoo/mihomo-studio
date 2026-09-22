@@ -1,0 +1,13 @@
+servers:
+  - example.com
+listeners:
+  - name: mieru-node
+    type: mieru
+    port: 10818
+    listen: 0.0.0.0
+    transport: TCP
+    users:
+      user1: mieru-password-1
+      user2: mieru-password-2
+    traffic-pattern: ""
+    user-hint-is-mandatory: false

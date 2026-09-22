@@ -1,0 +1,56 @@
+import type { ServerFieldDef } from './dsl';
+
+export const COMMON_FIELDS: ServerFieldDef[] = [
+  {
+    key: 'name',
+    labelKey: 'server.field.name.label',
+    descriptionKey: 'server.field.name.description',
+    section: 'common',
+    type: 'text',
+    required: true,
+    placeholderKey: 'server.field.name.placeholder',
+  },
+  {
+    key: 'listen',
+    labelKey: 'server.field.listen.label',
+    descriptionKey: 'server.field.listen.description',
+    section: 'common',
+    type: 'text',
+    default: '0.0.0.0',
+    requiredWhen: [{ field: 'type', operator: 'neq', value: 'tun' }],
+  },
+  {
+    key: 'port',
+    labelKey: 'server.field.port.label',
+    descriptionKey: 'server.field.port.description',
+    section: 'common',
+    type: 'port-expression',
+    requiredWhen: [{ field: 'type', operator: 'neq', value: 'tun' }],
+  },
+  {
+    key: 'routingMark',
+    labelKey: 'server.field.routingMark.label',
+    descriptionKey: 'server.field.routingMark.description',
+    section: 'common',
+    type: 'number',
+    level: 'advanced',
+    min: 0,
+    max: 4294967295,
+  },
+  {
+    key: 'rule',
+    labelKey: 'server.field.rule.label',
+    descriptionKey: 'server.field.rule.description',
+    section: 'common',
+    type: 'text',
+    level: 'advanced',
+  },
+  {
+    key: 'proxy',
+    labelKey: 'server.field.proxy.label',
+    descriptionKey: 'server.field.proxy.description',
+    section: 'common',
+    type: 'text',
+    level: 'advanced',
+  },
+];

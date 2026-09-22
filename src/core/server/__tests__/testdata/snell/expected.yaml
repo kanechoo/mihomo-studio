@@ -1,0 +1,11 @@
+proxies:
+  - name: snell-node
+    type: snell
+    server: example.com
+    port: 10815
+    psk: snell-psk-value
+    version: 4
+    udp: true
+    obfs-opts:
+      mode: http
+      host: bing.com

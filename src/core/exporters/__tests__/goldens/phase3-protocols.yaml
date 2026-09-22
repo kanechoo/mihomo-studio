@@ -1,0 +1,88 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: web-hop
+    type: http
+    server: proxy.example.com
+    port: 8080
+    username: user
+    password: pass
+    tls: true
+    sni: proxy.example.com
+    skip-cert-verify: true
+    ip-version: ipv4
+    interface-name: en0
+    tfo: true
+    mptcp: false
+  - name: socks-home
+    type: socks5
+    server: 192.168.1.1
+    port: 1080
+    username: u
+    password: p
+    udp: true
+  - name: vmess-ws
+    type: vmess
+    server: v.example.com
+    port: 443
+    uuid: b831381d-6324-4d53-ad4f-8cda48b30811
+    alterId: 0
+    cipher: auto
+    udp: true
+    network: ws
+    tls: true
+    servername: v.example.com
+    client-fingerprint: chrome
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: v.example.com
+  - name: ss-shadowed
+    type: ss
+    server: ss.example.com
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: ss-pass
+    udp: true
+    plugin: shadow-tls
+    client-fingerprint: chrome
+    plugin-opts:
+      host: cloud.tencent.com
+      password: stls-pass
+      version: 2
+  - name: snell-restls
+    type: snell
+    server: sn.example.com
+    port: 44046
+    psk: snell-psk
+    version: 4
+    udp: true
+    reuse: true
+    obfs-opts:
+      mode: restls
+      host: bing.com
+      password: restls-pass
+      version-hint: tls13
+  - name: ssr-legacy
+    type: ssr
+    server: r.example.com
+    port: 443
+    cipher: aes-128-cfb
+    password: ssr-pass
+    protocol: auth_chain_a
+    obfs: tls1.2_ticket_auth
+    obfs-param: r.example.com
+    udp: true
+  - name: anytls-stls
+    type: anytls
+    server: a.example.com
+    port: 443
+    password: at-pass
+    udp: true
+    sni: a.example.com
+    shadow-tls-opts:
+      version: 3
+      password: stls-pass

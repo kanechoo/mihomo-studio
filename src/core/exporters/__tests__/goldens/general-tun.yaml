@@ -1,0 +1,15 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+bind-address: '*'
+external-controller: 127.0.0.1:9090
+secret: panel-secret
+tun:
+  enable: true
+  stack: gvisor
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 0.0.0.0:53

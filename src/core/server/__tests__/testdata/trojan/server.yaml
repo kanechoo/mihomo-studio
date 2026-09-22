@@ -1,0 +1,22 @@
+servers:
+  - example.com
+listeners:
+  - name: trojan-node
+    type: trojan
+    port: 10819
+    listen: 0.0.0.0
+    users:
+      - username: dave
+        password: trojan-password
+    grpc-service-name: GunService
+    reality-config:
+      dest: test.com:443
+      private-key: jNXHt1yRo0vDuchQlIP6Z0ZvjT3KtzVI-T4E7RoLJS0
+      short-id:
+        - ABCD
+      server-names:
+        - sni.example.com
+    ss-option:
+      enabled: true
+      method: aes-128-gcm
+      password: ss-layer-password

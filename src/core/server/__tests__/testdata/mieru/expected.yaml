@@ -1,0 +1,15 @@
+proxies:
+  - name: mieru-node user1
+    type: mieru
+    server: example.com
+    port: 10818
+    username: user1
+    password: mieru-password-1
+    transport: TCP
+  - name: mieru-node user2
+    type: mieru
+    server: example.com
+    port: 10818
+    username: user2
+    password: mieru-password-2
+    transport: TCP

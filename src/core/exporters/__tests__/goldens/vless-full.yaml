@@ -1,0 +1,37 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: vless-max
+    type: vless
+    server: x.example.com
+    port: 443
+    uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+    flow: xtls-rprx-vision
+    udp: true
+    network: tcp
+    tls: true
+    servername: x.example.com
+    client-fingerprint: chrome
+    name-cert-verify: x.example.com
+    alpn:
+      - h2
+    skip-cert-verify: false
+    reality-opts:
+      public-key: AdyvjOPWjOFfgFYLfIxLJl9f0E-JYd8ly7wtnWgoNHA
+      short-id: 0123456789abcdef
+      support-x25519mlkem768: true
+    ech-opts:
+      enable: true
+      config: AEn+DQBF
+      query-server-name: q.example.com
+    smux:
+      enabled: true
+      protocol: smux
+      padding: true
+    tfo: true
+    mptcp: false
+    interface-name: en1
+    routing-mark: 6666

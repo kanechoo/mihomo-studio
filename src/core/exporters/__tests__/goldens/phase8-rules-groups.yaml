@@ -1,0 +1,22 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxy-groups:
+  - name: auto
+    type: url-test
+    proxies:
+      - a
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    strategy: sticky-sessions
+    expected-status: 200/302
+    max-failed-times: 3
+    hidden: true
+rules:
+  - DOMAIN-WILDCARD,*.google.com,PROXY
+  - IP-ASN,13335,DIRECT,no-resolve,src
+  - AND,((DOMAIN,baidu.com),(NETWORK,UDP)),REJECT
+  - IN-TYPE,SOCKS/HTTP,PROXY
+  - MATCH,PROXY

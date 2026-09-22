@@ -1,0 +1,41 @@
+proxies:
+  - name: shadowquic-node sq-user-1
+    type: shadowquic
+    server: example.com
+    port: 10822
+    username: sq-user-1
+    password: sq-password-1
+    alpn:
+      - h3
+    quic-versions:
+      - v1
+    zero-rtt: false
+    congestion-controller: cubic
+    up: 100 Mbps
+    down: 100 Mbps
+    cwnd: 32
+    bbr-profile: standard
+    max-datagram-frame-size: 1400
+    recv-window-conn: 0
+    recv-window: 0
+    disable-mtu-discovery: false
+  - name: shadowquic-node sq-user-2
+    type: shadowquic
+    server: example.com
+    port: 10822
+    username: sq-user-2
+    password: sq-password-2
+    alpn:
+      - h3
+    quic-versions:
+      - v1
+    zero-rtt: false
+    congestion-controller: cubic
+    up: 100 Mbps
+    down: 100 Mbps
+    cwnd: 32
+    bbr-profile: standard
+    max-datagram-frame-size: 1400
+    recv-window-conn: 0
+    recv-window: 0
+    disable-mtu-discovery: false

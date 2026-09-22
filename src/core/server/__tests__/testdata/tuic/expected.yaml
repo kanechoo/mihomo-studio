@@ -1,0 +1,23 @@
+proxies:
+  - name: tuicv5-node uuid-one
+    type: tuic
+    server: example.com
+    port: 10004
+    uuid: uuid-one
+    password: password-one
+    congestion-controller: bbr
+    bbr-profile: aggressive
+    alpn:
+      - h3
+    max-udp-relay-packet-size: 1500
+  - name: tuicv5-node uuid-two
+    type: tuic
+    server: example.com
+    port: 10004
+    uuid: uuid-two
+    password: password-two
+    congestion-controller: bbr
+    bbr-profile: aggressive
+    alpn:
+      - h3
+    max-udp-relay-packet-size: 1500

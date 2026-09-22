@@ -1,0 +1,141 @@
+import type { FieldSchema } from '../../types';
+import { dialFamilyFields, headerFields, tlsMaterialFields } from './common';
+
+// Hysteria (v1) outbound — QUIC-based. Fields per
+// wiki.metacubex.one/config/proxies/hysteria/.
+export const hysteriaProxyFields: FieldSchema[] = [
+  ...headerFields('hysteria', 'Hysteria'),
+  {
+    fieldKey: 'config.auth-str',
+    label: 'proxy.hysteria1.authStr.label',
+    type: 'text',
+    required: true,
+    placeholder: 'yourpassword',
+    description: 'proxy.hysteria1.authStr.description',
+  },
+  {
+    fieldKey: 'config.protocol',
+    label: 'proxy.hysteria1.protocol.label',
+    type: 'select',
+    required: true,
+    default: 'udp',
+    description: 'proxy.hysteria1.protocol.description',
+    options: [
+      { value: 'udp', label: 'udp' },
+      { value: 'wechat-video', label: 'wechat-video' },
+      { value: 'faketcp', label: 'faketcp' },
+    ],
+  },
+  {
+    fieldKey: 'config.up',
+    label: 'proxy.hysteria2.up.label',
+    type: 'text',
+    required: true,
+    placeholder: '30 Mbps',
+    description: 'proxy.hysteria2.up.description',
+  },
+  {
+    fieldKey: 'config.down',
+    label: 'proxy.hysteria2.down.label',
+    type: 'text',
+    required: true,
+    placeholder: '200 Mbps',
+    description: 'proxy.hysteria2.down.description',
+  },
+  {
+    fieldKey: 'config.ports',
+    label: 'proxy.hysteria1.ports.label',
+    type: 'text',
+    placeholder: '1000,2000-3000,5000',
+    description: 'proxy.hysteria1.ports.description',
+  },
+  {
+    fieldKey: 'config.obfs',
+    label: 'proxy.hysteria2.obfs.label',
+    type: 'text',
+    description: 'proxy.hysteria2.obfs.description',
+  },
+
+  // QUIC transports ignore TCP-only dial options.
+  ...dialFamilyFields({ tcpOnlyOptions: false }),
+  {
+    fieldKey: 'config.fast-open',
+    label: 'proxy.hysteria1.fastOpen.label',
+    type: 'boolean',
+    default: false,
+    description: 'proxy.hysteria1.fastOpen.description',
+  },
+  {
+    fieldKey: 'config.sni',
+    label: 'proxy.commonTls.sni.label',
+    type: 'text',
+    placeholder: 'example.com',
+    description: 'proxy.commonTls.sni.description',
+  },
+  {
+    fieldKey: 'config.alpn',
+    label: 'proxy.commonTls.alpn.label',
+    type: 'multiselect',
+    description: 'proxy.commonTls.alpn.description',
+    options: [{ value: 'h3', label: 'h3' }],
+  },
+  {
+    fieldKey: 'config.skip-cert-verify',
+    label: 'proxy.commonTls.skipCertVerify.label',
+    type: 'boolean',
+    default: false,
+    description: 'proxy.commonTls.skipCertVerify.description',
+  },
+  {
+    fieldKey: 'config.name-cert-verify',
+    label: 'proxy.commonTls.nameCertVerify.label',
+    type: 'text',
+    placeholder: 'example.com',
+    description: 'proxy.commonTls.nameCertVerify.description',
+  },
+  ...tlsMaterialFields(),
+  {
+    fieldKey: 'config.ech-opts.enable',
+    label: 'proxy.ech.enable.label',
+    type: 'boolean',
+    default: false,
+    description: 'proxy.ech.enable.description',
+  },
+  {
+    fieldKey: 'config.ech-opts.config',
+    label: 'proxy.ech.config.label',
+    type: 'textarea',
+    placeholder: 'AEn+DQBF...',
+    description: 'proxy.ech.config.description',
+    showIf: { field: 'config.ech-opts.enable', operator: 'eq', value: true },
+  },
+  {
+    fieldKey: 'config.ech-opts.query-server-name',
+    label: 'proxy.ech.queryServerName.label',
+    type: 'text',
+    placeholder: 'example.com',
+    description: 'proxy.ech.queryServerName.description',
+    showIf: { field: 'config.ech-opts.enable', operator: 'eq', value: true },
+  },
+  {
+    fieldKey: 'config.recv-window-conn',
+    label: 'proxy.quic.recvWindowConn.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.quic.recvWindowConn.description',
+  },
+  {
+    fieldKey: 'config.recv-window',
+    label: 'proxy.quic.recvWindow.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.quic.recvWindow.description',
+  },
+  {
+    fieldKey: 'config.disable-mtu-discovery',
+    label: 'proxy.quic.disableMtuDiscovery.label',
+    type: 'boolean',
+    default: false,
+    description: 'proxy.quic.disableMtuDiscovery.description',
+  },
+];

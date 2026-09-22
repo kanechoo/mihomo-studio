@@ -1,0 +1,68 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+tun:
+  enable: true
+  stack: mixed
+  device: utun0
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  strict-route: true
+  mtu: 9000
+  dns-hijack:
+    - any:53
+  route-address:
+    - 0.0.0.0/1
+    - 128.0.0.0/1
+  exclude-package:
+    - com.android.captiveportallogin
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+  default-nameserver:
+    - udp://223.5.5.5
+    - udp://223.6.6.6
+  nameserver:
+    - udp://223.6.6.6
+    - tls://223.6.6.6
+  fallback:
+    - tls://8.8.4.4
+    - tls://1.0.0.1
+    - https://1.0.0.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  listen: 0.0.0.0:1053
+  prefer-h3: false
+  cache-algorithm: arc
+  fake-ip-filter-mode: whitelist
+  use-hosts: true
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  fallback-lazy-query: true
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  force-domain:
+    - +.v2ex.com
+  skip-domain:
+    - Mijia Cloud
+  sniff:
+    HTTP:
+      ports:
+        - '80'
+        - 8080-8880
+      override-destination: true
+    TLS: {}

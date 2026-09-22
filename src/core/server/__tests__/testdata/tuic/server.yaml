@@ -1,0 +1,19 @@
+servers:
+  - example.com
+listeners:
+  - name: tuicv5-node
+    type: tuic
+    port: 10004
+    listen: 0.0.0.0
+    users:
+      uuid-one: password-one
+      uuid-two: password-two
+    certificate: ./server.crt
+    private-key: ./server.key
+    congestion-controller: bbr
+    bbr-profile: aggressive
+    max-idle-time: 15000
+    authentication-timeout: 1000
+    alpn:
+      - h3
+    max-udp-relay-packet-size: 1500

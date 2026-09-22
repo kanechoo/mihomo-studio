@@ -1,0 +1,24 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: vless-reality
+    type: vless
+    server: example.com
+    port: 443
+    uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+    flow: xtls-rprx-vision
+    udp: true
+    network: tcp
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: example.com
+    reality-opts:
+      public-key: AdyvjOPWjOFfgFYLfIxLJl9f0E-JYd8ly7wtnWgoNHA
+      short-id: 0123456789abcdef
+    skip-cert-verify: false

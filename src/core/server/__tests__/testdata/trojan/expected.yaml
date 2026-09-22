@@ -1,0 +1,18 @@
+proxies:
+  - name: trojan-node dave
+    type: trojan
+    server: example.com
+    port: 10819
+    password: trojan-password
+    network: grpc
+    grpc-opts:
+      grpc-service-name: GunService
+    sni: sni.example.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: ZKKPN8Up66SimLskEzVwwOmIoPHTJNrDtvU5kXqGz1M
+      short-id: ABCD
+    ss-opts:
+      enabled: true
+      method: aes-128-gcm
+      password: ss-layer-password

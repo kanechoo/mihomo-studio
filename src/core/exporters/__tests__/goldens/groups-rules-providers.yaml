@@ -1,0 +1,79 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: hk-01
+    type: hysteria2
+    server: hk.example.com
+    port: 443
+    password: hy2-pass
+    sni: hk.example.com
+  - name: jp-tuic
+    type: tuic
+    server: jp.example.com
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000001
+    password: tuic-pass
+    sni: jp.example.com
+    congestion-controller: bbr
+proxy-providers:
+  sub1:
+    type: http
+    url: https://example.com/sub
+    interval: 3600
+    proxy: PROXY
+    size-limit: 0
+    header:
+      Token:
+        - abc
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: true
+    override:
+      additional-prefix: p_
+      skip-cert-verify: true
+    filter: (?i)HK
+    age-secret-key: AGE-SECRET-KEY-1XYZ
+  file1:
+    type: file
+    path: ./providers/file1.yaml
+proxy-groups:
+  - name: Auto
+    type: url-test
+    proxies:
+      - hk-01
+      - jp-tuic
+    use:
+      - sub1
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    timeout: 5000
+    tolerance: 50
+    lazy: true
+    strategy: consistent-hashing
+  - name: Pick
+    type: select
+    use:
+      - sub1
+rules:
+  - DOMAIN-SUFFIX,google.com,Auto
+  - DST-PORT,443,Auto
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - MATCH,Auto
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    format: yaml
+    url: https://example.com/reject.yaml
+    path: ./rules/reject.yaml
+    interval: 86400
+  lan-file:
+    type: file
+    behavior: ipcidr
+    path: ./rules/lan.ipr

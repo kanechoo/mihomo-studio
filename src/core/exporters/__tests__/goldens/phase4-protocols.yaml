@@ -1,0 +1,97 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: hy1
+    type: hysteria
+    server: h1.example.com
+    port: 443
+    auth-str: hunter2
+    protocol: faketcp
+    up: 30 Mbps
+    down: 200 Mbps
+    sni: h1.example.com
+    alpn:
+      - h3
+    recv-window-conn: 15565824
+    disable-mtu-discovery: true
+  - name: wg
+    type: wireguard
+    server: w.example.com
+    port: 51820
+    ip: 172.16.0.2
+    ipv6: fd01:5ca1:ab1e::2
+    public-key: Cr8hWlKvtDt7nrvf+f0brNQQzabAqrjfBvas9pmowjo=
+    private-key: eCtXsJZ27+4PbhDkHnB923tkUn2Gj59wZw5wFA75MnU=
+    reserved:
+      - 209
+      - 98
+      - 59
+    udp: true
+    mtu: 1408
+    persistent-keepalive: 25
+  - name: ssh-box
+    type: ssh
+    server: s.example.com
+    port: 22
+    username: root
+    password: pw
+  - name: mieru
+    type: mieru
+    server: m.example.com
+    port: 29990
+    username: u
+    password: p
+    transport: UDP
+    multiplexing: MULTIPLEXING_HIGH
+    handshake-mode: HANDSHAKE_NO_WAIT
+  - name: sudoku
+    type: sudoku
+    server: z.example.com
+    port: 443
+    key: k
+    aead-method: aes-128-gcm
+    padding-min: 10
+    padding-max: 50
+    httpmask:
+      disable: false
+      mode: stream
+      tls: true
+      host: z.example.com
+  - name: squic
+    type: shadowquic
+    server: q.example.com
+    port: 8443
+    username: u
+    password: p
+    sni: q.example.com
+    quic-versions:
+      - v1
+    udp-over-stream: true
+  - name: trust
+    type: trusttunnel
+    server: t.example.com
+    port: 443
+    username: u
+    password: p
+    health-check: true
+    udp: true
+    quic: false
+    max-streams: 0
+    sni: t.example.com
+  - name: gost-dynamic
+    type: gost-relay
+    server: relay.example.com
+    port: 443
+    udp: true
+    tls: true
+    username: u
+    password: p
+    client-fingerprint: chrome
+  - name: dns-out
+    type: dns
+  - name: rematch-out
+    type: rematch
+    target-rematch-name: rematch1

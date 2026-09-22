@@ -1,0 +1,13 @@
+servers:
+  - example.com
+listeners:
+  - name: snell-node
+    type: snell
+    port: 10815
+    listen: 0.0.0.0
+    psk: snell-psk-value
+    version: 4
+    udp: true
+    obfs-opts:
+      mode: http
+      host: bing.com

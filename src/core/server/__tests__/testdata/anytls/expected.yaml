@@ -1,0 +1,11 @@
+proxies:
+  - name: anytls-node user1
+    type: anytls
+    server: example.com
+    port: 10818
+    password: anytls-password-1
+  - name: anytls-node user2
+    type: anytls
+    server: example.com
+    port: 10818
+    password: anytls-password-2

@@ -1,0 +1,15 @@
+proxies:
+  - name: vmess-node carol
+    type: vmess
+    server: example.com
+    port: 10814
+    uuid: cccccccc-3333-4ef6-897d-6c6b3ccf9e68
+    cipher: auto
+    alterId: 2
+    network: ws
+    ws-opts:
+      path: /vmws
+    tls: true
+    smux:
+      enabled: true
+      padding: true

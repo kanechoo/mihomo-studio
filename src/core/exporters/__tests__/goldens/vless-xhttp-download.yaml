@@ -1,0 +1,33 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: vless-xhttp-download
+    type: vless
+    server: upload.example.com
+    port: 443
+    uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+    udp: true
+    network: xhttp
+    tls: true
+    client-fingerprint: chrome
+    servername: upload.example.com
+    xhttp-opts:
+      path: /
+      host: upload.example.com
+      mode: auto
+      download-settings:
+        path: /dl
+        host: dl.example.com
+        reuse-settings:
+          max-concurrency: 16-32
+          h-keep-alive-period: 0
+        server: dl.example.com
+        port: 443
+        tls: true
+        skip-cert-verify: false
+        reality-opts:
+          public-key: AdyvjOPWjOFfgFYLfIxLJl9f0E-JYd8ly7wtnWgoNHA
+          short-id: 0123456789abcdef

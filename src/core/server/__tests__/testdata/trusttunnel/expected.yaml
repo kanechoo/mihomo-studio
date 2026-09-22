@@ -1,0 +1,21 @@
+proxies:
+  - name: trusttunnel-node tt-user-1
+    type: trusttunnel
+    server: example.com
+    port: 10821
+    username: tt-user-1
+    password: tt-password-1
+    quic: true
+    udp: true
+    congestion-controller: bbr
+    bbr-profile: conservative
+  - name: trusttunnel-node tt-user-2
+    type: trusttunnel
+    server: example.com
+    port: 10821
+    username: tt-user-2
+    password: tt-password-2
+    quic: true
+    udp: true
+    congestion-controller: bbr
+    bbr-profile: conservative

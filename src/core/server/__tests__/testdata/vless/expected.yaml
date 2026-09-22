@@ -1,0 +1,82 @@
+proxies:
+  - name: vless-node alice
+    type: vless
+    server: example.com
+    port: 10817
+    uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+    flow: xtls-rprx-vision
+    network: xhttp
+    xhttp-opts:
+      path: /xp
+      host: cdn.example.com
+      mode: stream-one
+      x-padding-bytes: 100-1000
+      x-padding-obfs-mode: true
+      x-padding-key: x_padding
+      x-padding-header: Referer
+      x-padding-placement: queryInHeader
+      x-padding-method: tokenish
+      uplink-http-method: POST
+      session-placement: path
+      session-key: sk
+      session-table: uuid
+      session-length: 16-32
+      seq-placement: path
+      seq-key: seqkey
+      uplink-data-placement: cookie
+      uplink-data-key: udata
+      uplink-chunk-size: 3072
+      sc-max-each-post-bytes: 1000000
+    tls: true
+    servername: test.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: ZKKPN8Up66SimLskEzVwwOmIoPHTJNrDtvU5kXqGz1M
+      short-id: 0123456789abcdef
+    smux:
+      enabled: true
+      padding: true
+      brutal-opts:
+        enabled: true
+        up: 1000
+        down: 1000
+  - name: vless-node bob
+    type: vless
+    server: example.com
+    port: 10817
+    uuid: bbbbbb1b-2222-4ef6-897d-6c6b3ccf9e68
+    network: xhttp
+    xhttp-opts:
+      path: /xp
+      host: cdn.example.com
+      mode: stream-one
+      x-padding-bytes: 100-1000
+      x-padding-obfs-mode: true
+      x-padding-key: x_padding
+      x-padding-header: Referer
+      x-padding-placement: queryInHeader
+      x-padding-method: tokenish
+      uplink-http-method: POST
+      session-placement: path
+      session-key: sk
+      session-table: uuid
+      session-length: 16-32
+      seq-placement: path
+      seq-key: seqkey
+      uplink-data-placement: cookie
+      uplink-data-key: udata
+      uplink-chunk-size: 3072
+      sc-max-each-post-bytes: 1000000
+    tls: true
+    servername: test.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: ZKKPN8Up66SimLskEzVwwOmIoPHTJNrDtvU5kXqGz1M
+      short-id: 0123456789abcdef
+    smux:
+      enabled: true
+      padding: true
+      brutal-opts:
+        enabled: true
+        up: 1000
+        down: 1000

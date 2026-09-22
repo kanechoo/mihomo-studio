@@ -1,0 +1,28 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+  default-nameserver:
+    - udp://223.5.5.5
+    - udp://223.6.6.6
+  nameserver:
+    - udp://223.6.6.6
+    - tls://223.6.6.6
+  fallback:
+    - tls://8.8.4.4
+    - tls://1.0.0.1
+    - https://1.0.0.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4

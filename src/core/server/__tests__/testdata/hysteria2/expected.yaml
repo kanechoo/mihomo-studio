@@ -1,0 +1,39 @@
+proxies:
+  - name: hy2-node user1
+    type: hysteria2
+    server: example.com
+    port: 20000
+    password: hy-password-1
+    up: 1000
+    down: 1000
+    obfs: salamander
+    obfs-password: obfuscate-pass
+    alpn:
+      - h3
+    bbr-profile: standard
+    realm-opts:
+      enable: true
+      server-url: https://realm.hy2.io
+      token: public
+      realm-id: my-cabin-1f3a8c2e9b
+      stun-servers:
+        - stun.nextcloud.com:3478
+  - name: hy2-node user2
+    type: hysteria2
+    server: example.com
+    port: 20000
+    password: hy-password-2
+    up: 1000
+    down: 1000
+    obfs: salamander
+    obfs-password: obfuscate-pass
+    alpn:
+      - h3
+    bbr-profile: standard
+    realm-opts:
+      enable: true
+      server-url: https://realm.hy2.io
+      token: public
+      realm-id: my-cabin-1f3a8c2e9b
+      stun-servers:
+        - stun.nextcloud.com:3478

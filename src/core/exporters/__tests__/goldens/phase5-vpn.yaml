@@ -1,0 +1,46 @@
+mixed-port: 7890
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: masque-ip
+    type: masque
+    server: mq.example.com
+    port: 443
+    private-key: PK
+    public-key: PB
+    ip: 172.19.0.2
+    ipv6: fd01::2
+    mtu: 1400
+    udp: true
+    ip-stack:
+      mode: gvisor
+      congestion-controller: bbr
+  - name: ts-exit
+    type: tailscale
+    udp: true
+    hostname: edge-1
+    auth-key: tskey-auth-x
+    exit-node: auto:any
+    ephemeral: true
+  - name: zt-net
+    type: zerotier
+    network: 8056c2e21c24673d
+    udp: true
+    physical-mtu: 1432
+    orbit:
+      - world: 8acf2a9d3b5e7f01
+        seed: '0000001234'
+  - name: ovpn
+    type: openvpn
+    server: o.example.com
+    port: 1194
+    proto: tcp
+    username: u
+    password: p
+    cipher: AES-256-GCM
+    auth: SHA384
+    data-ciphers:
+      - AES-256-GCM
+      - CHACHA20-POLY1305

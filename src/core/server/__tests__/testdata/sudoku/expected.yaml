@@ -1,0 +1,18 @@
+proxies:
+  - name: sudoku-node
+    type: sudoku
+    server: example.com
+    port: 8443
+    key: 6f8a2b1c-4d5e-4f6a-8b7c-9d0e1f2a3b4c
+    aead-method: chacha20-poly1305
+    padding-min: 1
+    padding-max: 15
+    table-type: prefer_ascii
+    custom-tables:
+      - xpxvvpvv
+      - vxpvxvvp
+    httpmask:
+      disable: false
+      mode: legacy
+      path-root: ''
+    enable-pure-downlink: false

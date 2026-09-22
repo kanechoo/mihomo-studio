@@ -1,0 +1,13 @@
+mode: rule
+allow-lan: false
+log-level: info
+ipv6: false
+proxies:
+  - name: bare-vless
+    type: vless
+    server: example.com
+    port: 443
+    udp: true
+    network: h2
+    tls: false
+    skip-cert-verify: false

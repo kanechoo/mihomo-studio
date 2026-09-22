@@ -1,0 +1,188 @@
+import type { FieldSchema } from '../../types';
+import { dialFamilyFields, headerFields } from './common';
+
+// OpenVPN outbound. Fields per wiki.metacubex.one/config/proxies/openvpn/.
+// Certificate material is pasted as PEM — a browser cannot reliably generate
+// X.509 material (recorded in the coverage matrix). The `peer-info` map rides
+// the config passthrough.
+export const openvpnProxyFields: FieldSchema[] = [
+  ...headerFields('openvpn', 'OpenVPN', 1194),
+  {
+    fieldKey: 'config.proto',
+    label: 'proxy.openvpn.proto.label',
+    type: 'select',
+    default: 'udp',
+    description: 'proxy.openvpn.proto.description',
+    options: [
+      { value: 'udp', label: 'UDP' },
+      { value: 'tcp', label: 'TCP' },
+    ],
+  },
+  {
+    fieldKey: 'config.username',
+    label: 'proxy.http.username.label',
+    type: 'text',
+    description: 'proxy.http.username.description',
+  },
+  {
+    fieldKey: 'config.password',
+    label: 'proxy.common.password.label',
+    type: 'text',
+    generator: 'password',
+    description: 'proxy.common.password.description',
+  },
+  {
+    fieldKey: 'config.ca',
+    label: 'proxy.openvpn.ca.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN CERTIFICATE-----',
+    description: 'proxy.openvpn.ca.description',
+  },
+  {
+    fieldKey: 'config.cert',
+    label: 'proxy.openvpn.cert.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN CERTIFICATE-----',
+    description: 'proxy.openvpn.cert.description',
+  },
+  {
+    fieldKey: 'config.key',
+    label: 'proxy.openvpn.key.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN PRIVATE KEY-----',
+    description: 'proxy.openvpn.key.description',
+  },
+  {
+    fieldKey: 'config.cipher',
+    label: 'proxy.openvpn.cipher.label',
+    type: 'select',
+    default: 'AES-128-GCM',
+    description: 'proxy.openvpn.cipher.description',
+    options: [
+      'AES-128-GCM',
+      'AES-192-GCM',
+      'AES-256-GCM',
+      'AES-128-CBC',
+      'AES-192-CBC',
+      'AES-256-CBC',
+      'CHACHA20-POLY1305',
+      '',
+    ]
+      .map((c) => ({ value: c, label: c === '' ? 'auto' : c })),
+  },
+  {
+    fieldKey: 'config.data-ciphers',
+    label: 'proxy.openvpn.dataCiphers.label',
+    type: 'textarea',
+    asList: true,
+    placeholder: 'AES-256-GCM\nCHACHA20-POLY1305',
+    description: 'proxy.openvpn.dataCiphers.description',
+  },
+  {
+    fieldKey: 'config.auth',
+    label: 'proxy.openvpn.auth.label',
+    type: 'select',
+    default: 'SHA256',
+    description: 'proxy.openvpn.auth.description',
+    options: ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'].map((a) => ({ value: a, label: a })),
+  },
+  {
+    fieldKey: 'config.comp-lzo',
+    label: 'proxy.openvpn.compLzo.label',
+    type: 'select',
+    default: 'no',
+    description: 'proxy.openvpn.compLzo.description',
+    options: [
+      { value: 'yes', label: 'yes' },
+      { value: 'no', label: 'no' },
+      { value: 'adaptive', label: 'adaptive' },
+    ],
+  },
+  {
+    fieldKey: 'config.tls-auth',
+    label: 'proxy.openvpn.tlsAuth.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN OpenVPN Static key V1-----',
+    description: 'proxy.openvpn.tlsAuth.description',
+  },
+  {
+    fieldKey: 'config.key-direction',
+    label: 'proxy.openvpn.keyDirection.label',
+    type: 'text',
+    placeholder: '1',
+    description: 'proxy.openvpn.keyDirection.description',
+    showIf: { field: 'config.tls-auth', operator: 'neq', value: undefined },
+  },
+  {
+    fieldKey: 'config.tls-crypt',
+    label: 'proxy.openvpn.tlsCrypt.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN OpenVPN Static key V1-----',
+    description: 'proxy.openvpn.tlsCrypt.description',
+  },
+  {
+    fieldKey: 'config.tls-crypt-v2',
+    label: 'proxy.openvpn.tlsCryptV2.label',
+    type: 'textarea',
+    placeholder: '-----BEGIN OpenVPN tls-crypt-v2 client key-----',
+    description: 'proxy.openvpn.tlsCryptV2.description',
+  },
+  {
+    fieldKey: 'config.ping',
+    label: 'proxy.openvpn.ping.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.openvpn.ping.description',
+  },
+  {
+    fieldKey: 'config.ping-restart',
+    label: 'proxy.openvpn.pingRestart.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.openvpn.pingRestart.description',
+  },
+  {
+    fieldKey: 'config.handshake-timeout',
+    label: 'proxy.quic.handshakeTimeout.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.quic.handshakeTimeout.description',
+  },
+  {
+    fieldKey: 'config.mtu',
+    label: 'proxy.wireguard.mtu.label',
+    type: 'number',
+    min: 0,
+    description: 'proxy.wireguard.mtu.description',
+  },
+  {
+    fieldKey: 'config.ip-stack.mode',
+    label: 'proxy.ipStack.mode.label',
+    type: 'select',
+    default: 'auto',
+    description: 'proxy.ipStack.mode.description',
+    options: [
+      { value: 'auto', label: 'auto' },
+      { value: 'gvisor', label: 'gvisor' },
+      { value: 'system', label: 'system' },
+    ],
+  },
+
+  ...dialFamilyFields({ tcpOnlyOptions: false }),
+  {
+    fieldKey: 'config.remote-dns-resolve',
+    label: 'proxy.vpn.remoteDnsResolve.label',
+    type: 'boolean',
+    default: false,
+    description: 'proxy.vpn.remoteDnsResolve.description',
+  },
+  {
+    fieldKey: 'config.dns',
+    label: 'proxy.vpn.dnsList.label',
+    type: 'textarea',
+    asList: true,
+    placeholder: '1.1.1.1',
+    description: 'proxy.vpn.dnsList.description',
+    showIf: { field: 'config.remote-dns-resolve', operator: 'eq', value: true },
+  },
+];
