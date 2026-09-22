@@ -1,0 +1,13 @@
+# Real configuration — contains the database DSN, the JWT signing key and the
+# GitHub client secret. Only .env.example belongs in version control.
+.env
+.env.*
+!.env.example
+
+# Build output
+bin/
+*.exe
+
+# Go test artifacts
+*.out
+coverage.html

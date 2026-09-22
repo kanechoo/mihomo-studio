@@ -1,0 +1,14 @@
+# The real configuration: the database DSN, the JWT signing key and the GitHub
+# client secret. It must never be baked into an image — the server reads these
+# from the environment, and Compose supplies them at run time.
+.env
+.env.*
+!.env.example
+
+bin/
+*.exe
+*.out
+coverage.html
+
+Dockerfile
+.dockerignore
