@@ -1,0 +1,3854 @@
+{
+  "app": {
+    "title": "Mihomo Studio",
+    "subtitle": "Visual configuration studio for Mihomo"
+  },
+  "nav": {
+    "home": "Home"
+  },
+  "home": {
+    "newConfig": "New Client Config",
+    "opensInNewTab": "Opens in a new tab",
+    "newServerConfig": "New Server Config",
+    "server": {
+      "title": "Server Configs",
+      "intro": "Listener-centric configs for relay boxes and gateways.",
+      "empty": "No server configurations yet.",
+      "updated": "Updated {{at}}",
+      "confirmDelete": "Delete?",
+      "preview": "Preview YAML",
+      "share": "Share",
+      "copy": "Copy YAML",
+      "copied": "Copied",
+      "copyFailed": "Copy failed",
+      "download": "Download"
+    },
+    "switcher": {
+      "label": "Choose which configs to browse"
+    },
+    "client": {
+      "title": "Client Configs",
+      "intro": "Mihomo client documents — proxies, groups and rules."
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "copy": "Copy",
+    "download": "Download",
+    "import": "Import",
+    "export": "Export",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "noneSelected": "None selected",
+    "refRules": "{{count}} rule(s)",
+    "refProviders": "{{count}} rule provider(s)",
+    "refSeparator": " and ",
+    "stillReferenced": "Still named by {{what}}, which will be left pointing at something that no longer exists.",
+    "nameMissing": "No proxy or proxy group in this config is named \"{{name}}\"",
+    "yes": "Yes",
+    "no": "No",
+    "refProxyProviders": "{{count}} proxy provider(s)",
+    "replace": "Replace"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in",
+      "intro": "This editor works without an account — your config is kept in this browser. Signing in adds two things:",
+      "benefitSave": "Configs saved on the server, so you can pick them up on another machine.",
+      "benefitSubscribe": "Subscription URLs your devices pull directly, without this page open.",
+      "privacy": "GitHub is asked only for your public profile — no repository access — and the access token is discarded once you are signed in.",
+      "action": "Continue with GitHub"
+    },
+    "signingIn": "Signing in…",
+    "restoring": "Restoring session…",
+    "signedInAs": "Signed in as {{login}}",
+    "signOut": "Sign out",
+    "error": {
+      "notConfigured": "GitHub sign-in is not configured. Set VITE_GITHUB_CLIENT_ID in .env.local to your OAuth app's client ID.",
+      "denied": "GitHub sign-in was cancelled.",
+      "state": "That sign-in did not start in this tab, so it was refused. Please sign in again.",
+      "exchange": "GitHub did not accept that sign-in. Please try again.",
+      "tooFast": "Too many sign-in attempts. Wait a moment and try again.",
+      "unreachable": "The server could not be reached. Check that it is running."
+    }
+  },
+  "cloud": {
+    "loading": "Loading…",
+    "unsaved": "Unsaved changes",
+    "save": {
+      "title": "Save to cloud",
+      "name": "Name",
+      "namePlaceholder": "home",
+      "nameHint": "Two of your configs cannot share a name. It also names the file your devices download.",
+      "description": "Description",
+      "saving": "Saving…",
+      "saved": "Saved"
+    },
+    "details": {
+      "title": "Config details",
+      "action": "Rename or edit the description",
+      "hint": "Shown here right away. It reaches your account the next time you save."
+    },
+    "configs": {
+      "title": "My configs",
+      "intro": "Configs saved on the server. Each one opens in its own tab.",
+      "empty": "Nothing saved yet. Start a new config, then save it from the editor.",
+      "refresh": "Refresh",
+      "updated": "Updated {{at}}",
+      "confirmDelete": "Delete this config?",
+      "deleteNote": "Deleting a config also stops every subscription URL pointing at it."
+    },
+    "links": {
+      "title": "Subscription links",
+      "titleFor": "Subscription links — {{name}}",
+      "intro": "Each link is a URL your proxy client fetches directly. Anyone holding one can read this config, including its proxy passwords — so give every device its own, and rotate the one that leaks.",
+      "notRendered": "This config has never been exported. Save it once from the editor, or these links will have nothing to serve.",
+      "label": "Label",
+      "labelPlaceholder": "phone",
+      "format": "Format",
+      "create": "Create link",
+      "creating": "Creating…",
+      "empty": "No links yet.",
+      "unlabelled": "Unlabelled",
+      "revoked": "Revoked",
+      "rotate": "Rotate token",
+      "revoke": "Revoke",
+      "confirmRotate": "The old URL stops working.",
+      "confirmRevoke": "This link stops working.",
+      "url": "Subscription URL",
+      "created": "Created {{at}}",
+      "fetchCount": "{{n}} fetches",
+      "lastFetch": "Last fetch {{at}}"
+    },
+    "serverShares": {
+      "title": "Server config shares",
+      "titleFor": "Share “{{name}}”",
+      "intro": "Each link serves one payload and always reflects the server config's latest saved state — edit the config, and the same links serve the new contents.",
+      "typeLabel": "Shared content",
+      "typeFull": "Full server YAML",
+      "typeFullHint": "Exports this server config's raw Mihomo server document (listeners etc.).",
+      "typeClient": "Client Proxies YAML",
+      "typeClientHint": "Converts every convertible listener on this config into a client proxies list.",
+      "create": "Create share link",
+      "creating": "Creating…",
+      "empty": "No share links yet.",
+      "notRendered": "This config has nothing to share yet. Save it once from the editor, or these links will have no content to serve.",
+      "revoked": "Revoked",
+      "revoke": "Revoke",
+      "confirmRevoke": "This link stops working.",
+      "url": "Share URL"
+    },
+    "error": {
+      "unreachable": "The server could not be reached.",
+      "signedOut": "Your session has expired. Sign in again.",
+      "gone": "That config no longer exists.",
+      "server": "The server failed to handle that. Quote this request id if you report it:",
+      "list": "Could not load your configs.",
+      "open": "Could not open that config.",
+      "save": "Could not save.",
+      "delete": "Could not delete that config.",
+      "render": "The config could not be exported, so nothing was saved.",
+      "noTarget": "This document is not linked to a saved config yet.",
+      "subscriptions": "Could not load the links for this config.",
+      "bind": "Could not create the link.",
+      "rotate": "Could not rotate the token.",
+      "revoke": "Could not revoke the link.",
+      "serverShares": "Could not load the share links for this config.",
+      "createServerShare": "Could not create the share link.",
+      "revokeServerShare": "Could not revoke the share link.",
+      "invalid": "This config cannot be saved — mihomo would refuse to start:"
+    }
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Switch Theme",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "label": "Language"
+  },
+  "advanced": {
+    "title": "Advanced"
+  },
+  "general": {
+    "title": "General",
+    "description": "Basic listening and operation mode configuration",
+    "mode": {
+      "label": "Mode",
+      "description": "Proxy operation mode",
+      "rule": "Rule",
+      "global": "Global",
+      "direct": "Direct"
+    },
+    "mixedPort": {
+      "label": "Mixed Port",
+      "description": "Shared port for HTTP(S) and SOCKS5"
+    },
+    "allowLan": {
+      "label": "Allow LAN",
+      "description": "Allow connections from LAN devices"
+    },
+    "bindAddress": {
+      "label": "Bind Address",
+      "description": "Network interface to bind, * for all interfaces"
+    },
+    "logLevel": {
+      "label": "Log Level",
+      "description": "Logging verbosity level",
+      "silent": "Silent",
+      "error": "Error",
+      "warning": "Warning",
+      "info": "Info",
+      "debug": "Debug"
+    },
+    "ipv6": {
+      "label": "Enable IPv6",
+      "description": "Allow kernel to accept IPv6 traffic"
+    },
+    "externalController": {
+      "label": "External Controller",
+      "description": "RESTful API listen address"
+    },
+    "secret": {
+      "label": "API Secret",
+      "description": "RESTful API access secret"
+    },
+    "tun": {
+      "enable": {
+        "label": "Enable TUN Mode",
+        "description": "Virtual network adapter transparent proxy mode"
+      },
+      "stack": {
+        "label": "Stack",
+        "description": "Network stack implementation for TUN mode",
+        "system": "System",
+        "gvisor": "gVisor",
+        "mixed": "Mixed"
+      },
+      "autoRoute": {
+        "label": "Auto Route",
+        "description": "Automatically configure global routing"
+      },
+      "autoDetectInterface": {
+        "label": "Auto Detect Interface",
+        "description": "Automatically detect outbound interface"
+      }
+    },
+    "port": {
+      "label": "HTTP port",
+      "description": "Plain HTTP proxy inbound port"
+    },
+    "socksPort": {
+      "label": "SOCKS5 port",
+      "description": "SOCKS5 proxy inbound port"
+    },
+    "redirPort": {
+      "label": "Redirect port",
+      "description": "Transparent proxy port for Linux/macOS"
+    },
+    "tproxyPort": {
+      "label": "TProxy port",
+      "description": "Transparent proxy port (TCP+UDP) for Linux"
+    },
+    "externalUi": {
+      "label": "External UI path",
+      "description": "Static dashboard served under /ui"
+    },
+    "externalUiName": {
+      "label": "External UI name",
+      "description": "Sub-folder merged into external-ui on update"
+    },
+    "externalUiUrl": {
+      "label": "External UI download URL",
+      "description": "zip/tgz archive to fetch the dashboard from"
+    },
+    "externalDohServer": {
+      "label": "API DoH server",
+      "description": "Serve DoH on the API port; bypasses secret auth"
+    },
+    "findProcessMode": {
+      "label": "Find process mode",
+      "description": "always / strict / off — off suits routers"
+    },
+    "keepAliveInterval": {
+      "label": "Keep-alive interval (s)",
+      "description": "Interval between keep-alive probes"
+    },
+    "keepAliveIdle": {
+      "label": "Keep-alive idle (s)",
+      "description": "Max idle time before probing"
+    },
+    "disableKeepAlive": {
+      "label": "Disable keep-alive",
+      "description": "Forced on under Android"
+    },
+    "tcpConcurrent": {
+      "label": "TCP concurrent",
+      "description": "Dial all resolved IPs, first handshake wins"
+    },
+    "unifiedDelay": {
+      "label": "Unified delay",
+      "description": "Report RTT to smooth handshake differences"
+    },
+    "interfaceName": {
+      "description": "Default outbound interface for all proxies"
+    },
+    "routingMark": {
+      "description": "Default fwmark for Linux outbound connections"
+    },
+    "globalClientFingerprint": {
+      "label": "Global client fingerprint (deprecated)",
+      "description": "Deprecated upstream — set client-fingerprint per proxy instead"
+    },
+    "globalUa": {
+      "label": "Global UA",
+      "description": "User-Agent for external resource downloads"
+    },
+    "etagSupport": {
+      "label": "ETag support",
+      "description": "Conditional downloads via ETag (default true upstream)"
+    }
+  },
+  "dns": {
+    "title": "DNS",
+    "description": "DNS resolution and routing configuration",
+    "enable": {
+      "label": "Enable DNS",
+      "description": "Enable Mihomo DNS module"
+    },
+    "ipv6": {
+      "label": "Enable IPv6",
+      "description": "Resolve IPv6 domains"
+    },
+    "enhancedMode": {
+      "label": "Enhanced Mode",
+      "description": "DNS enhanced mode",
+      "fakeIp": "Fake-IP",
+      "redirHost": "Redir-Host"
+    },
+    "fakeIpRange": {
+      "label": "Fake-IP Range",
+      "description": "IP range for Fake-IP"
+    },
+    "fakeIpFilter": {
+      "label": "Fake-IP Filter",
+      "description": "Domains excluded from Fake-IP (one per line)"
+    },
+    "defaultNameserver": {
+      "label": "Default Nameserver",
+      "description": "DNS servers for resolving nameserver domains (one per line)"
+    },
+    "nameserver": {
+      "label": "Nameserver",
+      "description": "Primary DNS servers (one per line)"
+    },
+    "fallback": {
+      "label": "Fallback",
+      "description": "Fallback DNS servers (one per line)"
+    },
+    "fallbackFilter": {
+      "geoip": {
+        "label": "Enable GeoIP Filter",
+        "description": "Filter DNS results by IP geolocation"
+      },
+      "geoipCode": {
+        "label": "GeoIP Code",
+        "description": "Country code for GeoIP filter (e.g., CN)"
+      },
+      "geosite": {
+        "label": "GeoSite Filter",
+        "description": "Domains in these GeoSite categories always use the fallback servers"
+      },
+      "ipcidr": {
+        "label": "IP CIDR Filter",
+        "description": "Filter DNS results by IP range (one per line)"
+      },
+      "domain": {
+        "label": "Domain Filter",
+        "description": "Domains that always use the fallback servers (one per line, e.g. +.google.com)"
+      }
+    },
+    "servers": {
+      "add": "Select DNS servers",
+      "none": "No servers selected",
+      "custom": "custom",
+      "remove": "Remove {{server}}"
+    },
+    "listen": {
+      "label": "DNS listen",
+      "description": "Serve DNS on udp/tcp at this address"
+    },
+    "preferH3": {
+      "label": "Prefer HTTP/3 (DoH)",
+      "description": "Race h3 alongside h2 for DoH; not with respect-rules"
+    },
+    "cacheAlgorithm": {
+      "label": "Cache algorithm",
+      "description": "lru (default) or arc"
+    },
+    "fakeIpRange6": {
+      "label": "fake-ip IPv6 range",
+      "description": "fakeip pool for IPv6 answers"
+    },
+    "fakeIpFilterMode": {
+      "label": "fake-ip filter mode",
+      "description": "blacklist / whitelist / rule"
+    },
+    "fakeIpTtl": {
+      "label": "fake-ip TTL",
+      "description": "Leave alone unless you know why"
+    },
+    "useHosts": {
+      "label": "Use hosts",
+      "description": "Answer from the config hosts section"
+    },
+    "useSystemHosts": {
+      "label": "Use system hosts",
+      "description": "Consult the OS hosts file"
+    },
+    "proxyServerNameserver": {
+      "label": "Proxy-server nameservers",
+      "description": "Resolves proxy node domains only"
+    },
+    "directNameserver": {
+      "label": "Direct-out nameservers",
+      "description": "Resolves domains for the direct outbound"
+    },
+    "directFollowPolicy": {
+      "label": "Direct follows policy",
+      "description": "Apply nameserver-policy to direct resolution"
+    },
+    "respectRules": {
+      "label": "Connections follow rules",
+      "description": "Route DNS server connections through rules; needs proxy-server-nameserver"
+    },
+    "fallbackLazyQuery": {
+      "label": "Lazy fallback query",
+      "description": "Check nameserver result before querying fallback"
+    }
+  },
+  "proxy": {
+    "section": {
+      "basic": "Basic",
+      "protocol": "Protocol",
+      "tls": "TLS",
+      "reality": "REALITY",
+      "security": "Security",
+      "ws": "WebSocket Options",
+      "grpc": "gRPC Options",
+      "h2": "HTTP/2 Options",
+      "xhttp": "XHTTP Options",
+      "download": "Download Settings",
+      "http": "HTTP Options",
+      "mkcp": "mKCP Options",
+      "mekya": "Mekya Options",
+      "multiplexer": "Multiplexer",
+      "dial": "Dial Options",
+      "plugin": "Plugin Options",
+      "obfs": "Obfs Options",
+      "portHopping": "Port Hopping",
+      "quic": "QUIC Options",
+      "realm": "Realm Relay",
+      "httpmask": "HTTP Masking",
+      "ipstack": "IP Stack",
+      "amneziawg": "AmneziaWG",
+      "vpn": "VPN"
+    },
+    "editor": {
+      "showAdvanced": "Show advanced",
+      "showBasic": "Hide advanced"
+    },
+    "add": "Add Proxy",
+    "edit": "Edit Proxy",
+    "delete": "Delete Proxy",
+    "deleteTitle": "Delete proxy",
+    "deleteConfirm": "Are you sure you want to delete this proxy?",
+    "selectProtocol": "Select Protocol",
+    "empty": "No proxies. Click the button above to add one.",
+    "import": "Import",
+    "subscription": "Subscription",
+    "name": {
+      "label": "Proxy Name",
+      "description": "Display name for this proxy"
+    },
+    "type": {
+      "label": "Protocol Type",
+      "description": "Proxy protocol",
+      "locked": "Protocol is fixed for this node; delete and re-add to use another protocol."
+    },
+    "server": {
+      "label": "Server",
+      "description": "Server domain or IP address"
+    },
+    "port": {
+      "label": "Port",
+      "description": "Server port"
+    },
+    "vless": {
+      "uuid": {
+        "label": "UUID",
+        "description": "User ID"
+      },
+      "flow": {
+        "label": "Flow",
+        "description": "XTLS flow control",
+        "none": "None"
+      },
+      "network": {
+        "label": "Network",
+        "description": "Transport protocol; HTTP/2 requires TLS"
+      },
+      "tls": {
+        "label": "Enable TLS",
+        "description": "Use TLS encryption",
+        "requiredByH2": "HTTP/2 requires TLS, so it stays on while that transport is selected"
+      },
+      "packetEncoding": {
+        "label": "Packet Encoding",
+        "description": "UDP packet encoding; xudp is the usual choice",
+        "none": "Default"
+      },
+      "udp": {
+        "label": "Enable UDP",
+        "description": "Relay UDP traffic through this node"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "Protocols offered in the TLS handshake, in preference order"
+      },
+      "servername": {
+        "label": "Server Name (SNI)",
+        "description": "Server name for TLS handshake"
+      },
+      "skipCertVerify": {
+        "label": "Skip Cert Verify",
+        "description": "Skip certificate verification (not recommended)"
+      },
+      "clientFingerprint": {
+        "label": "Client Fingerprint",
+        "description": "TLS client fingerprint emulation"
+      },
+      "reality": {
+        "publicKey": {
+          "label": "REALITY Public Key",
+          "description": "Public key for REALITY. Leave blank if this node does not use REALITY"
+        },
+        "shortId": {
+          "label": "REALITY Short ID",
+          "description": "Short ID for REALITY (optional)"
+        },
+        "supportMlkem": {
+          "label": "Support x25519mlkem768",
+          "description": "Advertise ML-KEM-768 support when the server has it"
+        }
+      },
+      "grpc": {
+        "serviceName": {
+          "label": "gRPC Service Name",
+          "description": "gRPC service name"
+        }
+      },
+      "ws": {
+        "path": {
+          "label": "WebSocket Path",
+          "description": "WebSocket request path"
+        },
+        "host": {
+          "label": "WebSocket Host",
+          "description": "WebSocket Host header"
+        }
+      },
+      "h2": {
+        "host": {
+          "label": "HTTP/2 Host",
+          "description": "Hosts to send in the HTTP/2 request, one per line"
+        },
+        "path": {
+          "label": "HTTP/2 Path",
+          "description": "HTTP/2 request path"
+        }
+      },
+      "xhttp": {
+        "path": {
+          "label": "XHTTP Path",
+          "description": "XHTTP request path"
+        },
+        "host": {
+          "label": "XHTTP Host",
+          "description": "Host sent with the XHTTP request"
+        },
+        "mode": {
+          "label": "XHTTP Mode",
+          "description": "Transport mode; auto lets mihomo choose. XHTTP speaks HTTP/2 unless ALPN offers h3 or http/1.1"
+        },
+        "download": {
+          "path": {
+            "label": "Download path",
+            "description": "XHTTP request path of the download stream"
+          },
+          "host": {
+            "label": "Download host",
+            "description": "Host sent with the download stream's XHTTP request"
+          },
+          "server": {
+            "label": "Download server",
+            "description": "Server address of the download-stream proxy"
+          },
+          "port": {
+            "label": "Download port",
+            "description": "Port of the download-stream proxy"
+          },
+          "tls": {
+            "label": "Download over TLS",
+            "description": "Whether the download stream uses TLS"
+          },
+          "alpn": {
+            "label": "Download ALPN",
+            "description": "Protocols offered during the download stream's TLS handshake, in priority order"
+          },
+          "skipCertVerify": {
+            "label": "Download skip cert verify",
+            "description": "Skip verifying the download-stream server certificate (not recommended)"
+          },
+          "nameCertVerify": {
+            "label": "Download cert name verify",
+            "description": "Server name used to verify the download-stream certificate"
+          },
+          "fingerprint": {
+            "label": "Download fingerprint",
+            "description": "TLS fingerprint of the download stream"
+          },
+          "certificate": {
+            "label": "Download certificate",
+            "description": "Client certificate (PEM) used by the download stream"
+          },
+          "privateKey": {
+            "label": "Download private key",
+            "description": "Private key (PEM) for the download stream's client certificate"
+          },
+          "servername": {
+            "label": "Download SNI",
+            "description": "Server name used during the download stream's TLS handshake"
+          },
+          "clientFingerprint": {
+            "label": "Download client fingerprint",
+            "description": "TLS client fingerprint spoofing for the download stream"
+          },
+          "echEnable": {
+            "label": "Download ECH",
+            "description": "Enable Encrypted Client Hello for the download stream — must be explicitly enabled"
+          },
+          "echConfig": {
+            "label": "Download ECH config (base64)",
+            "description": "Empty resolves via DNS; else the base64 ECH parameter"
+          },
+          "echQueryServerName": {
+            "label": "Download query server name",
+            "description": "Domain used to resolve the download stream's config via DNS"
+          },
+          "shadowTlsVersion": {
+            "label": "Download ShadowTLS version",
+            "description": "ShadowTLS protocol major version (1-3) for the download stream"
+          },
+          "shadowTlsPassword": {
+            "label": "Download ShadowTLS password",
+            "description": "Shared secret of the download stream's ShadowTLS layer"
+          },
+          "restlsPassword": {
+            "label": "Download Restls password",
+            "description": "Password of the download stream's Restls layer"
+          },
+          "restlsVersionHint": {
+            "label": "Download TLS version hint",
+            "description": "tls13 or tls12 — must match the camouflage server"
+          },
+          "restlsScript": {
+            "label": "Download Restls script",
+            "description": "Post-handshake behaviour script for the download stream"
+          },
+          "jlsUsername": {
+            "label": "Download JLS username",
+            "description": "Username of the download stream's JLS layer"
+          },
+          "jlsPassword": {
+            "label": "Download JLS password",
+            "description": "Password of the download stream's JLS layer"
+          },
+          "realityPublicKey": {
+            "label": "Download REALITY public key",
+            "description": "Public key for the download stream's REALITY. Leave blank if unused"
+          },
+          "realityShortId": {
+            "label": "Download REALITY short ID",
+            "description": "Short ID for the download stream's REALITY (optional)"
+          }
+        }
+      },
+      "encryption": {
+        "label": "VLESS encryption",
+        "description": "Post-quantum VLESS encryption string; empty disables"
+      }
+    },
+    "hysteria2": {
+      "password": {
+        "label": "Password",
+        "description": "Hysteria2 authentication password"
+      },
+      "obfs": {
+        "label": "Obfuscation",
+        "description": "Obfuscation method (e.g., salamander)"
+      },
+      "obfsPassword": {
+        "label": "Obfuscation Password",
+        "description": "Password for obfuscation"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS Server Name Indication"
+      },
+      "skipCertVerify": {
+        "label": "Skip Cert Verify",
+        "description": "Skip certificate verification (not recommended)"
+      },
+      "up": {
+        "label": "Upload Bandwidth",
+        "description": "Upload bandwidth limit (e.g., 50 Mbps)"
+      },
+      "down": {
+        "label": "Download Bandwidth",
+        "description": "Download bandwidth limit (e.g., 100 Mbps)"
+      },
+      "bbrProfile": {
+        "label": "BBR profile",
+        "description": "BBR congestion-control tuning profile"
+      },
+      "hopInterval": {
+        "label": "Hop interval",
+        "description": "Port-hopping cadence, e.g. \"15-30\" seconds"
+      },
+      "obfsMinSize": {
+        "label": "Obfs min packet size",
+        "description": "Gecko obfs only"
+      },
+      "obfsMaxSize": {
+        "label": "Obfs max packet size",
+        "description": "Gecko obfs only"
+      },
+      "realmEnable": {
+        "label": "Realm relay",
+        "description": "Route through a realm relay (mihomo extension)"
+      },
+      "realmServerUrl": {
+        "label": "Realm server URL",
+        "description": "URL of the realm relay endpoint"
+      },
+      "realmToken": {
+        "label": "Realm token",
+        "description": "Bearer token of the relay"
+      },
+      "realmId": {
+        "label": "Realm ID",
+        "description": "Identifier of the target realm"
+      },
+      "realmStunServers": {
+        "label": "STUN servers",
+        "description": "One per line"
+      },
+      "initConnWindow": {
+        "label": "Initial connection window",
+        "description": "quic-go initial connection receive window"
+      },
+      "maxConnWindow": {
+        "label": "Max connection window",
+        "description": "quic-go maximum connection receive window"
+      }
+    },
+    "tuic": {
+      "uuid": {
+        "label": "UUID",
+        "description": "User ID"
+      },
+      "password": {
+        "label": "Password",
+        "description": "TUIC authentication password"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS Server Name Indication"
+      },
+      "skipCertVerify": {
+        "label": "Skip Cert Verify",
+        "description": "Skip certificate verification (not recommended)"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "Protocols offered in the QUIC handshake, in preference order"
+      },
+      "congestionController": {
+        "label": "Congestion Controller",
+        "description": "QUIC congestion control algorithm"
+      },
+      "disableSni": {
+        "label": "Disable SNI",
+        "description": "Do not send SNI"
+      },
+      "token": {
+        "label": "Token (TUIC v4)",
+        "description": "v4 auth token; mutually exclusive with uuid+password"
+      },
+      "reduceRtt": {
+        "label": "Reduce RTT (0-RTT)",
+        "description": "Open the session with 0-RTT handshake"
+      },
+      "requestTimeout": {
+        "label": "Request timeout (ms)",
+        "description": "Default 8000"
+      },
+      "ip": {
+        "label": "Server IP override",
+        "description": "Skip DNS resolution when set"
+      },
+      "heartbeatInterval": {
+        "label": "Heartbeat interval (ms)",
+        "description": "QUIC keepalive heartbeat pacing"
+      },
+      "maxUdpRelayPacketSize": {
+        "label": "Max UDP relay packet size",
+        "description": "Cap on UDP relay payloads"
+      },
+      "udpOverStream": {
+        "description": "ss-uot style UDP over QUIC streams (private extension)"
+      },
+      "udpOverStreamVersion": {
+        "label": "UoS version",
+        "description": "Version of udp-over-stream"
+      }
+    },
+    "trojan": {
+      "password": {
+        "label": "Password",
+        "description": "Trojan password"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS Server Name Indication"
+      },
+      "skipCertVerify": {
+        "label": "Skip Cert Verify",
+        "description": "Skip certificate verification (not recommended)"
+      },
+      "network": {
+        "label": "Network",
+        "description": "Transport protocol"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "Protocols offered in the TLS handshake, in preference order"
+      },
+      "clientFingerprint": {
+        "label": "Client Fingerprint",
+        "description": "TLS client fingerprint emulation"
+      },
+      "grpc": {
+        "serviceName": {
+          "label": "gRPC Service Name",
+          "description": "gRPC service name"
+        }
+      },
+      "ws": {
+        "path": {
+          "label": "WebSocket Path",
+          "description": "WebSocket request path"
+        },
+        "host": {
+          "label": "WebSocket Host",
+          "description": "WebSocket Host header"
+        }
+      },
+      "flow": {
+        "label": "XTLS flow",
+        "description": "Legacy XTLS flow control; usually empty on Reality servers"
+      },
+      "flowShow": {
+        "label": "Show flow in URI",
+        "description": "Emit flow-show for clients that read it"
+      },
+      "securityLayer": {
+        "description": "Optional layer over TLS; at most one. ECH uses ech-opts, the rest their own block"
+      },
+      "ssEnabled": {
+        "label": "Inner Shadowsocks (trojan-go)",
+        "description": "trojan-go style ss layer inside the tunnel"
+      },
+      "ssMethod": {
+        "description": "Inner ss cipher (three AEAD choices)"
+      }
+    },
+    "unsupportedType": "No editor is available for proxy type \"{{type}}\". Its settings are preserved as-is in the exported config.",
+    "transport": {
+      "network": {
+        "label": "Transport",
+        "description": "Obfuscation transport layered over the core protocol"
+      },
+      "wsPath": {
+        "label": "WebSocket path",
+        "description": "HTTP path of the WebSocket endpoint"
+      },
+      "wsHost": {
+        "label": "WebSocket Host header",
+        "description": "Host header sent on the upgrade request"
+      },
+      "grpcServiceName": {
+        "label": "gRPC service name",
+        "description": "Service name of the gRPC channel"
+      },
+      "h2Host": {
+        "label": "HTTP/2 hosts",
+        "description": "One host per line; mihomo picks between them"
+      },
+      "h2Path": {
+        "label": "HTTP/2 path",
+        "description": "HTTP/2 request path"
+      }
+    },
+    "interfaceName": {
+      "label": "Interface Name",
+      "description": "Bind the outbound to a specific network interface"
+    },
+    "routingMark": {
+      "label": "Routing Mark",
+      "description": "Linux fwmark applied to outgoing packets"
+    },
+    "ipVersion": {
+      "label": "IP version",
+      "description": "Address family preference for dialling this node"
+    },
+    "dialerProxy": {
+      "label": "Dialer Proxy",
+      "description": "Name of another proxy to establish the connection through"
+    },
+    "tfo": {
+      "label": "TCP Fast Open",
+      "description": "Enable TCP Fast Open on the outbound connection"
+    },
+    "mptcp": {
+      "label": "MPTCP",
+      "description": "Enable Multipath TCP on the outbound connection"
+    },
+    "validation": {
+      "nameRequired": "A proxy needs a name",
+      "duplicateName": "Something else in this config is already named \"{{name}}\". Pick another name.",
+      "reservedName": "\"{{name}}\" is one of mihomo's own outbounds. Pick another name."
+    },
+    "dial": {
+      "interfaceName": {
+        "label": "Outbound interface",
+        "description": "Network interface this node dials through"
+      },
+      "routingMark": {
+        "label": "Routing mark",
+        "description": "Linux fwmark attached to outbound connections (0-4294967295)"
+      },
+      "dialerProxy": {
+        "label": "Dialer proxy",
+        "description": "Establish connections through another proxy or group by name"
+      },
+      "tfo": {
+        "label": "TCP Fast Open",
+        "description": "Enable TCP Fast Open (TCP transports only)"
+      },
+      "mptcp": {
+        "label": "Multipath TCP",
+        "description": "Enable Multipath TCP (TCP transports only)"
+      }
+    },
+    "common": {
+      "password": {
+        "label": "Password",
+        "description": "Shared secret for this node"
+      },
+      "udp": {
+        "label": "UDP relay",
+        "description": "Allow UDP traffic through this node"
+      }
+    },
+    "commonTls": {
+      "tls": {
+        "label": "TLS",
+        "description": "Encrypt the hop to this server with TLS"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "Server name sent in the TLS handshake"
+      },
+      "servername": {
+        "label": "Server name (SNI)",
+        "description": "Overrides the TLS SNI and WSS Host header"
+      },
+      "skipCertVerify": {
+        "label": "Skip certificate verify",
+        "description": "Accept server certificates that fail chain validation"
+      },
+      "nameCertVerify": {
+        "label": "Name cert verify target",
+        "description": "Override only the certificate DNSName check, keeps the real SNI"
+      },
+      "clientFingerprint": {
+        "label": "Client fingerprint",
+        "description": "uTLS fingerprint presented during the handshake"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "Application-layer protocols offered in the handshake"
+      },
+      "host": {
+        "label": "Host / camouflage domain",
+        "description": "Domain the connection pretends to reach"
+      },
+      "fingerprint": {
+        "label": "Certificate fingerprint",
+        "description": "Pin the server certificate (SSL pinning)"
+      },
+      "certificate": {
+        "label": "Client certificate (PEM)",
+        "description": "PEM certificate; together with the private key enables mTLS"
+      },
+      "privateKey": {
+        "label": "Client private key (PEM)",
+        "description": "PEM private key matching the certificate above"
+      }
+    },
+    "smux": {
+      "enabled": {
+        "label": "Enable multiplexing",
+        "description": "sing-mux over TCP transports"
+      },
+      "protocol": {
+        "label": "Mux protocol",
+        "description": "smux, yamux or h2mux"
+      },
+      "maxConnections": {
+        "label": "Max connections",
+        "description": "Conflicts with max streams"
+      },
+      "minStreams": {
+        "label": "Min streams",
+        "description": "Streams per connection before opening a new one; conflicts with max streams"
+      },
+      "maxStreams": {
+        "label": "Max streams",
+        "description": "Conflicts with max connections and min streams"
+      },
+      "padding": {
+        "label": "Padding",
+        "description": "Pad multiplexed streams"
+      },
+      "statistic": {
+        "label": "Show in panels",
+        "description": "Expose underlying connections in dashboards"
+      },
+      "onlyTcp": {
+        "label": "TCP only",
+        "description": "UDP bypasses the multiplexer when set"
+      },
+      "brutalEnabled": {
+        "label": "TCP Brutal",
+        "description": "Brutal congestion control inside mux"
+      },
+      "brutalUp": {
+        "label": "Brutal up (Mbps)",
+        "description": "Upload bandwidth for Brutal"
+      },
+      "brutalDown": {
+        "label": "Brutal down (Mbps)",
+        "description": "Download bandwidth for Brutal"
+      }
+    },
+    "kcp": {
+      "mtu": {
+        "label": "MTU",
+        "description": "Maximum transmission unit"
+      },
+      "tti": {
+        "label": "TTI (ms)",
+        "description": "Transmission time interval"
+      },
+      "uplinkCapacity": {
+        "label": "Uplink capacity (MB/s)",
+        "description": "Maximum upload throughput"
+      },
+      "downlinkCapacity": {
+        "label": "Downlink capacity (MB/s)",
+        "description": "Maximum download throughput"
+      },
+      "congestion": {
+        "label": "Congestion control",
+        "description": "Enable KCP congestion control"
+      },
+      "writeBuffer": {
+        "label": "Write buffer (bytes)",
+        "description": "Size of the write buffer"
+      },
+      "readBuffer": {
+        "label": "Read buffer (bytes)",
+        "description": "Size of the read buffer"
+      },
+      "seed": {
+        "label": "Seed",
+        "description": "Seed for the authenticated encryption"
+      },
+      "header": {
+        "label": "Disguise header",
+        "description": "Packet header disguise mode"
+      }
+    },
+    "mekya": {
+      "url": {
+        "label": "URL",
+        "description": "HTTP polling endpoint of the Mekya relay"
+      },
+      "maxWriteDelay": {
+        "label": "Max write delay (ms)",
+        "description": "Aggregation window after the first packet"
+      },
+      "maxRequestSize": {
+        "label": "Max request size (bytes)",
+        "description": "Largest single HTTP request payload"
+      },
+      "pollingInterval": {
+        "label": "Initial polling interval (ms)",
+        "description": "Idle polling cadence"
+      },
+      "h2PoolSize": {
+        "label": "HTTP/2 pool size",
+        "description": "Number of pooled HTTP/2 connections"
+      }
+    },
+    "vmess": {
+      "alterId": {
+        "label": "AlterId",
+        "description": "Legacy VMess identity offset; 0 for AEAD servers"
+      },
+      "cipher": {
+        "label": "Encryption",
+        "description": "VMess payload cipher; auto is standard"
+      },
+      "maxEarlyData": {
+        "label": "Max early data",
+        "description": "WebSocket early-data bytes carried in the header"
+      },
+      "earlyDataHeader": {
+        "label": "Early-data header",
+        "description": "Header name carrying early data"
+      },
+      "httpUpgrade": {
+        "label": "v2ray HTTP upgrade",
+        "description": "Use the WebSocket upgrade flavour without a handshake body"
+      },
+      "httpUpgradeFastOpen": {
+        "label": "HTTP upgrade fast open",
+        "description": "Fast-open companion of HTTP upgrade"
+      },
+      "grpcUserAgent": {
+        "label": "gRPC User-Agent",
+        "description": "User-Agent spoofed on gRPC requests"
+      },
+      "pingInterval": {
+        "label": "Ping interval (s)",
+        "description": "Keepalive ping cadence; 0 disables"
+      },
+      "httpMethod": {
+        "label": "HTTP method",
+        "description": "Method of the obfuscation requests"
+      },
+      "httpPaths": {
+        "label": "HTTP paths",
+        "description": "One path per line; requests rotate through them"
+      }
+    },
+    "http": {
+      "username": {
+        "label": "Username",
+        "description": "Username for proxy authentication"
+      }
+    },
+    "ss": {
+      "cipher": {
+        "label": "Cipher",
+        "description": "AEAD ciphers are recommended; 2022 ciphers need base64 keys"
+      },
+      "udpOverTcp": {
+        "label": "UDP over TCP",
+        "description": "Carry UDP inside the TCP stream (UoT)"
+      },
+      "plugin": {
+        "label": "Plugin",
+        "none": "None",
+        "description": "Official plugin layered over Shadowsocks; at most one"
+      },
+      "obfsMode": {
+        "label": "obfs mode",
+        "description": "simple-obfs flavour"
+      },
+      "v2rayMode": {
+        "label": "Mode",
+        "description": "Plugin transport mode"
+      },
+      "v2rayMux": {
+        "label": "Mux",
+        "description": "Multiplex requests inside the plugin stream"
+      }
+    },
+    "shadowTls": {
+      "version": {
+        "label": "ShadowTLS version",
+        "description": "Protocol major version (1-3)"
+      },
+      "password": {
+        "label": "ShadowTLS password",
+        "description": "Shared secret of the ShadowTLS layer"
+      }
+    },
+    "restls": {
+      "versionHint": {
+        "label": "TLS version hint",
+        "description": "tls13 or tls12 — must match the camouflage server"
+      },
+      "script": {
+        "label": "Restls script",
+        "description": "Post-handshake behaviour script"
+      },
+      "hostHint": {
+        "description": "Must be a TLS server matching the hint above"
+      }
+    },
+    "jls": {
+      "username": {
+        "label": "JLS username",
+        "description": "Username of the JLS layer"
+      },
+      "password": {
+        "label": "JLS password",
+        "description": "Password of the JLS layer"
+      }
+    },
+    "kcptun": {
+      "key": {
+        "label": "Pre-shared key",
+        "description": "Secret shared with the kcptun server"
+      },
+      "crypt": {
+        "label": "Encryption",
+        "description": "KCP payload cipher"
+      },
+      "mode": {
+        "label": "Mode",
+        "description": "fast3/fast2/fast/normal/manual profile"
+      },
+      "conn": {
+        "label": "Connections",
+        "description": "UDP connections to the server"
+      },
+      "autoexpire": {
+        "label": "Auto expire (s)",
+        "description": "Lifetime of one UDP connection; 0 disables"
+      },
+      "scavengettl": {
+        "label": "Scavenge TTL (s)",
+        "description": "How long an expired connection lingers"
+      },
+      "mtu": {
+        "label": "MTU",
+        "description": "UDP packet maximum transmission unit"
+      },
+      "ratelimit": {
+        "label": "Rate limit (B/s)",
+        "description": "Per-connection send pacing; 0 disables"
+      },
+      "sndwnd": {
+        "label": "Send window",
+        "description": "Send window size in packets"
+      },
+      "rcvwnd": {
+        "label": "Receive window",
+        "description": "Receive window size in packets"
+      },
+      "datashard": {
+        "label": "Data shards",
+        "description": "Reed-Solomon data shards"
+      },
+      "parityshard": {
+        "label": "Parity shards",
+        "description": "Reed-Solomon parity shards"
+      },
+      "dscp": {
+        "label": "DSCP",
+        "description": "DSCP mark (6-bit)"
+      },
+      "nocomp": {
+        "label": "Disable compression",
+        "description": "Turn off KCP compression"
+      },
+      "acknodelay": {
+        "label": "Ack no delay",
+        "description": "Flush ACKs immediately on receipt"
+      },
+      "nodelay": {
+        "label": "No delay",
+        "description": "KCP nodelay parameter"
+      },
+      "interval": {
+        "label": "Interval (ms)",
+        "description": "KCP interval parameter"
+      },
+      "resend": {
+        "label": "Resend",
+        "description": "KCP resend parameter"
+      },
+      "sockbuf": {
+        "label": "Socket buffer (bytes)",
+        "description": "Per-socket buffer size"
+      },
+      "smuxver": {
+        "label": "SMUX version",
+        "description": "smux major version (1 or 2)"
+      },
+      "smuxbuf": {
+        "label": "SMUX buffer (bytes)",
+        "description": "Overall de-multiplexing buffer"
+      },
+      "framesize": {
+        "label": "Frame size",
+        "description": "SMUX max frame size"
+      },
+      "streambuf": {
+        "label": "Stream buffer (bytes)",
+        "description": "Per-stream buffer, smux v2+"
+      },
+      "keepalive": {
+        "label": "Keepalive (s)",
+        "description": "Seconds between heartbeats"
+      }
+    },
+    "snell": {
+      "psk": {
+        "label": "PSK",
+        "description": "Pre-shared key of the Snell server"
+      },
+      "version": {
+        "label": "Version",
+        "description": "Protocol version 1-5; UDP needs v3+"
+      },
+      "udp": {
+        "label": "UDP relay",
+        "description": "Only effective on version 3/4/5"
+      },
+      "reuse": {
+        "label": "Reuse connections",
+        "description": "Available on v4/v5 servers"
+      },
+      "obfsEnabled": {
+        "label": "Enable obfs",
+        "description": "Layer an obfs transport over Snell"
+      },
+      "obfsMode": {
+        "label": "Obfs mode",
+        "description": "http, tls, shadow-tls, restls or jls"
+      }
+    },
+    "ssr": {
+      "cipher": {
+        "description": "Stream ciphers only — SSR predates AEAD"
+      },
+      "protocol": {
+        "label": "Protocol",
+        "description": "SSR protocol flavour"
+      },
+      "protocolParam": {
+        "label": "Protocol param",
+        "description": "Optional protocol argument"
+      },
+      "obfs": {
+        "label": "Obfs",
+        "description": "SSR obfuscation flavour"
+      },
+      "obfsParam": {
+        "label": "Obfs param",
+        "description": "Usually the camouflage domain"
+      }
+    },
+    "anytls": {
+      "clientMetadata": {
+        "label": "Client metadata",
+        "description": "Opaque metadata string; modern servers ignore it"
+      },
+      "idleSessionCheckInterval": {
+        "label": "Idle session check interval (s)",
+        "description": "How often idle sessions are reaped"
+      },
+      "idleSessionTimeout": {
+        "label": "Idle session timeout (s)",
+        "description": "Sessions idle longer than this are closed"
+      },
+      "minIdleSession": {
+        "label": "Min idle sessions",
+        "description": "Session pool floor"
+      },
+      "securityLayer": {
+        "label": "Security layer",
+        "description": "Optional extra layer over AnyTLS; pick at most one",
+        "none": "None"
+      }
+    },
+    "hysteria1": {
+      "authStr": {
+        "label": "Auth string",
+        "description": "Shared authentication string of the server"
+      },
+      "protocol": {
+        "label": "Protocol",
+        "description": "udp, wechat-video or faketcp"
+      },
+      "ports": {
+        "label": "Port hopping",
+        "description": "Comma-separated ports/ranges; replaces port"
+      },
+      "fastOpen": {
+        "label": "Fast open",
+        "description": "TCP fast open for the initial handshake"
+      }
+    },
+    "ech": {
+      "enable": {
+        "label": "ECH",
+        "description": "Encrypted Client Hello — must be explicitly enabled"
+      },
+      "config": {
+        "label": "ECH config (base64)",
+        "description": "Empty resolves via DNS; else the base64 ECH parameter"
+      },
+      "queryServerName": {
+        "label": "Query server name",
+        "description": "Domain used when resolving the config via DNS"
+      }
+    },
+    "quic": {
+      "recvWindowConn": {
+        "label": "Receive window per conn",
+        "description": "QUIC stream-connection receive window"
+      },
+      "recvWindow": {
+        "label": "Receive window",
+        "description": "QUIC connection receive window"
+      },
+      "disableMtuDiscovery": {
+        "label": "Disable MTU discovery",
+        "description": "Turn off QUIC MTU discovery"
+      },
+      "cwnd": {
+        "label": "Initial cwnd",
+        "description": "Congestion window at start (default 32)"
+      },
+      "maxOpenStreams": {
+        "label": "Max open streams",
+        "description": "Concurrent QUIC streams (default 100)"
+      },
+      "handshakeTimeout": {
+        "label": "Handshake timeout (s)",
+        "description": "Overrides the outer connect timeout when set"
+      }
+    },
+    "wireguard": {
+      "ip": {
+        "label": "Local IPv4",
+        "description": "Interface address inside the tunnel"
+      },
+      "ipv6": {
+        "label": "Local IPv6",
+        "description": "Optional IPv6 interface address"
+      },
+      "privateKey": {
+        "label": "Private key",
+        "description": "Base64 X25519 private key of this peer"
+      },
+      "publicKey": {
+        "label": "Public key",
+        "description": "Server's base64 public key"
+      },
+      "presharedKey": {
+        "label": "Pre-shared key",
+        "description": "Optional extra symmetric key"
+      },
+      "reserved": {
+        "label": "Reserved bytes",
+        "description": "base64 string or [n,n,n] array (WARP)"
+      },
+      "keepalive": {
+        "label": "Persistent keepalive (s)",
+        "description": "Keepalive interval in seconds"
+      },
+      "mtu": {
+        "label": "MTU",
+        "description": "Tunnel maximum transmission unit"
+      }
+    },
+    "amnezia": {
+      "jc": {
+        "label": "Amnezia jc",
+        "description": "Junk packet count"
+      },
+      "jmin": {
+        "label": "Amnezia jmin",
+        "description": "Junk packet min size"
+      },
+      "jmax": {
+        "label": "Amnezia jmax",
+        "description": "Junk packet max size"
+      },
+      "s1": {
+        "label": "Amnezia s1",
+        "description": "Init packet junk size"
+      },
+      "s2": {
+        "label": "Amnezia s2",
+        "description": "Response packet junk size"
+      },
+      "h1": {
+        "label": "Amnezia h1",
+        "description": "Init packet header type"
+      },
+      "h2": {
+        "label": "Amnezia h2",
+        "description": "Response packet header type"
+      },
+      "h3": {
+        "label": "Amnezia h3",
+        "description": "Cookie packet header type"
+      },
+      "h4": {
+        "label": "Amnezia h4",
+        "description": "Transport packet header type"
+      }
+    },
+    "ssh": {
+      "username": {
+        "label": "Username",
+        "description": "Login user on the SSH server"
+      },
+      "privateKey": {
+        "label": "Private key (OpenSSH PEM)",
+        "description": "Key body only; password auth when empty. mihomo spells this camelCase"
+      }
+    },
+    "mieru": {
+      "transport": {
+        "label": "Transport",
+        "description": "TCP or UDP carrier"
+      },
+      "multiplexing": {
+        "label": "Multiplexing",
+        "description": "MULTIPLEXING_OFF/LOW/MIDDLE/HIGH"
+      },
+      "handshakeMode": {
+        "label": "Handshake mode",
+        "description": "standard or no-wait (0-RTT)"
+      },
+      "trafficPattern": {
+        "label": "Traffic pattern",
+        "description": "base64 tuning string from the mieru tool"
+      }
+    },
+    "sudoku": {
+      "key": {
+        "label": "Key",
+        "description": "ED25519 private key or server UUID"
+      },
+      "aeadMethod": {
+        "label": "AEAD method",
+        "description": "Payload cipher of the tunnel"
+      },
+      "padding": {
+        "description": "Padding percentage (0-100); max must be >= min"
+      },
+      "paddingMin": {
+        "label": "Padding min (%)"
+      },
+      "paddingMax": {
+        "label": "Padding max (%)"
+      },
+      "tableType": {
+        "label": "Table type",
+        "description": "How byte tables are generated"
+      },
+      "customTable": {
+        "label": "Custom table",
+        "description": "Single explicit table (entropy directions only)"
+      },
+      "customTables": {
+        "label": "Custom tables",
+        "description": "One per line; overrides a single custom table"
+      },
+      "multiplex": {
+        "label": "Multiplex",
+        "description": "off / auto / on"
+      },
+      "maskDisable": {
+        "label": "Disable httpmask",
+        "description": "Turn the HTTP mask layer off"
+      },
+      "maskMode": {
+        "label": "httpmask mode",
+        "description": "legacy / stream / poll / auto / ws"
+      },
+      "maskPathRoot": {
+        "label": "Mask path root",
+        "description": "Endpoint prefix of the mask URLs"
+      }
+    },
+    "shadowquic": {
+      "quicVersions": {
+        "label": "QUIC versions",
+        "description": "v1 and/or v2"
+      },
+      "udpOverStream": {
+        "label": "UDP over stream",
+        "description": "Carry UDP as QUIC streams (ss-uot style)"
+      },
+      "zeroRtt": {
+        "label": "Zero RTT",
+        "description": "0-RTT early data on resume"
+      },
+      "keepAliveInterval": {
+        "label": "Keepalive interval (ms)",
+        "description": "QUIC keepalive pacing"
+      },
+      "maxDatagramFrameSize": {
+        "label": "Max datagram frame size",
+        "description": "QUIC datagram frame limit"
+      }
+    },
+    "trusttunnel": {
+      "healthCheck": {
+        "label": "Health check",
+        "description": "Probe the tunnel periodically"
+      },
+      "quic": {
+        "label": "Use QUIC",
+        "description": "Run the tunnel over QUIC instead of TCP/h2"
+      }
+    },
+    "gostRelay": {
+      "forward": {
+        "label": "Forward mode",
+        "description": "Relay dials its own configured target instead of the requested one"
+      },
+      "mux": {
+        "label": "Mux over relay+TLS",
+        "description": "Multiplex when TLS is also enabled"
+      }
+    },
+    "rematch": {
+      "targetRematchName": {
+        "label": "Target rematch name",
+        "description": "Overrides metadata rematch-name for REMATCH-NAME rules"
+      },
+      "targetSubRule": {
+        "label": "Target sub-rule",
+        "description": "Jump to this named sub-rule; empty falls back to rules"
+      }
+    },
+    "ipStack": {
+      "mode": {
+        "label": "IP stack mode",
+        "description": "Userspace stack for VPN-style outbounds (auto/gvisor/system)"
+      }
+    },
+    "masque": {
+      "network": {
+        "label": "Network flavour",
+        "description": "Default IP tunnel, h3-l4proxy, or h2",
+        "default": "Default (IP tunnel)"
+      },
+      "l4proxyNoUdp": "h3-l4proxy cannot carry UDP — mihomo forbids udp: true with it",
+      "stackCc": {
+        "label": "Stack congestion controller",
+        "description": "Congestion controller of the userspace IP stack"
+      }
+    },
+    "tailscale": {
+      "udp": {
+        "description": "UDP relay through the tailnet (default false)"
+      },
+      "hostname": {
+        "label": "Hostname",
+        "description": "Name this device registers as"
+      },
+      "authKey": {
+        "label": "Auth key",
+        "description": "Empty prints an interactive login URL in the mihomo log"
+      },
+      "controlUrl": {
+        "label": "Control URL",
+        "description": "Headscale or other custom control plane"
+      },
+      "stateDir": {
+        "label": "State directory",
+        "description": "Where the tailnet state is kept"
+      },
+      "ephemeral": {
+        "label": "Ephemeral node",
+        "description": "Register without persisting state"
+      },
+      "acceptRoutes": {
+        "label": "Accept routes",
+        "description": "Accept subnet routes advertised by the tailnet"
+      },
+      "exitNode": {
+        "label": "Exit node",
+        "description": "IP or auto:any; required to reach the public internet"
+      },
+      "exitNodeLan": {
+        "label": "Allow LAN access via exit node",
+        "description": "Permit local LAN access while using the exit node"
+      }
+    },
+    "zerotier": {
+      "network": {
+        "label": "Network ID",
+        "description": "The 16-digit ZeroTier network to join"
+      },
+      "stateDir": {
+        "description": "Where ZeroTier state is kept",
+        "label": "State directory"
+      },
+      "planet": {
+        "label": "Planet file",
+        "description": "Custom planet file for private roots"
+      },
+      "physicalMtu": {
+        "label": "Physical MTU",
+        "description": "Underlying link MTU, default 1432"
+      },
+      "primaryPort": {
+        "label": "Primary port",
+        "description": "0 lets ZeroTier pick"
+      },
+      "secondaryPort": {
+        "label": "Secondary port",
+        "description": "0 auto; -1 disables the secondary listener"
+      },
+      "tcpFallbackMode": {
+        "label": "TCP fallback mode",
+        "description": "auto / force / disable"
+      },
+      "tcpFallbackRelay": {
+        "label": "TCP fallback relay",
+        "description": "ip:port of the fallback relay"
+      },
+      "remoteTraceTarget": {
+        "label": "Remote trace target",
+        "description": "Node ID or address receiving traces"
+      },
+      "remoteTraceLevel": {
+        "label": "Remote trace level",
+        "description": "Verbosity of remote tracing"
+      },
+      "lowBandwidth": {
+        "label": "Low bandwidth mode",
+        "description": "Reduce overhead on constrained links"
+      },
+      "encryptedHello": {
+        "label": "Encrypted hello",
+        "description": "Encrypt hello packets"
+      }
+    },
+    "vpn": {
+      "remoteDnsResolve": {
+        "label": "Resolve DNS remotely",
+        "description": "Send domain queries into the tunnel instead of resolving locally"
+      },
+      "dnsList": {
+        "label": "Tunnel DNS servers",
+        "description": "One server per line; needs remote resolution enabled"
+      }
+    },
+    "openvpn": {
+      "proto": {
+        "label": "Protocol",
+        "description": "udp or tcp carrier",
+        "udp": "UDP",
+        "tcp": "TCP"
+      },
+      "ca": {
+        "label": "CA certificate (PEM)",
+        "description": "Root certificate body from <ca>, no tags"
+      },
+      "cert": {
+        "label": "Client certificate (PEM)",
+        "description": "Together with key enables cert auth"
+      },
+      "key": {
+        "label": "Client private key (PEM)",
+        "description": "Matches the certificate above"
+      },
+      "cipher": {
+        "label": "Cipher",
+        "description": "Legacy single-cipher setting; AEAD ignores it"
+      },
+      "dataCiphers": {
+        "label": "Data ciphers",
+        "description": "Negotiation list sent as IV_CIPHERS, one per line"
+      },
+      "auth": {
+        "label": "Auth digest",
+        "description": "Ignored by AEAD ciphers"
+      },
+      "compLzo": {
+        "label": "LZO compression",
+        "description": "yes / no / adaptive"
+      },
+      "tlsAuth": {
+        "label": "tls-auth static key (PEM)",
+        "description": "Mutually exclusive with tls-crypt(-v2)"
+      },
+      "keyDirection": {
+        "label": "Key direction",
+        "description": "\"1\" or \"0\"; empty means bidirectional"
+      },
+      "tlsCrypt": {
+        "label": "tls-crypt key (PEM)",
+        "description": "Encrypts and authenticates control channel"
+      },
+      "tlsCryptV2": {
+        "label": "tls-crypt-v2 client key (PEM)",
+        "description": "256-byte wrapped client key"
+      },
+      "ping": {
+        "label": "Ping interval (s)",
+        "description": "Keepalive ping cadence"
+      },
+      "pingRestart": {
+        "label": "Ping restart (s)",
+        "description": "Restart when no ping response for this long"
+      }
+    },
+    "xhttp": {
+      "noGrpcHeader": {
+        "label": "No gRPC header",
+        "description": "Suppress the gRPC-style header"
+      },
+      "xPaddingBytes": {
+        "label": "X padding bytes",
+        "description": "e.g. \"100-1000\""
+      },
+      "xPaddingObfsMode": {
+        "label": "X padding obfs mode",
+        "description": "Enable configurable padding placement/method"
+      },
+      "xPaddingKey": {
+        "label": "X padding key",
+        "description": "Query/header key carrying padding"
+      },
+      "xPaddingHeader": {
+        "label": "X padding header",
+        "description": "Header name used in header placement"
+      },
+      "xPaddingPlacement": {
+        "label": "X padding placement",
+        "description": "queryInHeader / cookie / header / query"
+      },
+      "xPaddingMethod": {
+        "label": "X padding method",
+        "description": "repeat-x or tokenish"
+      },
+      "sessionPlacement": {
+        "label": "Session placement",
+        "description": "Where the session id travels"
+      },
+      "sessionKey": {
+        "label": "Session key",
+        "description": "Custom key name for the session id"
+      },
+      "seqPlacement": {
+        "label": "Sequence placement",
+        "description": "Where the sequence number travels"
+      },
+      "seqKey": {
+        "label": "Sequence key",
+        "description": "Custom key name for the sequence number"
+      },
+      "scMaxEachPostBytes": {
+        "label": "Max bytes per POST",
+        "description": "Stream-one/up chunking cap"
+      },
+      "scMinPostsIntervalMs": {
+        "label": "Min POST interval (ms)",
+        "description": "Pacing between posts"
+      },
+      "xmuxMaxConcurrency": {
+        "label": "XMUX max concurrency",
+        "description": "Range string like \"16-32\"; conflicts with max streams fields"
+      },
+      "xmuxMaxConnections": {
+        "label": "XMUX max connections",
+        "description": "Range string like \"0\""
+      },
+      "xmuxCMaxReuseTimes": {
+        "label": "XMUX c-max-reuse-times",
+        "description": "Connection reuse ceiling"
+      },
+      "xmuxHMaxRequestTimes": {
+        "label": "XMUX h-max-request-times",
+        "description": "Requests per connection ceiling"
+      },
+      "xmuxHMaxReusableSecs": {
+        "label": "XMUX h-max-reusable-secs",
+        "description": "Seconds a connection stays reusable"
+      },
+      "xmuxHKeepAlivePeriod": {
+        "label": "XMUX keep-alive period (s)",
+        "description": "0 disables the ping"
+      }
+    }
+  },
+  "proxies": {
+    "title": "Proxies"
+  },
+  "proxyProvider": {
+    "title": "Proxy Providers",
+    "description": "Subscriptions mihomo fetches and keeps up to date on its own",
+    "add": "Add Proxy Provider",
+    "edit": "Edit Proxy Provider",
+    "deleteTitle": "Delete proxy provider",
+    "deleteConfirm": "Are you sure you want to delete the proxy provider \"{{name}}\"?",
+    "deleteUsedBy": "It will also be removed from {{count}} proxy group(s): {{groups}}. A group left with nothing in it will stop mihomo from starting.",
+    "empty": "No proxy providers. Click the button above to add one.",
+    "name": "Provider Name",
+    "namePlaceholder": "e.g., my-subscription",
+    "type": "Type",
+    "url": "Subscription URL",
+    "path": "File Path",
+    "payload": "Inline Nodes",
+    "payloadDescription": "A YAML list of proxies, in the same shape as a `proxies:` entry.",
+    "inlineNodes": "{{count}} inline node(s)",
+    "selection": "Node Selection",
+    "filter": "Keep Only",
+    "filterDescription": "Regular expression. Only nodes whose name matches are kept.",
+    "excludeFilter": "Drop",
+    "excludeType": "Drop Types",
+    "excludeTypeDescription": "Proxy types to drop, separated by \"|\". Not a regular expression.",
+    "filteredBadge": "filtered",
+    "optionalArgs": "Optional Arguments",
+    "healthCheck": "Health Check",
+    "healthCheckDescription": "A group's own health check does not reach these nodes, so without this they have no latency behind them.",
+    "healthUrl": "Test URL",
+    "healthInterval": "Interval (seconds)",
+    "healthTimeout": "Timeout (milliseconds)",
+    "healthLazy": "Only test while the group is in use",
+    "healthBadge": "health check",
+    "override": "Override Node Settings",
+    "overrideDescription": "Applied to every node coming out of this provider. The subscription is someone else’s; this is where you say what it should have said.",
+    "overridePrefix": "Name Prefix",
+    "overrideSuffix": "Name Suffix",
+    "overrideUdp": "UDP",
+    "overrideSkipCertVerify": "Skip Certificate Verification",
+    "overrideIpVersion": "IP Version",
+    "overrideUnset": "Leave as the subscription has it",
+    "interval": "Update Interval (seconds)",
+    "intervalDescription": "How often to refresh the subscription, e.g. 3600 = 1 hour.",
+    "cachePath": "Cache Path",
+    "cachePathDescription": "Where to store the downloaded file. Must stay inside the mihomo home directory.",
+    "proxy": "Download via Proxy",
+    "proxyDescription": "Fetch the subscription through this proxy or proxy group.",
+    "selectProxy": "Select a proxy or group",
+    "sizeLimit": "Size Limit (bytes)",
+    "sizeLimitDescription": "Reject downloads larger than this. 0 means unlimited.",
+    "header": "Request Headers",
+    "headerDescription": "One \"Name: value\" per line. Repeat a name to send multiple values.",
+    "usedBy": "used by {{count}} group(s)",
+    "unused": "no group uses this",
+    "error": {
+      "nameRequired": "Provider name is required",
+      "urlRequired": "URL is required for HTTP type",
+      "pathRequired": "File path is required for file type",
+      "payloadRequired": "At least one node is required for inline type",
+      "payloadInvalid": "The inline nodes are not valid YAML"
+    }
+  },
+  "proxyGroup": {
+    "title": "Proxy Groups",
+    "description": "Manage proxy group strategies",
+    "add": "Add Proxy Group",
+    "edit": "Edit Proxy Group",
+    "delete": "Delete Proxy Group",
+    "deleteTitle": "Delete proxy group",
+    "deleteConfirm": "Are you sure you want to delete this proxy group?",
+    "empty": "No proxy groups. Click the button above to add one.",
+    "name": {
+      "label": "Group Name",
+      "description": "Display name for this proxy group"
+    },
+    "type": {
+      "label": "Type",
+      "description": "Proxy group strategy",
+      "select": "Manual Select",
+      "urlTest": "Auto URL Test",
+      "fallback": "Fallback",
+      "loadBalance": "Load Balance",
+      "relay": "Relay Chain"
+    },
+    "proxies": "Proxies",
+    "proxies.label": "Proxies",
+    "proxies.description": "Select proxies or proxy groups to include",
+    "selectedProxies": "Selected Proxies",
+    "availableProxies": "Available Proxies",
+    "noProxiesAvailable": "No proxies or groups of your own yet. Add proxies first.",
+    "proxyNode": "Proxy",
+    "proxyGroup": "Group",
+    "builtIn": "Built-in",
+    "url": {
+      "label": "Test URL",
+      "description": "URL for connectivity testing"
+    },
+    "testUrl": "Test URL",
+    "interval": "Interval",
+    "interval.label": "Test Interval",
+    "interval.description": "Health check interval in seconds (default 300, 0 disables periodic testing)",
+    "tolerance": {
+      "label": "Tolerance",
+      "description": "RTT tolerance in milliseconds for url-test"
+    },
+    "lazy": {
+      "label": "Lazy Mode",
+      "description": "Skip testing while the group is not in use (default on)"
+    },
+    "strategy": {
+      "label": "Strategy",
+      "description": "Load balancing strategy",
+      "consistentHashing": "Consistent Hashing",
+      "roundRobin": "Round Robin",
+      "stickySessions": "sticky-sessions"
+    },
+    "disableUdp": {
+      "label": "Disable UDP",
+      "description": "Disable UDP support for this group"
+    },
+    "filter": {
+      "label": "Filter",
+      "description": "Regex to filter proxies by name (include)"
+    },
+    "excludeFilter": {
+      "label": "Exclude Filter",
+      "description": "Regex to filter proxies by name (exclude)"
+    },
+    "validation": {
+      "nameRequired": "Group name is required",
+      "duplicateName": "Something else in this config is already named \"{{name}}\". Pick another name.",
+      "reservedName": "\"{{name}}\" is one of mihomo's own outbounds. Pick another name."
+    },
+    "timeout": {
+      "label": "Health Check Timeout",
+      "description": "Health check timeout in milliseconds (default 5000)"
+    },
+    "defaultSelected": {
+      "label": "Default Selected",
+      "description": "Member selected on startup. Falls back to the first member when unset.",
+      "first": "(first member)",
+      "noMembers": "Add proxies to this group first",
+      "missing": "\"{{name}}\" is no longer a member of this group",
+      "fromProviders": "This group also pulls in proxy providers. Their nodes are fetched at runtime, so they cannot be listed here."
+    },
+    "use": {
+      "label": "Proxy Providers",
+      "description": "Pull in every node from these providers. A group can use providers, list members of its own, or both."
+    },
+    "selectedProviders": "Selected providers",
+    "availableProviders": "Available providers",
+    "noProvidersAvailable": "No proxy providers yet. Add one on the Proxy Providers tab.",
+    "providerMissing": "No proxy provider in this config is named \"{{name}}\"",
+    "excludeType": {
+      "label": "Exclude types",
+      "description": "Pipe-separated adapter types, no regex; applies to proxies entries"
+    },
+    "expectedStatus": {
+      "label": "Expected status",
+      "description": "Health check codes, e.g. 200/302/400-503; * means any"
+    },
+    "maxFailedTimes": {
+      "label": "Max failed times",
+      "description": "Forces a health check after this many failures (default 5)"
+    },
+    "emptyFallback": {
+      "label": "Empty fallback",
+      "description": "Proxy name used when the group is empty (default COMPATIBLE); no groups"
+    },
+    "hidden": {
+      "label": "Hidden in API",
+      "description": "Marks the group hidden for supporting dashboards"
+    },
+    "icon": {
+      "label": "Icon URL",
+      "description": "Shown by supporting dashboards"
+    },
+    "includeAllProxies": {
+      "label": "Include all proxies",
+      "description": "Sorted by name; groups excluded — add them via proxies"
+    },
+    "includeAllProviders": {
+      "label": "Include all providers",
+      "description": "Makes use: redundant when enabled"
+    }
+  },
+  "proxyGroups": {
+    "title": "Proxy Groups"
+  },
+  "rule": {
+    "title": "Rules",
+    "description": "Manage routing rules",
+    "add": "Add Rule",
+    "edit": "Edit Rule",
+    "delete": "Delete Rule",
+    "deleteTitle": "Delete rule",
+    "deleteConfirm": "Are you sure you want to delete this rule?",
+    "empty": "No rules. Click the button above to add one.",
+    "noPayload": "No payload",
+    "matchPinned": "Always last — MATCH cannot be reordered",
+    "matchHint": "Matches anything not matched above, so no rule can follow it",
+    "type": {
+      "label": "Rule Type",
+      "description": "Type of routing rule"
+    },
+    "payload": {
+      "label": "Payload",
+      "description": "Rule content (domain, IP, port, etc.)"
+    },
+    "hint": {
+      "DOMAIN": {
+        "description": "Matches the full domain name exactly."
+      },
+      "DOMAIN-SUFFIX": {
+        "description": "Matches the domain suffix: example.com also matches www.example.com and mail.example.com."
+      },
+      "DOMAIN-KEYWORD": {
+        "description": "Matches any domain containing this keyword."
+      },
+      "DOMAIN-WILDCARD": {
+        "description": "Wildcard domain. Only * (any run of characters) and ? (exactly one character) are supported."
+      },
+      "DOMAIN-REGEX": {
+        "description": "Regular expression matched against the request domain."
+      },
+      "GEOSITE": {
+        "description": "Picks a category from the Geosite database (v2fly domain-list-community)."
+      },
+      "IP-CIDR": {
+        "description": "Target IP range in CIDR notation. Pair with no-resolve to avoid DNS resolution."
+      },
+      "IP-CIDR6": {
+        "description": "Target IPv6 range in CIDR notation; an alias of IP-CIDR."
+      },
+      "IP-SUFFIX": {
+        "description": "Matches IP suffix ranges, e.g. 8.8.8.8/24."
+      },
+      "IP-ASN": {
+        "description": "Matches the ASN of the target IP."
+      },
+      "GEOIP": {
+        "description": "Matches the country code of the target IP from the GeoIP database."
+      },
+      "SRC-GEOIP": {
+        "description": "Matches the country code of the source IP."
+      },
+      "SRC-IP-ASN": {
+        "description": "Matches the ASN of the source IP."
+      },
+      "SRC-IP-CIDR": {
+        "description": "Source IP range in CIDR notation."
+      },
+      "SRC-IP-SUFFIX": {
+        "description": "Matches source IP suffix ranges."
+      },
+      "DST-PORT": {
+        "description": "Matches the destination port or port range of the request."
+      },
+      "SRC-PORT": {
+        "description": "Matches the source port or port range of the request."
+      },
+      "IN-PORT": {
+        "description": "Matches the inbound listener port that received the connection."
+      },
+      "IN-TYPE": {
+        "description": "Matches the inbound type, several separated by /, e.g. SOCKS/HTTP."
+      },
+      "IN-USER": {
+        "description": "Matches the inbound auth username; several may be joined with /."
+      },
+      "IN-NAME": {
+        "description": "Matches the inbound listener name."
+      },
+      "REMATCH-NAME": {
+        "description": "Matches the name written by a rematch outbound proxy."
+      },
+      "PROCESS-PATH": {
+        "description": "Matches the sending process's full executable path (local traffic only)."
+      },
+      "PROCESS-PATH-WILDCARD": {
+        "description": "Process path with wildcards; only * and ? are supported."
+      },
+      "PROCESS-PATH-REGEX": {
+        "description": "Regular expression matched against the process path."
+      },
+      "PROCESS-NAME": {
+        "description": "Matches the sending process name (package name on Android)."
+      },
+      "PROCESS-NAME-WILDCARD": {
+        "description": "Process name with wildcards; only * and ? are supported."
+      },
+      "PROCESS-NAME-REGEX": {
+        "description": "Regular expression matched against the process name."
+      },
+      "UID": {
+        "description": "Matches the Linux user ID of the sending process."
+      },
+      "NETWORK": {
+        "description": "Matches the transport protocol: tcp or udp."
+      },
+      "DSCP": {
+        "description": "Matches the DSCP tag (tproxy UDP inbound only)."
+      },
+      "RULE-SET": {
+        "description": "References a rule-provider by name; the provider must be defined."
+      },
+      "AND": {
+        "description": "Logical AND over sub-rules. Payload is a parenthesised list like ((DOMAIN,baidu.com),(NETWORK,UDP)) — mind the parentheses."
+      },
+      "OR": {
+        "description": "Logical OR over sub-rules, written as a parenthesised list — mind the parentheses."
+      },
+      "NOT": {
+        "description": "Negates a sub-rule written as a parenthesised list — mind the parentheses."
+      },
+      "SUB-RULE": {
+        "description": "Jumps into a named sub-rules block; payload starts with the condition."
+      },
+      "MATCH": {
+        "description": "Fallback rule matching every request. It has no payload and should stay last."
+      }
+    },
+    "policy": {
+      "label": "Policy",
+      "description": "Target proxy group or action (DIRECT/REJECT)",
+      "builtIn": "Built-in Policies",
+      "proxyGroups": "Proxy Groups",
+      "customOption": "Custom Input...",
+      "customInput": "Custom Input",
+      "selectMode": "Select from List",
+      "selectPlaceholder": "Select a policy"
+    },
+    "noResolve": {
+      "label": "No Resolve",
+      "description": "Skip DNS resolution for this rule"
+    },
+    "ruleSet": {
+      "label": "Rule Provider",
+      "description": "The rule provider this rule matches against.",
+      "placeholder": "Select a rule provider",
+      "new": "+ New rule provider...",
+      "createFirst": "No rule providers yet — create one",
+      "missing": "\"{{name}}\" is not a defined rule provider"
+    },
+    "validation": {
+      "payloadRequired": "Payload is required for this rule type"
+    },
+    "geoip": {
+      "label": "GeoIP Code",
+      "description": "Country/region or network group from the GeoIP database"
+    },
+    "geosite": {
+      "label": "GeoSite Categories",
+      "description": "Pick one or more categories. Each becomes its own rule with the same policy.",
+      "expand": "{{total}} rules will be created, one per category."
+    },
+    "dangling": {
+      "provider": "No rule provider named \"{{name}}\" — mihomo will refuse to start",
+      "policy": "No proxy or proxy group in this config is named \"{{name}}\" — mihomo will refuse to start"
+    },
+    "src": {
+      "label": "Match source address",
+      "description": "Turns this destination-IP rule into a source-IP match"
+    }
+  },
+  "rules": {
+    "title": "Rules"
+  },
+  "ruleProvider": {
+    "title": "Rule Providers",
+    "description": "Manage rule providers",
+    "add": "Add Rule Provider",
+    "edit": "Edit Rule Provider",
+    "delete": "Delete Rule Provider",
+    "deleteTitle": "Delete rule provider",
+    "deleteConfirm": "Are you sure you want to delete the rule provider \"{{name}}\"?",
+    "empty": "No rule providers. Click the button above to add one.",
+    "name": "Provider Name",
+    "namePlaceholder": "e.g., reject-rules",
+    "type": "Type",
+    "behavior": "Behavior",
+    "url": "URL",
+    "path": "File Path",
+    "payload": "Inline Rules",
+    "payloadDescription": "One rule per line, in the selected behavior's format.",
+    "inlineRules": "{{count}} inline rule(s)",
+    "optionalArgs": "Optional Arguments",
+    "format": "Format",
+    "formatDescription": "File format of the rule set. Defaults to yaml. mrs only supports domain and ipcidr behaviors.",
+    "mrsUnavailable": "domain/ipcidr only",
+    "interval": "Update Interval (seconds)",
+    "intervalDescription": "How often to refresh the rule set, e.g. 86400 = 24 hours.",
+    "cachePath": "Cache Path",
+    "cachePathDescription": "Where to store the downloaded file. Must stay inside the mihomo home directory.",
+    "proxy": "Download via Proxy",
+    "proxyDescription": "Fetch the rule set through this proxy or proxy group.",
+    "selectProxy": "Select a proxy or group",
+    "sizeLimit": "Size Limit (bytes)",
+    "sizeLimitDescription": "Reject downloads larger than this. 0 means unlimited.",
+    "header": "Request Headers",
+    "headerDescription": "One \"Name: value\" per line. Repeat a name to send multiple values.",
+    "error": {
+      "nameRequired": "Provider name is required",
+      "urlRequired": "URL is required for HTTP type",
+      "pathRequired": "File path is required for file type",
+      "payloadRequired": "At least one rule is required for inline type"
+    }
+  },
+  "import": {
+    "title": "Import Proxy URIs",
+    "description": "Paste proxy URIs to import (one per line). Supports:",
+    "formats": {
+      "vless": "VLESS (vless://...)",
+      "hysteria2": "Hysteria2 (hysteria2:// or hy2://...)",
+      "tuic": "TUIC (tuic://...)",
+      "trojan": "Trojan (trojan://...)"
+    },
+    "label": "Proxy URIs",
+    "placeholder": "vless://uuid@server:port?...\nhysteria2://password@server:port?...\n...",
+    "pasteFromClipboard": "Paste from Clipboard",
+    "import": "Import",
+    "processing": "Processing...",
+    "success": "Successfully imported {{count}} proxy node(s)",
+    "error": {
+      "empty": "Please enter at least one URI",
+      "parse": "Failed to parse URIs",
+      "clipboard": "Failed to read from clipboard",
+      "unknown": "An unknown error occurred"
+    }
+  },
+  "subscription": {
+    "title": "Import Subscription",
+    "description": "Enter a subscription URL to fetch and import proxy nodes.",
+    "note": "The subscription content will be fetched and parsed automatically.",
+    "label": "Subscription URL",
+    "placeholder": "https://example.com/subscription",
+    "fetch": "Fetch",
+    "fetching": "Fetching...",
+    "selectTitle": "Choose proxies to import",
+    "selectAll": "Select all",
+    "selectNone": "Select none",
+    "selectedCount": "{{count}} of {{total}} selected",
+    "alreadyExists": "already added",
+    "importSelected": "Import {{count}}",
+    "back": "Change URL",
+    "clashDetected": "This is a full Mihomo configuration. Only its proxies are listed — the {{groups}} proxy group(s) and {{rules}} rule(s) it contains were not imported. Use YAML Import in the editor pane to take the whole file.",
+    "skippedTitle": "Some entries were skipped:",
+    "success": "Successfully imported {{count}} proxy node(s) from subscription",
+    "error": {
+      "empty": "Please enter a subscription URL",
+      "invalidUrl": "Invalid URL format",
+      "parse": "Failed to parse subscription content"
+    },
+    "clashProviders": "It also defines {{count}} proxy provider(s); those nodes are fetched by mihomo at runtime and cannot be listed here."
+  },
+  "remoteFetch": {
+    "viaServer": "Fetch via server",
+    "viaServerHint": "Use this when the provider blocks browser requests. The server fetches the URL for you.",
+    "signInForServer": "Sign in to fetch through the server.",
+    "error": {
+      "fetchFailed": "Failed to fetch (Status: {{status}})",
+      "unreachable": "Could not reach that server. It may not allow browser requests — try \"Fetch via server\".",
+      "serverUnreachable": "Could not reach the config server",
+      "serverFetch": "The server could not fetch this URL",
+      "signInRequired": "Sign in again to fetch through the server",
+      "unknown": "An unknown error occurred"
+    }
+  },
+  "editor": {
+    "title": "Config Preview",
+    "format": "Output format",
+    "copy": "Copy to Clipboard",
+    "download": "Download Config",
+    "copied": "Copied!",
+    "newConfigName": "Untitled",
+    "notSavedYet": "Not saved to your account",
+    "signInRequired": "This config lives in your account. Sign in from the home page to open it.",
+    "validate": {
+      "button": "Validate",
+      "title": "Run this config through a real mihomo binary on the server",
+      "running": "validating…",
+      "valid": "server check passed · {{s}}s",
+      "validTitle": "config passed mihomo -t on the server",
+      "invalidMore": "{{count}} more",
+      "invalid": "mihomo rejected ({{count}})",
+      "unavailable": "no mihomo on this deployment — local checks only",
+      "error": "validate failed: {{message}}"
+    },
+    "generate": "Generate a secure value",
+    "generateOverwriteTitle": "Replace the current value?",
+    "generateOverwriteBody": "Generating a new value overwrites what is in the field.",
+    "generateKeypair": "Generate keypair",
+    "keypairPublicKey": "Public key — provide it to the peer",
+    "keypairPublicKeyHint": "Copy it now; it is shown only right after generating."
+  },
+  "yamlImport": {
+    "title": "Import YAML Configuration",
+    "description": "Import a Mihomo YAML configuration — upload a file, fetch a link, or paste the text.",
+    "label": "YAML Content",
+    "placeholder": "mode: rule\nmixed-port: 7890\nproxies:\n  - name: My Proxy\n    type: vless\n    ...",
+    "clickToUpload": "Click to upload YAML file",
+    "fromUrl": "Import from link",
+    "urlPlaceholder": "https://example.com/config.yaml",
+    "fetch": "Fetch",
+    "fetching": "Fetching...",
+    "fetched": "Configuration fetched — review it below, then click Import.",
+    "pasteFromClipboard": "Paste from Clipboard",
+    "import": "Import",
+    "processing": "Processing...",
+    "success": "Configuration imported successfully",
+    "replaceTitle": "Replace configuration",
+    "confirmReplace": "Importing will replace your current configuration. Continue?",
+    "error": {
+      "empty": "Please enter YAML content",
+      "emptyUrl": "Please enter a configuration URL",
+      "invalidUrl": "Invalid URL format",
+      "invalidYaml": "Invalid YAML format",
+      "parseFailed": "Failed to parse YAML configuration",
+      "notAConfig": "That link did not return a valid Mihomo YAML configuration. If it is a node subscription, use Import Subscription on the Proxies tab.",
+      "clipboard": "Failed to read from clipboard",
+      "unknown": "An unknown error occurred"
+    }
+  },
+  "geoip": {
+    "none": "(none)",
+    "countries": "Countries / Regions",
+    "networks": "Networks",
+    "unknown": "\"{{code}}\" is not in the bundled GeoIP database"
+  },
+  "geosite": {
+    "none": "No categories selected",
+    "search": "Click to browse categories, or type to search",
+    "category": "category",
+    "loading": "Loading geosite list…",
+    "error": "GeoSite service unreachable ({{message}}).",
+    "errorCached": "Showing the cached list — refresh failed ({{message}}).",
+    "retry": "Retry",
+    "unknown": "\"{{name}}\" is not in the geosite list",
+    "remove": "Remove {{name}}",
+    "more": "{{remaining}} more matches — refine your search",
+    "noMatches": "No category matches \"{{query}}\"",
+    "unavailable": "No categories available — the geosite service could not be reached.",
+    "allSelected": "Every category is already selected"
+  },
+  "validation": {
+    "duplicateName": "Two outbounds are both named \"{{name}}\"",
+    "reservedName": "\"{{name}}\" is one of mihomo's own outbounds — the proxy or group using it needs another name",
+    "emptyGroup": "Proxy group \"{{group}}\" has no members",
+    "groupMember": "Proxy group \"{{group}}\" lists \"{{name}}\", which no longer exists",
+    "rulePolicy": "Rule \"{{rule}}\" targets \"{{policy}}\", which no longer exists",
+    "ruleProvider": "A RULE-SET rule uses \"{{name}}\", which is not a defined rule provider",
+    "providerProxy": "Rule provider \"{{provider}}\" downloads through \"{{name}}\", which no longer exists",
+    "more": "…and {{count}} more",
+    "groupProvider": "Proxy group \"{{group}}\" uses \"{{name}}\", which is not a defined proxy provider",
+    "proxyProviderProxy": "Proxy provider \"{{provider}}\" downloads through \"{{name}}\", which no longer exists"
+  },
+  "server": {
+    "anytls": {
+      "paddingScheme": {
+        "description": "Traffic padding scheme for AnyTLS.",
+        "label": "Padding Scheme"
+      }
+    },
+    "backHome": "Back Home",
+    "bandwidth": {
+      "mbps": {
+        "description": "Bandwidth in Mbps, e.g. 100."
+      }
+    },
+    "category": {
+      "app-proxy": "Application proxy",
+      "encrypted": "Encrypted server",
+      "other": "Other",
+      "quic": "QUIC / UDP server",
+      "transparent": "Transparent / system capture"
+    },
+    "editor": {
+      "fields": "Fields",
+      "raw": "Raw",
+      "rawApply": "Apply",
+      "showAdvanced": "Show advanced",
+      "showBasic": "Hide advanced"
+    },
+    "enc": {
+      "allowInsecure": {
+        "description": "Skip TLS certificate verification.",
+        "label": "Allow Insecure"
+      }
+    },
+    "export": {
+      "blocked": "Fix errors before exporting",
+      "title": "Export YAML"
+    },
+    "field": {
+      "alpn": {
+        "label": "ALPN"
+      },
+      "listen": {
+        "description": "0.0.0.0 listens on all interfaces.",
+        "label": "Listen address"
+      },
+      "name": {
+        "description": "Listener name, used by inbound rules.",
+        "label": "Name",
+        "placeholder": "my-inbound"
+      },
+      "network": {
+        "description": "",
+        "label": "Network",
+        "tcp": "TCP",
+        "udp": "UDP"
+      },
+      "port": {
+        "description": "Supports mihomo ports format.",
+        "label": "Port"
+      },
+      "proxy": {
+        "description": "Send traffic straight to an outbound/group.",
+        "label": "Proxy"
+      },
+      "routingMark": {
+        "description": "Linux only.",
+        "label": "Routing mark"
+      },
+      "rule": {
+        "description": "Route this inbound through a sub-rule.",
+        "label": "Sub-rule"
+      },
+      "target": {
+        "description": "Where tunnelled traffic is sent.",
+        "label": "Target",
+        "placeholder": "target.com:443"
+      },
+      "udp": {
+        "description": "Also listen on UDP.",
+        "label": "UDP"
+      },
+      "user": {
+        "password": {
+          "label": "Password"
+        }
+      },
+      "users": {
+        "appAuthDescription": "Leave empty to use global authentication.",
+        "label": "Users"
+      }
+    },
+    "fields": {
+      "addEntry": "Add entry",
+      "addUser": "Add user",
+      "cryptoNote": "Generated with a cryptographically secure random source.",
+      "generate": "Generate a secure value",
+      "hide": "Hide",
+      "moveDown": "Move down",
+      "moveUp": "Move up",
+      "openDocs": "Open documentation",
+      "portHint": "Examples: 443 · 200,302 · 114-514/810-1919,65530",
+      "portNormalized": "Normalises to {{normalized}}",
+      "show": "Show",
+      "user": {
+        "alterId": "Alter ID",
+        "flow": "Flow",
+        "name": "Name",
+        "password": "Password",
+        "username": "Username",
+        "uuid": "UUID"
+      },
+      "generateKeypair": "Generate REALITY keypair",
+      "generateEntry": "Generate and add an entry",
+      "generateOverwriteTitle": "Replace the current value?",
+      "generateOverwriteBody": "Generating a new value overwrites what is in the field. Clients holding the old value will stop working.",
+      "generateReplace": "Generate & replace",
+      "realityPublicKey": "Public key — hand this to clients",
+      "realityPublicKeyHint": "Clients put this in reality-opts.public-key. It is stored with the config, so share links carry it automatically.",
+      "generatedOffline": "Generated locally — the account service was unreachable, so only the document holds the key pair."
+    },
+    "hy2": {
+      "down": {
+        "label": "Down Bandwidth (Mbps)"
+      },
+      "ignoreClientBw": {
+        "description": "Use server-side bandwidth instead of client-reported values.",
+        "label": "Ignore Client Bandwidth"
+      },
+      "masquerade": {
+        "description": "Non-proxy traffic is proxied to this URL.",
+        "label": "Masquerade URL",
+        "placeholder": "https://example.com"
+      },
+      "obfs": {
+        "description": "Salamander obfuscation; must match the client.",
+        "label": "Obfuscation",
+        "off": "Off"
+      },
+      "obfsPassword": {
+        "label": "Obfuscation Password"
+      },
+      "up": {
+        "label": "Up Bandwidth (Mbps)"
+      },
+      "usersNote": {
+        "description": "Users are defined in the user list below."
+      }
+    },
+    "import": {
+      "extensionsPreserved": "Unknown fields on listener “{{name}}” were preserved: {{keys}}.",
+      "listenerSkipped": "Listener #{{index}} was skipped — its type is not supported by the editor.",
+      "listenersNotList": "“listeners” must be a list.",
+      "noListeners": "No “listeners” section found.",
+      "notMapping": "The document must be a YAML mapping (key: value).",
+      "topLevelIgnored": "Top-level sections kept out of the editor: {{keys}}.",
+      "yamlInvalid": "Invalid YAML: {{message}}",
+      "outboundSkipped": "Proxies entry #{{index}} was not a mapping and was skipped.",
+      "outboundIgnored": "Outbound \"{{name}}\" has type {{type}}, which this editor does not model; it was skipped."
+    },
+    "jls": {
+      "dest": {
+        "description": "Handshake destination used for disguise.",
+        "label": "Destination",
+        "placeholder": "example.com:443"
+      },
+      "enable": {
+        "label": "Enable JLS"
+      },
+      "rateLimit": {
+        "label": "Rate Limit (kb/s)"
+      },
+      "sni": {
+        "description": "Server name presented during the handshake.",
+        "label": "SNI"
+      },
+      "users": {
+        "label": "Users"
+      }
+    },
+    "kcp": {
+      "congestion": {
+        "label": "Congestion Control"
+      },
+      "downlink": {
+        "label": "Downlink Capacity"
+      },
+      "header": {
+        "label": "Disguise Header",
+        "none": "None"
+      },
+      "mtu": {
+        "label": "MTU"
+      },
+      "readBuffer": {
+        "label": "Read Buffer"
+      },
+      "seed": {
+        "description": "Shared secret that encrypts the KCP session.",
+        "label": "Seed"
+      },
+      "tti": {
+        "label": "TTI"
+      },
+      "uplink": {
+        "label": "Uplink Capacity"
+      },
+      "writeBuffer": {
+        "label": "Write Buffer"
+      }
+    },
+    "kcptun": {
+      "enable": {
+        "label": "Enable KCPTun"
+      }
+    },
+    "list": {
+      "add": "Add listener",
+      "deleteMessage": "Delete \"{{name}}\"? This cannot be undone.",
+      "deleteTitle": "Delete listener",
+      "dragHandle": "Drag to reorder",
+      "duplicate": "Duplicate",
+      "empty": "No listeners yet — add one to get started.",
+      "errorBadge": "{{count}} error(s)",
+      "toggleEnabled": "Enable or disable",
+      "share": "Share link"
+    },
+    "mekya": {
+      "maxSimultaneous": {
+        "label": "Max Simultaneous Writes"
+      },
+      "maxWriteDurationMs": {
+        "label": "Max Write Duration (ms)"
+      },
+      "maxWriteSize": {
+        "label": "Max Write Size"
+      },
+      "packetWritingBuffer": {
+        "label": "Packet Writing Buffer"
+      }
+    },
+    "mieru": {
+      "trafficPattern": {
+        "description": "Shape of the disguised traffic.",
+        "label": "Traffic Pattern"
+      },
+      "transport": {
+        "label": "Transport"
+      },
+      "userHint": {
+        "description": "Clients must include the username hint.",
+        "label": "Require User Hint"
+      }
+    },
+    "mux": {
+      "bandwidth": {
+        "description": "Brutal bandwidth in Mbps."
+      },
+      "brutal": {
+        "label": "Brutal"
+      },
+      "down": {
+        "label": "Down Bandwidth (Mbps)"
+      },
+      "padding": {
+        "label": "Padding"
+      },
+      "up": {
+        "label": "Up Bandwidth (Mbps)"
+      }
+    },
+    "overview": {
+      "listeners": "Listeners (enabled)",
+      "publicBind": "Public bind",
+      "tls": "With TLS",
+      "udp": "UDP-capable",
+      "validation": "Validation",
+      "servers": "Server",
+      "serversTip": "The IP or domain of the machine that will run this config — every listener gets one share link per address.",
+      "serversPlaceholder": "vpn.example.com or 203.0.113.7",
+      "serversInvalid": "Not a valid domain or IP address: \"{{value}}\""
+    },
+    "picker": {
+      "search": "Search protocols…",
+      "title": "Add listener",
+      "noMatch": "No protocols match your search."
+    },
+    "preview": {
+      "error": "Preview unavailable",
+      "title": "Config Preview"
+    },
+    "problem": {
+      "aboveMax": "Maximum is {{max}}.",
+      "belowMin": "Minimum is {{min}}.",
+      "bindConflict": "“{{nameA}}” and “{{nameB}}” bind overlapping address/port/proto.",
+      "brutalBandwidthRequired": "brutal up/down must be positive when enabled.",
+      "certPairMismatch": "certificate and private-key must be set together.",
+      "clientAuthCertRequired": "client-auth-cert is required for {{clientAuthType}}.",
+      "conflictingFields": "“{{fieldA}}” conflicts with “{{fieldB}}”.",
+      "duplicateName": "Duplicate listener name \"{{name}}\".",
+      "fieldRequired": "This field is required.",
+      "fieldRequiredConditionally": "Required by the current settings.",
+      "globalAuthFallback": "Uses the global authentication settings (users left empty).",
+      "handshakeDestRequired": "handshake dest is required.",
+      "hy2CertRequired": "Hysteria2 requires certificate and private-key.",
+      "insecureLayerRequired": "{{protocol}}: enable allow-insecure or provide a security layer (certs / Reality / ShadowTLS…).",
+      "jlsDestRequired": "jls-config dest is required.",
+      "jlsUsersRequired": "jls-config requires users.",
+      "listenInvalid": [
+        "\"{{value}}\" is not a valid listen address."
+      ],
+      "masqueradeInvalid": "masquerade must be file:///… or an http(s) URL.",
+      "mieruPatternNotBase64": "traffic-pattern should be base64.",
+      "nameRequired": "Listener name is required.",
+      "networkInvalid": "network may only contain tcp/udp.",
+      "networkRequired": "Pick at least one of tcp/udp.",
+      "notANumber": "Enter a number.",
+      "notStringList": "Expected a list of strings.",
+      "patternMismatch": "Does not match the required format.",
+      "pemInvalid": "Not a valid PEM block.",
+      "plaintextPublicBind": "Bound publicly without TLS — protect it at the front proxy.",
+      "plaintextPublicNoAuth": "Bound publicly without TLS or authentication — do not expose this directly.",
+      "portBounds": [
+        "Ports must be 1–65535{{#token}} (“{{token}}”){{/token}}."
+      ],
+      "portRequired": "Port is required.",
+      "portSyntax": [
+        "Invalid port expression{{#token}} in “{{token}}{{/token}}.”"
+      ],
+      "realityDestRequired": "Reality dest is required.",
+      "realityKeyRequired": "Reality private-key is required.",
+      "realityXorCertificate": "reality cannot be combined with certificate/private-key.",
+      "realmPatternInvalid": "realm-name-pattern is not a valid regex.",
+      "realmServerUrlInvalid": "realm-opts.server-url must be http(s).",
+      "reservedName": "\"{{name}}\" is reserved by mihomo.",
+      "restlsDestRequired": "res-tls dest is required.",
+      "restlsPasswordRequired": "res-tls password is required.",
+      "routingMarkBounds": "routing-mark out of range.",
+      "shortIdInvalid": "\"{{value}}\" must be hex and ≤16 chars.",
+      "ss2022PasswordLength": "SS2022 password must be base64 of {{expectedBytes}} bytes.",
+      "ssNoneCipher": "cipher \"none\" provides no encryption.",
+      "ssUnknownCipher": "Unknown cipher \"{{cipher}}\" (kept as-is).",
+      "stlsPasswordRequired": "shadow-tls v2 requires a password.",
+      "stlsUsersRequired": "shadow-tls v3 requires users.",
+      "sudokuAeadNone": "aead none disables AEAD protection.",
+      "sudokuFallbackInvalid": "fallback must be host:port.",
+      "sudokuPaddingRange": "padding-min cannot exceed padding-max.",
+      "sudokuSinglePort": "Sudoku supports a single port only.",
+      "sudokuTableInvalid": "\"{{value}}\" is not a valid table layout.",
+      "targetRequired": "tunnel target is required.",
+      "trusttunnelCertRequired": "TrustTunnel requires certificate and private-key.",
+      "tunAdvanced": "Listener TUN is for advanced setups — prefer top-level TUN.",
+      "unknownOption": "\"{{value}}\" is not a known option (kept as-is).",
+      "xhttpSessionLengthZero": "session-length start cannot be 0 when session-table is set.",
+      "server.problem.tunDnsHijackInvalid": "Invalid dns-hijack entry \"{{value}}\" — expected [tcp://|udp://]host:port or a bare address",
+      "server.problem.tunAutoRedirectNeedsAutoRoute": "auto-redirect requires auto-route to be enabled",
+      "server.problem.tunStrictRouteNeedsAutoRoute": "strict-route only applies when auto-route is enabled",
+      "server.problem.tunFilterNeedsAutoRoute": "This filter is applied by auto-route; enable auto-route or remove it",
+      "server.problem.tunInterfaceConflict": "include-interface and exclude-interface are mutually exclusive",
+      "outboundNameRequired": "An outbound is missing its name.",
+      "outboundReservedName": "\"{{name}}\" is a reserved policy name and cannot be redefined.",
+      "outboundDuplicateName": "Duplicate outbound name \"{{name}}\".",
+      "outboundServerRequired": "Outbound \"{{name}}\" is missing its server address.",
+      "outboundPortInvalid": "Outbound \"{{name}}\" has an invalid port.",
+      "ruleTargetRequired": "A rule is missing its target.",
+      "ruleTargetUnknown": "Rule target \"{{target}}\" matches no built-in policy or custom outbound.",
+      "rulePayloadRequired": "{{type}} rule is missing its payload.",
+      "listenerProxyUnknown": "Listener proxy \"{{proxy}}\" resolves to nothing."
+    },
+    "proto": {
+      "anytls": {
+        "description": "AnyTLS server",
+        "label": "AnyTLS"
+      },
+      "http": {
+        "description": "Plain HTTP proxy inbound",
+        "label": "HTTP"
+      },
+      "hysteria2": {
+        "description": "Hysteria2 QUIC server",
+        "label": "Hysteria2"
+      },
+      "hysteria2realm": {
+        "description": "Hysteria2 with realm-based multi-user support.",
+        "label": "Hysteria2 Realm"
+      },
+      "mieru": {
+        "description": "Mieru server",
+        "label": "Mieru"
+      },
+      "mixed": {
+        "description": "HTTP + SOCKS5 on one port",
+        "label": "Mixed"
+      },
+      "redir": {
+        "description": "iptables REDIRECT transparent proxy",
+        "label": "Redirect"
+      },
+      "shadowquic": {
+        "description": "ShadowQUIC server",
+        "label": "ShadowQUIC"
+      },
+      "shadowsocks": {
+        "description": "AEAD / SS2022 server",
+        "label": "Shadowsocks"
+      },
+      "snell": {
+        "description": "Snell server",
+        "label": "Snell"
+      },
+      "socks": {
+        "description": "SOCKS5 proxy inbound",
+        "label": "SOCKS"
+      },
+      "sudoku": {
+        "description": "Sudoku server",
+        "label": "Sudoku"
+      },
+      "tproxy": {
+        "description": "iptables TPROXY transparent proxy",
+        "label": "TProxy"
+      },
+      "trojan": {
+        "description": "Trojan server",
+        "label": "Trojan"
+      },
+      "trusttunnel": {
+        "description": "TrustTunnel HTTP/2·3 server",
+        "label": "TrustTunnel"
+      },
+      "tuicv4": {
+        "description": "TUIC v4 (token auth)",
+        "label": "TUIC v4"
+      },
+      "tuicv5": {
+        "description": "TUIC v5 (UUID:password users)",
+        "label": "TUIC v5"
+      },
+      "tun": {
+        "description": "Advanced: virtual NIC capture (prefer top-level TUN)",
+        "label": "TUN"
+      },
+      "tunnel": {
+        "description": "Forward a fixed port to one target",
+        "label": "Tunnel"
+      },
+      "vless": {
+        "description": "XTLS VLESS server",
+        "label": "VLESS"
+      },
+      "vmess": {
+        "description": "V2Ray VMess server",
+        "label": "VMess"
+      }
+    },
+    "quic": {
+      "bbrProfile": {
+        "default": "Default",
+        "label": "BBR Profile"
+      },
+      "cc": {
+        "label": "Congestion Controller"
+      }
+    },
+    "rateLimit": {
+      "description": "Maximum speed in kb/s."
+    },
+    "rateLimitShort": {
+      "label": "Rate Limit"
+    },
+    "reality": {
+      "afterBytes": {
+        "label": "Bytes Before Throttle"
+      },
+      "burst": {
+        "label": "Burst Speed (bytes/s)"
+      },
+      "dest": {
+        "description": "Site TLS handshakes are forwarded to.",
+        "label": "Destination",
+        "placeholder": "example.com:443"
+      },
+      "downloadRate": {
+        "label": "Download Rate (bytes/s)"
+      },
+      "limit": {
+        "description": "Speed limit in bytes per second."
+      },
+      "maxTimeDiff": {
+        "label": "Max Time Difference (ms)"
+      },
+      "privateKey": {
+        "description": "x25519 private key generated by mihomo.",
+        "label": "Private Key"
+      },
+      "serverNames": {
+        "label": "Server Names"
+      },
+      "shortIds": {
+        "description": "Client short IDs; leave empty to allow any.",
+        "label": "Short ID List"
+      },
+      "uploadRate": {
+        "label": "Upload Rate (bytes/s)"
+      }
+    },
+    "realm": {
+      "alpn": {
+        "description": "ALPN advertised to clients."
+      },
+      "bearerToken": {
+        "description": "Bearer token presented by trusted upstreams.",
+        "label": "Bearer Token"
+      },
+      "enable": {
+        "label": "Enable Realms"
+      },
+      "maxRealms": {
+        "label": "Max Realms"
+      },
+      "maxRealmsPerIp": {
+        "label": "Max Realms per IP"
+      },
+      "namePattern": {
+        "description": "Template used to build realm names.",
+        "label": "Name Pattern"
+      },
+      "realmId": {
+        "label": "Realm ID"
+      },
+      "serverUrl": {
+        "label": "Server URL",
+        "placeholder": "https://api.example.com"
+      },
+      "stunServers": {
+        "label": "STUN Servers"
+      },
+      "token": {
+        "label": "Realm Token"
+      },
+      "trustedProxyHeader": {
+        "label": "Trusted Proxy Header",
+        "placeholder": "X-Real-IP"
+      }
+    },
+    "restls": {
+      "dest": {
+        "label": "Destination"
+      },
+      "enable": {
+        "label": "Enable Restls"
+      },
+      "minRecordLen": {
+        "label": "Min Record Length"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "rateLimit": {
+        "label": "Rate Limit (kb/s)"
+      },
+      "script": {
+        "label": "Restls Script"
+      }
+    },
+    "section": {
+      "auth": "Authentication",
+      "common": "General",
+      "protocol": "Protocol",
+      "security": "Extra security layers",
+      "tls": "TLS / Security",
+      "transport": "Transport"
+    },
+    "share": {
+      "badge": {
+        "supported": "Yes",
+        "unsupported": "No"
+      },
+      "badgeLabel": "Share",
+      "missingHost": "Fill in the advertised host to generate a share.",
+      "realityPublicKeyManual": "REALITY public-key must be added manually (the server only holds the private key).",
+      "echConfigManual": "The ECH config half must be added manually (ech-opts.config) — the server only stores the full key pair.",
+      "restlsVersionHint": "restls-opts may need version-hint (tls12/tls13), which the listener model does not carry.",
+      "sudokuKeyNote": "If the server holds one half of an ED25519 key pair as its key, the client needs the other half — only a uuid key can be copied as-is.",
+      "ssContainsCredentials": "The share contains credentials — share carefully.",
+      "unsupported": "This protocol has no client proxy equivalent.",
+      "unsupportedPrefix": "Share not available:",
+      "unsupportedMekya": "VMess over Mekya cannot be expressed as a client proxy — the client dials it by URL, which the inbound does not define.",
+      "anytlsRealityUnsupported": "AnyTLS does not support REALITY — no client proxy exists for this combination.",
+      "copyFailed": "Copy failed — the clipboard refused access.",
+      "perServerHint": "One proxies: fragment per Server address — and per user on multi-user protocols. Paste it into a client config's proxies list. Each tip names the address and identity it carries.",
+      "noServers": "No Server addresses yet — add them on the Overview tab first.",
+      "needsServer": "Set at least one Server address on the Overview tab to share",
+      "hasErrors": "Fix this listener’s validation errors before sharing",
+      "linkTip": "Server: {{server}}",
+      "linkTipUser": "Server: {{server}} · User: {{user}}"
+    },
+    "snell": {
+      "obfsHost": {
+        "label": "Obfuscation Host"
+      },
+      "obfsMode": {
+        "label": "Obfuscation Mode",
+        "off": "Off"
+      },
+      "psk": {
+        "label": "PSK"
+      },
+      "version": {
+        "label": "Version"
+      }
+    },
+    "sobfs": {
+      "enable": {
+        "label": "Enable Simple Obfs"
+      },
+      "host": {
+        "label": "Obfuscation Host"
+      },
+      "mode": {
+        "label": "Obfuscation Mode"
+      }
+    },
+    "sq": {
+      "cwnd": {
+        "label": "Initial Congestion Window"
+      },
+      "disableMtuDiscovery": {
+        "label": "Disable MTU Discovery"
+      },
+      "jlsAddr": {
+        "description": "JLS endpoint wrapped around this listener.",
+        "label": "JLS Address",
+        "placeholder": "example.com:443"
+      },
+      "jlsSni": {
+        "description": "Server name used by the JLS wrapper.",
+        "label": "JLS SNI"
+      },
+      "maxDatagramFrame": {
+        "label": "Max Datagram Frame Size"
+      },
+      "recvWindow": {
+        "label": "Receive Window"
+      },
+      "recvWindowConn": {
+        "label": "Receive Window per Connection"
+      },
+      "versions": {
+        "label": "Versions"
+      },
+      "zeroRtt": {
+        "label": "Zero RTT"
+      }
+    },
+    "ss": {
+      "cipher": {
+        "label": "Cipher",
+        "none": "None"
+      },
+      "password": {
+        "description": "Shared secret between server and clients.",
+        "label": "Password"
+      }
+    },
+    "stls": {
+      "enable": {
+        "label": "Enable Shadow TLS"
+      },
+      "handshakeDest": {
+        "description": "Server used for the disguised handshake.",
+        "label": "Handshake Destination",
+        "placeholder": "example.com:443"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "users": {
+        "label": "Users"
+      },
+      "version": {
+        "label": "Version",
+        "v1": "V1",
+        "v2": "V2",
+        "v3": "V3"
+      }
+    },
+    "sudoku": {
+      "aead": {
+        "label": "AEAD",
+        "none": "None"
+      },
+      "customTable": {
+        "description": "Custom mapping table when the type is custom.",
+        "label": "Custom Table"
+      },
+      "customTables": {
+        "label": "Custom Table List"
+      },
+      "fallback": {
+        "description": "Where unmatched traffic is sent.",
+        "label": "Fallback Target",
+        "placeholder": "127.0.0.1:80"
+      },
+      "handshakeTimeout": {
+        "label": "Handshake Timeout"
+      },
+      "httpmaskDisable": {
+        "label": "Disable HTTP Mask"
+      },
+      "httpmaskMode": {
+        "label": "HTTP Mask Mode"
+      },
+      "key": {
+        "description": "Shared secret used by the Sudoku protocol.",
+        "label": "Key"
+      },
+      "paddingMax": {
+        "label": "Max Padding"
+      },
+      "paddingMin": {
+        "label": "Min Padding"
+      },
+      "pathRoot": {
+        "label": "Path Root"
+      },
+      "pureDownlink": {
+        "label": "Pure Downlink"
+      },
+      "tableType": {
+        "label": "Table Type"
+      }
+    },
+    "tab": {
+      "dns": "DNS",
+      "listeners": "Listeners",
+      "overview": "Overview",
+      "validation": "Validation",
+      "outbound": "Outbound",
+      "rules": "Rules",
+      "general": "General"
+    },
+    "title": "Server Config Editor",
+    "tls": {
+      "caPath": {
+        "placeholder": "/path/to/ca.pem"
+      },
+      "certPath": {
+        "placeholder": "/path/to/fullchain.pem"
+      },
+      "certPem": {
+        "placeholder": "-----BEGIN CERTIFICATE-----"
+      },
+      "certSource": {
+        "label": "Certificate Source",
+        "path": "File Path",
+        "pem": "PEM"
+      },
+      "certificate": {
+        "label": "Certificate"
+      },
+      "clientAuthCert": {
+        "label": "Client CA Certificate"
+      },
+      "clientAuthType": {
+        "description": "Require and verify client certificates.",
+        "label": "Client Authentication",
+        "off": "Off",
+        "request": "Request",
+        "requireAndVerify": "Require And Verify",
+        "requireAny": "Require Any",
+        "verifyIfGiven": "Verify If Given"
+      },
+      "echKey": {
+        "description": "ECH configuration published to clients.",
+        "label": "ECH Key"
+      },
+      "keyPath": {
+        "placeholder": "/path/to/privkey.pem"
+      },
+      "keyPem": {
+        "placeholder": "-----BEGIN PRIVATE KEY-----"
+      },
+      "keySource": {
+        "label": "Private Key Source"
+      },
+      "mode": {
+        "description": "Security layer applied to this inbound.",
+        "label": "TLS Mode",
+        "none": "None",
+        "reality": "Reality",
+        "tls": "TLS",
+        "tlsmirror": "Tlsmirror"
+      },
+      "privateKey": {
+        "label": "Private Key"
+      }
+    },
+    "tlsmirror": {
+      "dest": {
+        "label": "Mirror Destination"
+      },
+      "primaryKey": {
+        "description": "Private key of the mirrored certificate.",
+        "label": "Primary Private Key"
+      },
+      "watermark": {
+        "label": "Sequence Watermarking"
+      }
+    },
+    "transport": {
+      "grpc": "gRPC",
+      "grpcServiceName": {
+        "label": "gRPC Service Name",
+        "placeholder": "my-service"
+      },
+      "kind": {
+        "description": "Transport layered on top of the protocol.",
+        "label": "Transport"
+      },
+      "mekya": "MEKYA",
+      "mkcp": "mKCP",
+      "tcp": "TCP",
+      "ws": "WebSocket",
+      "wsPath": {
+        "label": "WS Path",
+        "placeholder": "/ws"
+      },
+      "xhttp": "XHTTP"
+    },
+    "trojan": {
+      "ssMethod": {
+        "label": "Cipher"
+      },
+      "ssOption": {
+        "description": "Let Trojan carry a Shadowsocks cipher layer.",
+        "label": "Shadowsocks Passthrough"
+      }
+    },
+    "trusttunnel": {
+      "network": {
+        "description": "Network type for the tunnel."
+      }
+    },
+    "tuic": {
+      "authTimeout": {
+        "label": "Auth Timeout (s)"
+      },
+      "maxIdleTime": {
+        "label": "Max Idle Time (s)"
+      },
+      "maxUdpPacket": {
+        "label": "Max UDP Packet Size"
+      },
+      "tokenList": {
+        "description": "Legacy v4 tokens for older clients.",
+        "label": "Token List"
+      },
+      "usersMap": {
+        "label": "Users"
+      }
+    },
+    "tun": {
+      "autoDetectInterface": {
+        "label": "Auto Detect Interface"
+      },
+      "autoRoute": {
+        "label": "Auto Route"
+      },
+      "dnsHijack": {
+        "label": "DNS Hijack"
+      },
+      "einat": {
+        "label": "Endpoint-Independent NAT"
+      },
+      "excludeMac": {
+        "label": "Exclude MAC"
+      },
+      "excludePackage": {
+        "label": "Exclude Package"
+      },
+      "excludeUid": {
+        "label": "Exclude UID"
+      },
+      "excludeUidRange": {
+        "label": "Exclude UID Range"
+      },
+      "includeAndroidUser": {
+        "label": "Include Android User"
+      },
+      "includeMac": {
+        "label": "Include MAC"
+      },
+      "includePackage": {
+        "label": "Include Package"
+      },
+      "includeUid": {
+        "label": "Include UID"
+      },
+      "includeUidRange": {
+        "label": "Include UID Range"
+      },
+      "inet4Address": {
+        "label": "IPv4 Address"
+      },
+      "inet4RouteAddress": {
+        "label": "IPv4 Route Address"
+      },
+      "inet6Address": {
+        "label": "IPv6 Address"
+      },
+      "inet6RouteAddress": {
+        "label": "IPv6 Route Address"
+      },
+      "mtu": {
+        "label": "MTU"
+      },
+      "stack": {
+        "label": "Stack"
+      },
+      "strictRoute": {
+        "label": "Strict Route"
+      }
+    },
+    "validation": {
+      "allClear": "No problems found.",
+      "error": "Errors",
+      "info": "Info",
+      "pemInvalid": "PEM Invalid",
+      "portInvalid": "Port Invalid",
+      "warning": "Warnings"
+    },
+    "vless": {
+      "decryption": {
+        "description": "Must be none except for special setups.",
+        "label": "Decryption"
+      }
+    },
+    "xhttp": {
+      "data": {
+        "body": "Body",
+        "cookie": "Cookie",
+        "header": "Header"
+      },
+      "host": {
+        "label": "Host"
+      },
+      "mode": {
+        "default": "Default",
+        "label": "Mode",
+        "packetUp": "Packet Up",
+        "streamOne": "Stream One",
+        "streamUp": "Stream Up"
+      },
+      "noSseHeader": {
+        "label": "Omit SSE Header"
+      },
+      "paddingMethod": {
+        "repeatX": "Repeat X",
+        "tokenish": "Tokenish"
+      },
+      "path": {
+        "label": "Path",
+        "placeholder": "/xhttp"
+      },
+      "placement": {
+        "cookie": "Cookie",
+        "header": "Header",
+        "query": "Query",
+        "queryInHeader": "Query In Header"
+      },
+      "range20to80": {
+        "placeholder": "50-70"
+      },
+      "scMaxBufferedPosts": {
+        "label": "Max Buffered POSTs"
+      },
+      "scMaxEachPostBytes": {
+        "label": "Max Each POST Bytes"
+      },
+      "scStreamUpServerSecs": {
+        "label": "Stream Upload Window (s)"
+      },
+      "seqKey": {
+        "label": "Sequence Key"
+      },
+      "seqPlacement": {
+        "label": "Sequence Placement"
+      },
+      "session": {
+        "cookie": "Cookie",
+        "header": "Header",
+        "path": "Path",
+        "query": "Query"
+      },
+      "sessionKey": {
+        "label": "Session Key"
+      },
+      "sessionLength": {
+        "description": "Characters carried by each session identifier.",
+        "label": "Session Length",
+        "placeholder": "20-40"
+      },
+      "sessionPlacement": {
+        "label": "Session Placement"
+      },
+      "sessionTable": {
+        "label": "Session Table"
+      },
+      "table": {
+        "off": "Off",
+        "uuid": "Uuid"
+      },
+      "uplinkChunkSize": {
+        "label": "Uplink Chunk Size"
+      },
+      "uplinkDataKey": {
+        "label": "Uplink Data Key"
+      },
+      "uplinkDataPlacement": {
+        "label": "Uplink Data Placement"
+      },
+      "uplinkHttpMethod": {
+        "label": "Uplink HTTP Method"
+      },
+      "xPaddingBytes": {
+        "label": "Padding Bytes",
+        "placeholder": "100-500"
+      },
+      "xPaddingHeader": {
+        "label": "Padding Header"
+      },
+      "xPaddingKey": {
+        "label": "Padding Key"
+      },
+      "xPaddingMethod": {
+        "label": "Padding Method"
+      },
+      "xPaddingObfsMode": {
+        "label": "Padding Obfuscation"
+      },
+      "xPaddingPlacement": {
+        "label": "Padding Placement"
+      }
+    },
+    "outbound": {
+      "builtInTitle": "Built-in policies",
+      "builtInNote": "These policies resolve in every mihomo config without being defined. Rules and listener proxy fields can target them directly.",
+      "listTitle": "Custom outbounds",
+      "pickKind": "direct",
+      "pickHint": "choose a kind and press to add",
+      "empty": "No custom outbounds. Rules can still target the built-in policies above.",
+      "name": "Name",
+      "namePlaceholder": "upstream-out",
+      "server": "Server",
+      "port": "Port",
+      "username": "Username",
+      "password": "Password",
+      "deleteTitle": "Delete outbound",
+      "deleteConfirm": "Delete outbound \"{{name}}\"? Rules that target it will fail validation."
+    },
+    "rule": {
+      "title": "Routing rules",
+      "add": "Add rule",
+      "type": "Type",
+      "payload": "Payload",
+      "payloadPlaceholder": "example.com",
+      "target": "Target",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "empty": "No rules. Traffic follows each listener's own routing.",
+      "deleteTitle": "Delete rule",
+      "description": "Traffic is matched top to bottom — the first hit wins. MATCH catches everything left, so keep it last.",
+      "edit": "Edit rule",
+      "noPayload": "No payload",
+      "matchHint": "Matches anything not matched above, so no rule can follow it",
+      "danglingTarget": "Target \"{{name}}\" is not a built-in policy and is not defined on the Outbound tab.",
+      "validation": {
+        "payloadRequired": "This rule type needs a payload.",
+        "targetRequired": "Pick a target policy."
+      }
+    },
+    "cloud": {
+      "saveTitle": "Save server config to cloud",
+      "signInRequired": "Sign in to open this saved server config.",
+      "error": {
+        "open": "Could not load that server config.",
+        "save": "Could not save the server config.",
+        "delete": "Could not delete the server config.",
+        "invalid": "This config has validation errors. Fix them before saving.",
+        "list": "Could not load your server configs."
+      }
+    },
+    "newConfigName": "Untitled"
+  },
+  "ntp": {
+    "title": "NTP",
+    "enable": {
+      "label": "Enable NTP",
+      "description": "Sync time with an NTP server (helps protocols that check clocks)"
+    },
+    "server": {
+      "label": "Server",
+      "description": "NTP service address"
+    },
+    "port": {
+      "label": "Port",
+      "description": "NTP service port"
+    },
+    "interval": {
+      "label": "Interval (min)",
+      "description": "Minutes between syncs"
+    },
+    "writeToSystem": {
+      "label": "Write to system",
+      "description": "Requires root/administrator privileges"
+    },
+    "dialerProxy": {
+      "description": "Force NTP traffic through this proxy instead of direct dial"
+    }
+  },
+  "profile": {
+    "title": "Profile cache",
+    "storeSelected": {
+      "label": "Store group selections",
+      "description": "Persist manual selections across restarts"
+    },
+    "storeFakeIp": {
+      "label": "Store fake-ip mappings",
+      "description": "Reuse fake-ip assignments across restarts"
+    }
+  },
+  "experimental": {
+    "title": "Experimental",
+    "gso": {
+      "label": "Disable quic-go GSO",
+      "description": "Workaround for Linux GSO issues; costs performance"
+    },
+    "ecn": {
+      "label": "Disable quic-go ECN",
+      "description": "Explicit congestion notification off"
+    },
+    "ip4p": {
+      "label": "dialer IP4P convert",
+      "description": "Convert IP4P addresses when dialling (natmap)"
+    }
+  },
+  "geodata": {
+    "title": "GEO data",
+    "mode": {
+      "label": "Use dat format (geodata-mode)",
+      "description": "true uses geoip.dat; false uses mmdb"
+    },
+    "loader": {
+      "label": "Loader",
+      "description": "memconservative suits small-memory devices"
+    },
+    "matcher": {
+      "label": "Geosite matcher",
+      "description": "succinct (default) or mph"
+    },
+    "autoUpdate": {
+      "label": "Auto update GEO",
+      "description": "Refresh geodata periodically"
+    },
+    "updateInterval": {
+      "label": "Update interval (h)",
+      "description": "Hours between updates"
+    },
+    "geoipUrl": {
+      "label": "geoip URL",
+      "description": "Custom geoip.dat source"
+    },
+    "geositeUrl": {
+      "label": "geosite URL",
+      "description": "Custom geosite.dat source"
+    },
+    "mmdbUrl": {
+      "label": "mmdb URL",
+      "description": "Custom country.mmdb source"
+    },
+    "asnUrl": {
+      "label": "ASN URL",
+      "description": "Custom GeoLite2-ASN.mmdb source"
+    }
+  },
+  "accessControl": {
+    "title": "Access control",
+    "authentication": {
+      "label": "Authentication (user:pass)",
+      "description": "One user:pass per line for http/socks/mixed inbounds"
+    },
+    "skipAuthPrefixes": {
+      "label": "Skip-auth prefixes",
+      "description": "One CIDR per line; these sources skip authentication"
+    },
+    "lanAllowedIps": {
+      "label": "LAN allowed IPs",
+      "description": "Whitelist effective while allow-lan is on"
+    },
+    "lanDisallowedIps": {
+      "label": "LAN disallowed IPs",
+      "description": "Blacklist outranks the whitelist"
+    }
+  },
+  "hosts": {
+    "title": "Hosts",
+    "lines": {
+      "label": "Mappings",
+      "description": "name: ip[,ip] per line; values may be `lan` or another hostname as alias. Imported keys are kept verbatim."
+    }
+  },
+  "tun": {
+    "device": {
+      "label": "Device name",
+      "description": "macOS must start with utun"
+    },
+    "autoRedirect": {
+      "label": "Auto redirect",
+      "description": "Linux only; iptables/nftables TCP redirect with auto-route"
+    },
+    "strictRoute": {
+      "label": "Strict route",
+      "description": "Anti-leak strict routing; may break some apps"
+    },
+    "mtu": {
+      "label": "MTU",
+      "description": "Maximum transmission unit"
+    },
+    "gso": {
+      "label": "GSO",
+      "description": "Generic segmentation offload, Linux only"
+    },
+    "gsoMaxSize": {
+      "label": "GSO max size",
+      "description": "Max GSO packet size"
+    },
+    "inet6Address": {
+      "label": "inet6 address",
+      "description": "TUN IPv6 address; needs top-level ipv6 on"
+    },
+    "udpTimeout": {
+      "label": "UDP timeout (s)",
+      "description": "UDP NAT expiry, default 300"
+    },
+    "tableIndex": {
+      "label": "iproute2 table index",
+      "description": "Default 2022"
+    },
+    "ruleIndex": {
+      "label": "iproute2 rule index",
+      "description": "Default 9000"
+    },
+    "einat": {
+      "label": "Endpoint-independent NAT",
+      "description": "Slight performance cost when enabled"
+    },
+    "routeAddressSet": {
+      "label": "Route address sets",
+      "description": "Rule-sets whose CIDRs go to firewall; Linux+nftables+auto-redirect"
+    },
+    "routeExcludeAddressSet": {
+      "label": "Exclude address sets",
+      "description": "Matching traffic bypasses routing"
+    },
+    "routeAddress": {
+      "label": "Custom route addresses",
+      "description": "One CIDR per line; replaces default route"
+    },
+    "routeExcludeAddress": {
+      "label": "Excluded addresses",
+      "description": "One CIDR per line"
+    },
+    "includeInterface": {
+      "label": "Include interfaces",
+      "description": "Conflicts with exclude-interface"
+    },
+    "excludeInterface": {
+      "label": "Exclude interfaces",
+      "description": "Conflicts with include-interface"
+    },
+    "includeUid": {
+      "label": "Include UIDs",
+      "description": "Linux only, needs auto-route; one per line"
+    },
+    "excludeUid": {
+      "label": "Exclude UIDs",
+      "description": "One per line"
+    },
+    "uidRange": {
+      "description": "start:end per line, e.g. 1000:9999"
+    },
+    "includeMac": {
+      "label": "Include MAC addresses"
+    },
+    "excludeMac": {
+      "label": "Exclude MAC addresses"
+    },
+    "macList": {
+      "description": "One per line; Linux + auto-route + auto-redirect"
+    },
+    "androidUser": {
+      "description": "Android user ids (0 owner, 10 clone); needs auto-route"
+    },
+    "packageList": {
+      "description": "Android package names, one per line; needs auto-route"
+    },
+    "includeUidRange": {
+      "label": "Include UID ranges"
+    },
+    "excludeUidRange": {
+      "label": "Exclude UID ranges"
+    },
+    "includeAndroidUser": {
+      "label": "Include Android users"
+    },
+    "includePackage": {
+      "label": "Include packages"
+    },
+    "excludePackage": {
+      "label": "Exclude packages"
+    }
+  },
+  "sniffer": {
+    "title": "Domain sniffer",
+    "enable": {
+      "label": "Enable sniffer",
+      "description": "Recover domains from sniffed traffic"
+    },
+    "forceDnsMapping": {
+      "label": "Force sniffing without domain",
+      "description": "Sniff redir-host classified traffic"
+    },
+    "parsePureIp": {
+      "label": "Sniff pure IP traffic",
+      "description": "Force sniffing when no domain was found"
+    },
+    "overrideDestination": {
+      "label": "Override destination",
+      "description": "Use sniffed domain as the real destination (default true upstream)"
+    },
+    "protoHttp": {
+      "label": "Sniff HTTP"
+    },
+    "protoTls": {
+      "label": "Sniff TLS"
+    },
+    "protoQuic": {
+      "label": "Sniff QUIC"
+    },
+    "protoEnabled": {
+      "description": "Enable this protocol entry (defaults: TLS/QUIC 443, HTTP 80)"
+    },
+    "protoPorts": {
+      "label": "Ports",
+      "description": "One port or range per line"
+    },
+    "forceDomain": {
+      "label": "Force domains"
+    },
+    "domainList": {
+      "description": "One wildcard domain per line"
+    },
+    "skipDomain": {
+      "label": "Skip domains"
+    },
+    "addrList": {
+      "description": "One CIDR per line"
+    },
+    "skipSrcAddress": {
+      "label": "Skip source addresses"
+    },
+    "skipDstAddress": {
+      "label": "Skip destination addresses"
+    }
+  }
+}

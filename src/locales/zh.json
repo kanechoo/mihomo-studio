@@ -1,0 +1,3854 @@
+{
+  "app": {
+    "title": "Mihomo Studio",
+    "subtitle": "可视化 Mihomo 配置工作台"
+  },
+  "nav": {
+    "home": "首页"
+  },
+  "home": {
+    "newConfig": "新建客户端配置",
+    "opensInNewTab": "在新标签页中打开",
+    "newServerConfig": "新建服务端配置",
+    "server": {
+      "title": "服务端配置",
+      "intro": "面向中转与网关场景的监听器配置。",
+      "empty": "暂无服务端配置。",
+      "updated": "更新于 {{at}}",
+      "confirmDelete": "删除？",
+      "preview": "预览 YAML",
+      "share": "分享",
+      "copy": "复制 YAML",
+      "copied": "已复制",
+      "copyFailed": "复制失败",
+      "download": "下载"
+    },
+    "switcher": {
+      "label": "选择要浏览的配置库"
+    },
+    "client": {
+      "title": "客户端配置",
+      "intro": "Mihomo 客户端文档 —— 代理节点、策略组与规则。"
+    }
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "copy": "复制",
+    "download": "下载",
+    "import": "导入",
+    "export": "导出",
+    "reset": "重置",
+    "confirm": "确认",
+    "noneSelected": "未选择",
+    "refRules": "{{count}} 条规则",
+    "refProviders": "{{count}} 个规则集",
+    "refSeparator": "、",
+    "stillReferenced": "仍有 {{what}}引用它，删除后这些引用将指向不存在的名称。",
+    "nameMissing": "配置中没有名为「{{name}}」的代理或代理组",
+    "yes": "是",
+    "no": "否",
+    "refProxyProviders": "{{count}} 个代理集合",
+    "replace": "替换"
+  },
+  "auth": {
+    "signIn": {
+      "title": "登录",
+      "intro": "本编辑器无需账号也能使用——配置保存在此浏览器中。登录后会多两项能力：",
+      "benefitSave": "配置保存到服务器，换一台设备也能接着改。",
+      "benefitSubscribe": "生成订阅链接，设备可直接拉取，无需打开本页面。",
+      "privacy": "仅向 GitHub 请求公开的个人资料，不申请仓库权限；登录完成后访问令牌即被丢弃。",
+      "action": "使用 GitHub 登录"
+    },
+    "signingIn": "正在登录…",
+    "restoring": "正在恢复会话…",
+    "signedInAs": "已登录：{{login}}",
+    "signOut": "退出登录",
+    "error": {
+      "notConfigured": "尚未配置 GitHub 登录。请在 .env.local 中把 VITE_GITHUB_CLIENT_ID 设为 OAuth 应用的 Client ID。",
+      "denied": "已取消 GitHub 登录。",
+      "state": "这次登录不是从本标签页发起的，已拒绝。请重新登录。",
+      "exchange": "GitHub 未接受本次登录，请重试。",
+      "tooFast": "登录尝试过于频繁，请稍候再试。",
+      "unreachable": "无法连接服务器，请确认它正在运行。"
+    }
+  },
+  "cloud": {
+    "loading": "加载中…",
+    "unsaved": "有未保存的修改",
+    "save": {
+      "title": "保存到云端",
+      "name": "名称",
+      "namePlaceholder": "home",
+      "nameHint": "同一账号下的配置不能重名。设备下载时也用它作文件名。",
+      "description": "描述",
+      "saving": "保存中…",
+      "saved": "已保存"
+    },
+    "details": {
+      "title": "配置信息",
+      "action": "重命名或修改描述",
+      "hint": "这里会立即生效，下次保存时一并写入你的账户。"
+    },
+    "configs": {
+      "title": "我的配置",
+      "intro": "保存在服务器上的配置。每个配置都会在新标签页中打开。",
+      "empty": "还没有保存过配置。先新建一个配置，再在编辑器中保存。",
+      "refresh": "刷新",
+      "updated": "更新于 {{at}}",
+      "confirmDelete": "确认删除该配置？",
+      "deleteNote": "删除配置的同时，指向它的所有订阅链接都会失效。"
+    },
+    "links": {
+      "title": "订阅链接",
+      "titleFor": "订阅链接 — {{name}}",
+      "intro": "每条链接都是代理客户端直接拉取的地址。拿到链接的人就能读到这份配置，包括其中的代理密码——所以请给每台设备单独一条，泄露了就轮换它。",
+      "notRendered": "这份配置还没有导出过。请先在编辑器里保存一次，否则这些链接没有内容可返回。",
+      "label": "备注",
+      "labelPlaceholder": "手机",
+      "format": "格式",
+      "create": "创建链接",
+      "creating": "创建中…",
+      "empty": "还没有链接。",
+      "unlabelled": "未命名",
+      "revoked": "已吊销",
+      "rotate": "轮换令牌",
+      "revoke": "吊销",
+      "confirmRotate": "旧地址将立即失效。",
+      "confirmRevoke": "该链接将停止工作。",
+      "url": "订阅地址",
+      "created": "创建于 {{at}}",
+      "fetchCount": "已拉取 {{n}} 次",
+      "lastFetch": "最近拉取 {{at}}"
+    },
+    "serverShares": {
+      "title": "服务端配置分享",
+      "titleFor": "分享「{{name}}」",
+      "intro": "每个链接对应一种内容，并且始终反映该服务端配置的最新已保存状态——修改配置后，旧链接返回的就是新配置。",
+      "typeLabel": "分享内容",
+      "typeFull": "服务端完整 YAML",
+      "typeFullHint": "导出此服务端配置的原始 Mihomo 服务端文档（listeners 等）。",
+      "typeClient": "客户端 Proxies YAML",
+      "typeClientHint": "将此配置中全部可转换的监听器转换为客户端 proxies 列表。",
+      "create": "生成分享链接",
+      "creating": "创建中…",
+      "empty": "还没有分享链接。",
+      "notRendered": "这份配置还没有可分享的导出内容。请先在编辑器里保存一次，否则这些链接没有内容可返回。",
+      "revoked": "已吊销",
+      "revoke": "吊销",
+      "confirmRevoke": "该链接将停止工作。",
+      "url": "分享地址"
+    },
+    "error": {
+      "unreachable": "无法连接服务器。",
+      "signedOut": "会话已过期，请重新登录。",
+      "gone": "该配置已不存在。",
+      "server": "服务器处理失败。反馈问题时请附上此请求 ID：",
+      "list": "无法加载配置列表。",
+      "open": "无法打开该配置。",
+      "save": "保存失败。",
+      "delete": "无法删除该配置。",
+      "render": "配置导出失败，因此没有保存。",
+      "noTarget": "当前文档尚未关联到已保存的配置。",
+      "subscriptions": "无法加载该配置的链接。",
+      "bind": "创建链接失败。",
+      "rotate": "轮换令牌失败。",
+      "revoke": "吊销链接失败。",
+      "serverShares": "无法加载该配置的分享链接。",
+      "createServerShare": "创建分享链接失败。",
+      "revokeServerShare": "吊销分享链接失败。",
+      "invalid": "此配置无法保存 —— mihomo 将拒绝启动："
+    }
+  },
+  "theme": {
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "toggle": "切换主题",
+    "system": "跟随系统"
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "label": "语言"
+  },
+  "advanced": {
+    "title": "高级配置"
+  },
+  "general": {
+    "title": "通用配置",
+    "description": "基础监听与运行模式配置",
+    "mode": {
+      "label": "运行模式",
+      "description": "代理工作模式",
+      "rule": "规则模式",
+      "global": "全局模式",
+      "direct": "直连模式"
+    },
+    "mixedPort": {
+      "label": "混合端口",
+      "description": "HTTP(S) 和 SOCKS5 共用端口"
+    },
+    "allowLan": {
+      "label": "允许局域网连接",
+      "description": "允许其他设备通过局域网连接"
+    },
+    "bindAddress": {
+      "label": "绑定地址",
+      "description": "绑定的网络接口地址，* 表示所有接口"
+    },
+    "logLevel": {
+      "label": "日志级别",
+      "description": "日志输出详细程度",
+      "silent": "静默",
+      "error": "错误",
+      "warning": "警告",
+      "info": "信息",
+      "debug": "调试"
+    },
+    "ipv6": {
+      "label": "启用 IPv6",
+      "description": "是否允许内核接受 IPv6 流量"
+    },
+    "externalController": {
+      "label": "外部控制器",
+      "description": "RESTful API 监听地址"
+    },
+    "secret": {
+      "label": "API 密钥",
+      "description": "RESTful API 访问密钥"
+    },
+    "tun": {
+      "enable": {
+        "label": "启用 TUN 模式",
+        "description": "虚拟网卡透明代理模式"
+      },
+      "stack": {
+        "label": "网络栈",
+        "description": "TUN 模式使用的网络栈实现",
+        "system": "系统栈",
+        "gvisor": "gVisor",
+        "mixed": "混合模式"
+      },
+      "autoRoute": {
+        "label": "自动路由",
+        "description": "自动设置全局路由"
+      },
+      "autoDetectInterface": {
+        "label": "自动检测接口",
+        "description": "自动检测出站网卡"
+      }
+    },
+    "port": {
+      "label": "HTTP 端口",
+      "description": "纯 HTTP 代理入站端口"
+    },
+    "socksPort": {
+      "label": "SOCKS5 端口",
+      "description": "SOCKS5 代理入站端口"
+    },
+    "redirPort": {
+      "label": "Redirect 端口",
+      "description": "Linux/macOS 透明代理端口"
+    },
+    "tproxyPort": {
+      "label": "TProxy 端口",
+      "description": "Linux 透明代理端口（TCP+UDP）"
+    },
+    "externalUi": {
+      "label": "外部 UI 路径",
+      "description": "静态面板资源目录，挂载于 /ui"
+    },
+    "externalUiName": {
+      "label": "外部 UI 名称",
+      "description": "更新时合并到 external-ui 的子目录名"
+    },
+    "externalUiUrl": {
+      "label": "外部 UI 下载地址",
+      "description": "面板压缩包（zip/tgz）下载地址"
+    },
+    "externalDohServer": {
+      "label": "API DoH 路径",
+      "description": "在 API 端口开启 DOH；不校验 secret，请自行评估"
+    },
+    "findProcessMode": {
+      "label": "进程匹配模式",
+      "description": "always / strict / off——路由器建议 off"
+    },
+    "keepAliveInterval": {
+      "label": "TCP 保活间隔 (秒)",
+      "description": "保活探测间隔"
+    },
+    "keepAliveIdle": {
+      "label": "保活空闲时间 (秒)",
+      "description": "发起探测前的最大空闲时间"
+    },
+    "disableKeepAlive": {
+      "label": "禁用保活",
+      "description": "Android 下强制开启"
+    },
+    "tcpConcurrent": {
+      "label": "TCP 并发连接",
+      "description": "并发连接所有解析 IP，取最快握手"
+    },
+    "unifiedDelay": {
+      "label": "统一延迟",
+      "description": "计算 RTT 以消除握手差异"
+    },
+    "interfaceName": {
+      "description": "所有出站默认使用的网卡接口"
+    },
+    "routingMark": {
+      "description": "Linux 出站默认路由标记"
+    },
+    "globalClientFingerprint": {
+      "label": "全局客户端指纹（已弃用）",
+      "description": "上游已弃用——请在节点内单独设置"
+    },
+    "globalUa": {
+      "label": "全局 UA",
+      "description": "外部资源下载使用的 User-Agent"
+    },
+    "etagSupport": {
+      "label": "ETag 支持",
+      "description": "外部资源下载的 ETag 支持（上游默认 true）"
+    }
+  },
+  "dns": {
+    "title": "DNS 配置",
+    "description": "DNS 解析与分流配置",
+    "enable": {
+      "label": "启用 DNS",
+      "description": "是否启用 Mihomo DNS 模块"
+    },
+    "ipv6": {
+      "label": "启用 IPv6 解析",
+      "description": "是否解析 IPv6 域名"
+    },
+    "enhancedMode": {
+      "label": "增强模式",
+      "description": "DNS 增强模式",
+      "fakeIp": "Fake-IP 模式",
+      "redirHost": "Redir-Host 模式"
+    },
+    "fakeIpRange": {
+      "label": "Fake-IP 地址段",
+      "description": "Fake-IP 使用的地址池"
+    },
+    "fakeIpFilter": {
+      "label": "Fake-IP 过滤器",
+      "description": "不使用 Fake-IP 的域名列表（每行一个）"
+    },
+    "defaultNameserver": {
+      "label": "默认 DNS 服务器",
+      "description": "用于解析 DNS 服务器域名（每行一个）"
+    },
+    "nameserver": {
+      "label": "主 DNS 服务器",
+      "description": "主要 DNS 服务器列表（每行一个）"
+    },
+    "fallback": {
+      "label": "备用 DNS 服务器",
+      "description": "备用 DNS 服务器列表（每行一个）"
+    },
+    "fallbackFilter": {
+      "geoip": {
+        "label": "启用 GeoIP 过滤",
+        "description": "根据 IP 归属地过滤 DNS 结果"
+      },
+      "geoipCode": {
+        "label": "GeoIP 代码",
+        "description": "IP 归属地代码（如 CN）"
+      },
+      "geosite": {
+        "label": "GeoSite 过滤",
+        "description": "属于这些 GeoSite 分类的域名始终走备用 DNS 服务器"
+      },
+      "ipcidr": {
+        "label": "IP 地址段过滤",
+        "description": "过滤指定 IP 段的 DNS 结果（每行一个）"
+      },
+      "domain": {
+        "label": "域名过滤",
+        "description": "始终走备用 DNS 的域名（每行一个，如 +.google.com）"
+      }
+    },
+    "servers": {
+      "add": "选择 DNS 服务器",
+      "none": "尚未选择服务器",
+      "custom": "自定义",
+      "remove": "移除 {{server}}"
+    },
+    "listen": {
+      "label": "DNS 监听地址",
+      "description": "在此地址开启 udp/tcp DNS 服务"
+    },
+    "preferH3": {
+      "label": "优先 HTTP/3（DoH）",
+      "description": "DoH 并发尝试 h3；不建议与 respect-rules 同用"
+    },
+    "cacheAlgorithm": {
+      "label": "缓存算法",
+      "description": "lru（默认）或 arc"
+    },
+    "fakeIpRange6": {
+      "label": "fake-ip IPv6 段",
+      "description": "IPv6 fakeip 池"
+    },
+    "fakeIpFilterMode": {
+      "label": "fake-ip 过滤模式",
+      "description": "blacklist / whitelist / rule"
+    },
+    "fakeIpTtl": {
+      "label": "fake-ip TTL",
+      "description": "非必要请勿修改"
+    },
+    "useHosts": {
+      "label": "使用 hosts 映射",
+      "description": "回应配置中的 hosts 条目"
+    },
+    "useSystemHosts": {
+      "label": "使用系统 hosts",
+      "description": "查询操作系统 hosts 文件"
+    },
+    "proxyServerNameserver": {
+      "label": "节点域名解析服务器",
+      "description": "仅用于解析代理节点的域名"
+    },
+    "directNameserver": {
+      "label": "直连出口解析服务器",
+      "description": "用于 direct 出口的域名解析"
+    },
+    "directFollowPolicy": {
+      "label": "直连遵循策略",
+      "description": "direct 解析是否遵循 nameserver-policy"
+    },
+    "respectRules": {
+      "label": "连接遵守规则",
+      "description": "DNS 服务器连接按规则分流；需配置节点解析服务器"
+    },
+    "fallbackLazyQuery": {
+      "label": "惰性 fallback 查询",
+      "description": "先判断 nameserver 结果再发起 fallback"
+    }
+  },
+  "proxy": {
+    "section": {
+      "basic": "基本",
+      "protocol": "协议",
+      "tls": "TLS",
+      "reality": "REALITY",
+      "security": "安全",
+      "ws": "WebSocket 选项",
+      "grpc": "gRPC 选项",
+      "h2": "HTTP/2 选项",
+      "xhttp": "XHTTP 选项",
+      "download": "下载设置",
+      "http": "HTTP 选项",
+      "mkcp": "mKCP 选项",
+      "mekya": "Mekya 选项",
+      "multiplexer": "多路复用",
+      "dial": "拨号选项",
+      "plugin": "插件选项",
+      "obfs": "混淆选项",
+      "portHopping": "端口跳变",
+      "quic": "QUIC 选项",
+      "realm": "Realm 中继",
+      "httpmask": "HTTP 伪装",
+      "ipstack": "IP 栈",
+      "amneziawg": "AmneziaWG",
+      "vpn": "VPN"
+    },
+    "editor": {
+      "showAdvanced": "显示高级选项",
+      "showBasic": "隐藏高级选项"
+    },
+    "add": "添加节点",
+    "edit": "编辑节点",
+    "delete": "删除节点",
+    "deleteTitle": "删除节点",
+    "deleteConfirm": "确定要删除这个节点吗？",
+    "selectProtocol": "选择协议类型",
+    "empty": "暂无代理节点，点击上方按钮添加",
+    "import": "导入",
+    "subscription": "订阅",
+    "name": {
+      "label": "节点名称",
+      "description": "代理节点的显示名称"
+    },
+    "type": {
+      "label": "协议类型",
+      "description": "代理协议",
+      "locked": "节点协议不可更改；如需其他协议请删除后重新添加。"
+    },
+    "server": {
+      "label": "服务器地址",
+      "description": "服务器域名或 IP 地址"
+    },
+    "port": {
+      "label": "端口",
+      "description": "服务器端口"
+    },
+    "vless": {
+      "uuid": {
+        "label": "UUID",
+        "description": "用户 ID"
+      },
+      "flow": {
+        "label": "流控模式",
+        "description": "XTLS 流控",
+        "none": "无"
+      },
+      "network": {
+        "label": "传输协议",
+        "description": "底层传输协议；HTTP/2 需要开启 TLS"
+      },
+      "tls": {
+        "label": "启用 TLS",
+        "description": "是否使用 TLS 加密",
+        "requiredByH2": "HTTP/2 必须使用 TLS，选择该传输协议时无法关闭"
+      },
+      "packetEncoding": {
+        "label": "封包编码",
+        "description": "UDP 封包编码方式，通常选 xudp",
+        "none": "默认"
+      },
+      "udp": {
+        "label": "启用 UDP",
+        "description": "通过该节点转发 UDP 流量"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "TLS 握手时提供的协议，按优先顺序排列"
+      },
+      "servername": {
+        "label": "服务器名称 (SNI)",
+        "description": "TLS 握手时使用的服务器名称"
+      },
+      "skipCertVerify": {
+        "label": "跳过证书验证",
+        "description": "不验证服务器证书（不推荐）"
+      },
+      "clientFingerprint": {
+        "label": "客户端指纹",
+        "description": "TLS 客户端指纹伪装"
+      },
+      "reality": {
+        "publicKey": {
+          "label": "REALITY 公钥",
+          "description": "REALITY 协议的公钥；该节点不使用 REALITY 时留空"
+        },
+        "shortId": {
+          "label": "REALITY Short ID",
+          "description": "REALITY 短 ID（可选）"
+        },
+        "supportMlkem": {
+          "label": "支持 x25519mlkem768",
+          "description": "服务端支持时声明 ML-KEM-768"
+        }
+      },
+      "grpc": {
+        "serviceName": {
+          "label": "gRPC 服务名",
+          "description": "gRPC 服务名称"
+        }
+      },
+      "ws": {
+        "path": {
+          "label": "WebSocket 路径",
+          "description": "WebSocket 请求路径"
+        },
+        "host": {
+          "label": "WebSocket Host",
+          "description": "WebSocket Host 头"
+        }
+      },
+      "h2": {
+        "host": {
+          "label": "HTTP/2 Host",
+          "description": "HTTP/2 请求的 Host，每行一个"
+        },
+        "path": {
+          "label": "HTTP/2 路径",
+          "description": "HTTP/2 请求路径"
+        }
+      },
+      "xhttp": {
+        "path": {
+          "label": "XHTTP 路径",
+          "description": "XHTTP 请求路径"
+        },
+        "host": {
+          "label": "XHTTP Host",
+          "description": "XHTTP 请求携带的 Host"
+        },
+        "mode": {
+          "label": "XHTTP 模式",
+          "description": "传输模式，auto 交由 mihomo 自行选择。除非 ALPN 指定 h3 或 http/1.1，XHTTP 默认走 HTTP/2"
+        },
+        "download": {
+          "path": {
+            "label": "下载路径",
+            "description": "下载流的 XHTTP 请求路径"
+          },
+          "host": {
+            "label": "下载 Host",
+            "description": "下载流 XHTTP 请求携带的 Host"
+          },
+          "server": {
+            "label": "下载服务器",
+            "description": "下载流代理的服务器地址"
+          },
+          "port": {
+            "label": "下载端口",
+            "description": "下载流代理的端口"
+          },
+          "tls": {
+            "label": "下载启用 TLS",
+            "description": "下载流是否使用 TLS 加密"
+          },
+          "alpn": {
+            "label": "下载 ALPN",
+            "description": "下载流 TLS 握手时提供的协议，按优先顺序排列"
+          },
+          "skipCertVerify": {
+            "label": "下载跳过证书验证",
+            "description": "不验证下载流服务器证书（不推荐）"
+          },
+          "nameCertVerify": {
+            "label": "下载证书名校验",
+            "description": "下载流证书校验时使用的服务器名称"
+          },
+          "fingerprint": {
+            "label": "下载指纹",
+            "description": "下载流的 TLS 指纹"
+          },
+          "certificate": {
+            "label": "下载证书",
+            "description": "下载流使用的客户端证书（PEM）"
+          },
+          "privateKey": {
+            "label": "下载私钥",
+            "description": "下载流客户端证书对应的私钥（PEM）"
+          },
+          "servername": {
+            "label": "下载 SNI",
+            "description": "下载流 TLS 握手时使用的服务器名称"
+          },
+          "clientFingerprint": {
+            "label": "下载客户端指纹",
+            "description": "下载流的 TLS 客户端指纹伪装"
+          },
+          "echEnable": {
+            "label": "下载 ECH",
+            "description": "为下载流启用加密客户端提示——需手动开启"
+          },
+          "echConfig": {
+            "label": "下载 ECH 配置 (base64)",
+            "description": "留空经 DNS 解析；否则填 base64 ECH 参数"
+          },
+          "echQueryServerName": {
+            "label": "下载查询用域名",
+            "description": "下载流经 DNS 解析配置时使用的域名"
+          },
+          "shadowTlsVersion": {
+            "label": "下载 ShadowTLS 版本",
+            "description": "下载流 ShadowTLS 协议主版本（1-3）"
+          },
+          "shadowTlsPassword": {
+            "label": "下载 ShadowTLS 密码",
+            "description": "下载流 ShadowTLS 层共享密钥"
+          },
+          "restlsPassword": {
+            "label": "下载 Restls 密码",
+            "description": "下载流 Restls 层密码"
+          },
+          "restlsVersionHint": {
+            "label": "下载 TLS 版本暗示",
+            "description": "tls13 或 tls12 —— 需与伪装服务器一致"
+          },
+          "restlsScript": {
+            "label": "下载 Restls 剧本",
+            "description": "下载流控制握手后行为的剧本"
+          },
+          "jlsUsername": {
+            "label": "下载 JLS 用户名",
+            "description": "下载流 JLS 层用户名"
+          },
+          "jlsPassword": {
+            "label": "下载 JLS 密码",
+            "description": "下载流 JLS 层密码"
+          },
+          "realityPublicKey": {
+            "label": "下载 REALITY 公钥",
+            "description": "下载流 REALITY 协议的公钥；不使用 REALITY 时留空"
+          },
+          "realityShortId": {
+            "label": "下载 REALITY Short ID",
+            "description": "下载流 REALITY 短 ID（可选）"
+          }
+        }
+      },
+      "encryption": {
+        "label": "VLESS Encryption",
+        "description": "VLESS 加密串（抗量子）；留空关闭"
+      }
+    },
+    "hysteria2": {
+      "password": {
+        "label": "密码",
+        "description": "Hysteria2 认证密码"
+      },
+      "obfs": {
+        "label": "混淆类型",
+        "description": "混淆方式（如 salamander）"
+      },
+      "obfsPassword": {
+        "label": "混淆密码",
+        "description": "混淆密码"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS 服务器名称"
+      },
+      "skipCertVerify": {
+        "label": "跳过证书验证",
+        "description": "不验证服务器证书（不推荐）"
+      },
+      "up": {
+        "label": "上传带宽",
+        "description": "上传带宽限制（如 50 Mbps）"
+      },
+      "down": {
+        "label": "下载带宽",
+        "description": "下载带宽限制（如 100 Mbps）"
+      },
+      "bbrProfile": {
+        "label": "BBR 调优档位",
+        "description": "BBR 拥塞控制调优档位"
+      },
+      "hopInterval": {
+        "label": "跳跃间隔",
+        "description": "端口跳跃间隔，如 \"15-30\" 秒"
+      },
+      "obfsMinSize": {
+        "label": "混淆最小包长",
+        "description": "仅 Gecko 混淆有效"
+      },
+      "obfsMaxSize": {
+        "label": "混淆最大包长",
+        "description": "仅 Gecko 混淆有效"
+      },
+      "realmEnable": {
+        "label": "Realm 中继",
+        "description": "经 Realm 中继转发（mihomo 扩展）"
+      },
+      "realmServerUrl": {
+        "label": "Realm 服务器 URL",
+        "description": "Realm 中继端点地址"
+      },
+      "realmToken": {
+        "label": "Realm 令牌",
+        "description": "中继的持有者令牌"
+      },
+      "realmId": {
+        "label": "Realm ID",
+        "description": "目标 Realm 标识"
+      },
+      "realmStunServers": {
+        "label": "STUN 服务器",
+        "description": "每行一个"
+      },
+      "initConnWindow": {
+        "label": "初始连接窗口",
+        "description": "quic-go 初始连接级接收窗口"
+      },
+      "maxConnWindow": {
+        "label": "最大连接窗口",
+        "description": "quic-go 最大连接级接收窗口"
+      }
+    },
+    "tuic": {
+      "uuid": {
+        "label": "UUID",
+        "description": "用户 ID"
+      },
+      "password": {
+        "label": "密码",
+        "description": "TUIC 认证密码"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS 服务器名称"
+      },
+      "skipCertVerify": {
+        "label": "跳过证书验证",
+        "description": "不验证服务器证书（不推荐）"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "QUIC 握手时提供的协议，按优先顺序排列"
+      },
+      "congestionController": {
+        "label": "拥塞控制",
+        "description": "QUIC 拥塞控制算法"
+      },
+      "disableSni": {
+        "label": "禁用 SNI",
+        "description": "不发送 SNI"
+      },
+      "token": {
+        "label": "Token（TUIC v4）",
+        "description": "v4 认证令牌；与 uuid+password 互斥"
+      },
+      "reduceRtt": {
+        "label": "降低往返延迟 (0-RTT)",
+        "description": "以 0-RTT 握手开启会话"
+      },
+      "requestTimeout": {
+        "label": "请求超时 (毫秒)",
+        "description": "默认 8000"
+      },
+      "ip": {
+        "label": "服务器 IP 覆盖",
+        "description": "设置后跳过 DNS 解析"
+      },
+      "heartbeatInterval": {
+        "label": "心跳间隔 (毫秒)",
+        "description": "QUIC 保活心跳节奏"
+      },
+      "maxUdpRelayPacketSize": {
+        "label": "UDP 中继最大包长",
+        "description": "UDP 中继负载上限"
+      },
+      "udpOverStream": {
+        "description": "以 QUIC 流承载 UDP 的 ss-uot 风格（私有扩展）"
+      },
+      "udpOverStreamVersion": {
+        "label": "UoS 版本",
+        "description": "udp-over-stream 版本"
+      }
+    },
+    "trojan": {
+      "password": {
+        "label": "密码",
+        "description": "Trojan 密码"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS 服务器名称"
+      },
+      "skipCertVerify": {
+        "label": "跳过证书验证",
+        "description": "不验证服务器证书（不推荐）"
+      },
+      "network": {
+        "label": "传输协议",
+        "description": "底层传输协议"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "TLS 握手时提供的协议，按优先顺序排列"
+      },
+      "clientFingerprint": {
+        "label": "客户端指纹",
+        "description": "TLS 客户端指纹伪装"
+      },
+      "grpc": {
+        "serviceName": {
+          "label": "gRPC 服务名",
+          "description": "gRPC 服务名称"
+        }
+      },
+      "ws": {
+        "path": {
+          "label": "WebSocket 路径",
+          "description": "WebSocket 请求路径"
+        },
+        "host": {
+          "label": "WebSocket Host",
+          "description": "WebSocket Host 头"
+        }
+      },
+      "flow": {
+        "label": "XTLS flow",
+        "description": "旧式 XTLS 控制流；Reality 服务端通常留空"
+      },
+      "flowShow": {
+        "label": "在链接中显示 flow",
+        "description": "输出 flow-show 供识别的客户端使用"
+      },
+      "securityLayer": {
+        "description": "TLS 之上的可选层，最多一项。ECH 使用 ech-opts，其余各自独立块"
+      },
+      "ssEnabled": {
+        "label": "内层 Shadowsocks（trojan-go）",
+        "description": "隧道内的 trojan-go 风格 ss 层"
+      },
+      "ssMethod": {
+        "description": "内层 ss 加密（三种 AEAD 可选）"
+      }
+    },
+    "unsupportedType": "暂不支持编辑「{{type}}」类型的代理，其配置将原样保留在导出结果中。",
+    "transport": {
+      "network": {
+        "label": "传输层",
+        "description": "核心协议之上的混淆传输层"
+      },
+      "wsPath": {
+        "label": "WebSocket 路径",
+        "description": "WebSocket 端点的 HTTP 路径"
+      },
+      "wsHost": {
+        "label": "WebSocket Host 头",
+        "description": "升级请求携带的 Host 头"
+      },
+      "grpcServiceName": {
+        "label": "gRPC 服务名",
+        "description": "gRPC 通道的服务名"
+      },
+      "h2Host": {
+        "label": "HTTP/2 Host 列表",
+        "description": "每行一个域名；mihomo 在其间选择"
+      },
+      "h2Path": {
+        "label": "HTTP/2 路径",
+        "description": "HTTP/2 请求路径"
+      }
+    },
+    "interfaceName": {
+      "label": "网卡名称",
+      "description": "将出站流量绑定到指定网络接口"
+    },
+    "routingMark": {
+      "label": "路由标记",
+      "description": "为出站数据包设置 Linux fwmark"
+    },
+    "ipVersion": {
+      "label": "IP 版本",
+      "description": "节点出站使用的 IP 版本偏好"
+    },
+    "dialerProxy": {
+      "label": "前置代理",
+      "description": "通过指定的另一个代理建立连接"
+    },
+    "tfo": {
+      "label": "TCP Fast Open",
+      "description": "为出站连接启用 TCP Fast Open"
+    },
+    "mptcp": {
+      "label": "MPTCP",
+      "description": "为出站连接启用多路径 TCP"
+    },
+    "validation": {
+      "nameRequired": "代理必须有名称",
+      "duplicateName": "配置中已有名为「{{name}}」的项，请换一个名称。",
+      "reservedName": "「{{name}}」是 mihomo 自带的出站名称，请换一个名称。"
+    },
+    "dial": {
+      "interfaceName": {
+        "label": "出站接口",
+        "description": "该节点发起连接使用的网卡接口"
+      },
+      "routingMark": {
+        "label": "路由标记",
+        "description": "节点出站连接附加的路由标记（仅 Linux）"
+      },
+      "dialerProxy": {
+        "label": "前置代理",
+        "description": "通过另一个代理或策略组建立连接"
+      },
+      "tfo": {
+        "label": "TCP Fast Open",
+        "description": "启用 TCP 快速打开（仅 TCP 传输生效）"
+      },
+      "mptcp": {
+        "label": "Multipath TCP",
+        "description": "启用多路径 TCP（仅 TCP 传输生效）"
+      }
+    },
+    "common": {
+      "password": {
+        "label": "密码",
+        "description": "该节点的共享密钥"
+      },
+      "udp": {
+        "label": "UDP 转发",
+        "description": "是否允许 UDP 流量经此节点转发"
+      }
+    },
+    "commonTls": {
+      "tls": {
+        "label": "TLS",
+        "description": "到服务器的连接使用 TLS 加密"
+      },
+      "sni": {
+        "label": "SNI",
+        "description": "TLS 握手携带的服务器名"
+      },
+      "servername": {
+        "label": "服务器名 (SNI)",
+        "description": "覆盖 TLS SNI 与 WSS 的 Host 头"
+      },
+      "skipCertVerify": {
+        "label": "跳过证书验证",
+        "description": "不校验服务器证书链"
+      },
+      "nameCertVerify": {
+        "label": "证书域名校验目标",
+        "description": "仅修改证书 DNSName 校验目标，不改 SNI"
+      },
+      "clientFingerprint": {
+        "label": "客户端指纹",
+        "description": "TLS 握手使用的 uTLS 指纹"
+      },
+      "alpn": {
+        "label": "ALPN",
+        "description": "握手时提供的应用层协议列表"
+      },
+      "host": {
+        "label": "Host / 伪装域名",
+        "description": "伪装访问的域名"
+      },
+      "fingerprint": {
+        "label": "证书指纹",
+        "description": "固定服务器证书指纹（SSL Pinning）"
+      },
+      "certificate": {
+        "label": "客户端证书 (PEM)",
+        "description": "PEM 证书；与私钥同时填写即启用 mTLS"
+      },
+      "privateKey": {
+        "label": "客户端私钥 (PEM)",
+        "description": "与上方证书配对的 PEM 私钥"
+      }
+    },
+    "smux": {
+      "enabled": {
+        "label": "启用多路复用",
+        "description": "在 TCP 传输上启用 sing-mux"
+      },
+      "protocol": {
+        "label": "复用协议",
+        "description": "可选 smux / yamux / h2mux"
+      },
+      "maxConnections": {
+        "label": "最大连接数",
+        "description": "与最大流数互斥"
+      },
+      "minStreams": {
+        "label": "最小流数",
+        "description": "新开连接前每连接最少流数；与最大流数互斥"
+      },
+      "maxStreams": {
+        "label": "最大流数",
+        "description": "与最大连接数、最小流数互斥"
+      },
+      "padding": {
+        "label": "填充",
+        "description": "对复用流启用填充"
+      },
+      "statistic": {
+        "label": "面板可见",
+        "description": "将底层连接显示在面板中"
+      },
+      "onlyTcp": {
+        "label": "仅 TCP",
+        "description": "开启后 UDP 不走复用通道"
+      },
+      "brutalEnabled": {
+        "label": "TCP Brutal",
+        "description": "复用内启用 Brutal 拥塞控制"
+      },
+      "brutalUp": {
+        "label": "Brutal 上行 (Mbps)",
+        "description": "Brutal 上传带宽"
+      },
+      "brutalDown": {
+        "label": "Brutal 下行 (Mbps)",
+        "description": "Brutal 下载带宽"
+      }
+    },
+    "kcp": {
+      "mtu": {
+        "label": "MTU",
+        "description": "最大传输单元"
+      },
+      "tti": {
+        "label": "TTI (毫秒)",
+        "description": "传输时间间隔"
+      },
+      "uplinkCapacity": {
+        "label": "上行容量 (MB/s)",
+        "description": "最大上传吞吐"
+      },
+      "downlinkCapacity": {
+        "label": "下行容量 (MB/s)",
+        "description": "最大下载吞吐"
+      },
+      "congestion": {
+        "label": "拥塞控制",
+        "description": "是否启用 KCP 拥塞控制"
+      },
+      "writeBuffer": {
+        "label": "写缓冲区 (字节)",
+        "description": "写缓冲区大小"
+      },
+      "readBuffer": {
+        "label": "读缓冲区 (字节)",
+        "description": "读缓冲区大小"
+      },
+      "seed": {
+        "label": "种子",
+        "description": "认证加密使用的种子"
+      },
+      "header": {
+        "label": "伪装包头",
+        "description": "流量伪装包头类型"
+      }
+    },
+    "mekya": {
+      "url": {
+        "label": "URL",
+        "description": "Mekya 轮询端点地址"
+      },
+      "maxWriteDelay": {
+        "label": "最大聚合等待 (毫秒)",
+        "description": "首包后的最大聚合等待时间"
+      },
+      "maxRequestSize": {
+        "label": "单请求上限 (字节)",
+        "description": "单次 HTTP 请求的最大负载"
+      },
+      "pollingInterval": {
+        "label": "初始轮询间隔 (毫秒)",
+        "description": "空轮询间隔"
+      },
+      "h2PoolSize": {
+        "label": "HTTP/2 连接池",
+        "description": "HTTP/2 连接池大小"
+      }
+    },
+    "vmess": {
+      "alterId": {
+        "label": "AlterId",
+        "description": "旧版 VMess 标识偏移；AEAD 服务端填 0"
+      },
+      "cipher": {
+        "label": "加密方式",
+        "description": "VMess 载荷加密，通常 auto"
+      },
+      "maxEarlyData": {
+        "label": "最大早期数据",
+        "description": "WS 头部可携带的 0-RTT 数据字节数"
+      },
+      "earlyDataHeader": {
+        "label": "早期数据请求头",
+        "description": "承载早期数据的请求头名称"
+      },
+      "httpUpgrade": {
+        "label": "v2ray HTTP upgrade",
+        "description": "使用 WebSocket 升级变体"
+      },
+      "httpUpgradeFastOpen": {
+        "label": "HTTP upgrade 快速打开",
+        "description": "HTTP upgrade 的快速打开配套项"
+      },
+      "grpcUserAgent": {
+        "label": "gRPC User-Agent",
+        "description": "gRPC 请求伪装的 UA"
+      },
+      "pingInterval": {
+        "label": "Ping 间隔 (秒)",
+        "description": "保活 ping 间隔，0 为关闭"
+      },
+      "httpMethod": {
+        "label": "HTTP 方法",
+        "description": "混淆请求使用的 HTTP 方法"
+      },
+      "httpPaths": {
+        "label": "HTTP 路径列表",
+        "description": "每行一个路径；请求轮流使用"
+      }
+    },
+    "http": {
+      "username": {
+        "label": "用户名",
+        "description": "HTTP 代理认证用户名"
+      }
+    },
+    "ss": {
+      "cipher": {
+        "label": "加密方式",
+        "description": "推荐 AEAD 系列；2022 系列需 base64 密钥"
+      },
+      "udpOverTcp": {
+        "label": "UDP over TCP",
+        "description": "以 TCP 承载 UDP（UoT）"
+      },
+      "plugin": {
+        "label": "插件",
+        "none": "无",
+        "description": "叠加在 Shadowsocks 之上的官方插件，最多一个"
+      },
+      "obfsMode": {
+        "label": "obfs 模式",
+        "description": "simple-obfs 混淆类型"
+      },
+      "v2rayMode": {
+        "label": "模式",
+        "description": "插件的传输模式"
+      },
+      "v2rayMux": {
+        "label": "多路复用",
+        "description": "在插件流内复用请求"
+      }
+    },
+    "shadowTls": {
+      "version": {
+        "label": "ShadowTLS 版本",
+        "description": "协议主版本（1-3）"
+      },
+      "password": {
+        "label": "ShadowTLS 密码",
+        "description": "ShadowTLS 层共享密钥"
+      }
+    },
+    "restls": {
+      "versionHint": {
+        "label": "TLS 版本暗示",
+        "description": "tls13 或 tls12 —— 需与伪装服务器一致"
+      },
+      "script": {
+        "label": "Restls 剧本",
+        "description": "控制握手后行为的剧本"
+      },
+      "hostHint": {
+        "description": "应为与上方版本暗示匹配的 TLS 服务器"
+      }
+    },
+    "jls": {
+      "username": {
+        "label": "JLS 用户名",
+        "description": "JLS 层用户名"
+      },
+      "password": {
+        "label": "JLS 密码",
+        "description": "JLS 层密码"
+      }
+    },
+    "kcptun": {
+      "key": {
+        "label": "预共享密钥",
+        "description": "与服务端共享的密钥"
+      },
+      "crypt": {
+        "label": "加密方式",
+        "description": "KCP 载荷加密算法"
+      },
+      "mode": {
+        "label": "模式",
+        "description": "fast3/fast2/fast/normal/manual 档位"
+      },
+      "conn": {
+        "label": "连接数",
+        "description": "到服务端的 UDP 连接数"
+      },
+      "autoexpire": {
+        "label": "自动过期 (秒)",
+        "description": "单条 UDP 连接存活时间，0 关闭"
+      },
+      "scavengettl": {
+        "label": "回收 TTL (秒)",
+        "description": "过期连接可存活的时长"
+      },
+      "mtu": {
+        "label": "MTU",
+        "description": "UDP 包最大传输单元"
+      },
+      "ratelimit": {
+        "label": "速率限制 (B/s)",
+        "description": "单连接发送限速，0 关闭"
+      },
+      "sndwnd": {
+        "label": "发送窗口",
+        "description": "发送窗口大小（包数）"
+      },
+      "rcvwnd": {
+        "label": "接收窗口",
+        "description": "接收窗口大小（包数）"
+      },
+      "datashard": {
+        "label": "数据分片",
+        "description": "Reed-Solomon 数据分片数"
+      },
+      "parityshard": {
+        "label": "校验分片",
+        "description": "Reed-Solomon 校验分片数"
+      },
+      "dscp": {
+        "label": "DSCP",
+        "description": "DSCP 标记（6 位）"
+      },
+      "nocomp": {
+        "label": "禁用压缩",
+        "description": "关闭 KCP 压缩"
+      },
+      "acknodelay": {
+        "label": "立即确认",
+        "description": "收到包立即回复 ACK"
+      },
+      "nodelay": {
+        "label": "无延迟",
+        "description": "KCP nodelay 参数"
+      },
+      "interval": {
+        "label": "内部间隔 (ms)",
+        "description": "KCP interval 参数"
+      },
+      "resend": {
+        "label": "重传",
+        "description": "KCP resend 参数"
+      },
+      "sockbuf": {
+        "label": "套接字缓冲 (字节)",
+        "description": "每套接字缓冲区大小"
+      },
+      "smuxver": {
+        "label": "SMUX 版本",
+        "description": "smux 主版本（1 或 2）"
+      },
+      "smuxbuf": {
+        "label": "SMUX 缓冲 (字节)",
+        "description": "解复用总缓冲区"
+      },
+      "framesize": {
+        "label": "帧大小",
+        "description": "SMUX 最大帧大小"
+      },
+      "streambuf": {
+        "label": "流缓冲 (字节)",
+        "description": "每流缓冲区，smux v2+"
+      },
+      "keepalive": {
+        "label": "心跳 (秒)",
+        "description": "心跳间隔秒数"
+      }
+    },
+    "snell": {
+      "psk": {
+        "label": "PSK 预共享密钥",
+        "description": "Snell 服务器的预共享密钥"
+      },
+      "version": {
+        "label": "版本",
+        "description": "协议版本 1-5；UDP 需 v3+"
+      },
+      "udp": {
+        "label": "UDP 转发",
+        "description": "仅在版本 3/4/5 上有效"
+      },
+      "reuse": {
+        "label": "连接复用",
+        "description": "仅 v4/v5 服务端支持"
+      },
+      "obfsEnabled": {
+        "label": "启用混淆",
+        "description": "在 Snell 上叠加混淆层"
+      },
+      "obfsMode": {
+        "label": "混淆模式",
+        "description": "可选 http / tls / shadow-tls / restls / jls"
+      }
+    },
+    "ssr": {
+      "cipher": {
+        "description": "仅流式加密——SSR 早于 AEAD"
+      },
+      "protocol": {
+        "label": "协议（混淆协议）",
+        "description": "SSR 协议实现"
+      },
+      "protocolParam": {
+        "label": "协议参数",
+        "description": "可选的协议参数"
+      },
+      "obfs": {
+        "label": "混淆",
+        "description": "SSR 混淆实现"
+      },
+      "obfsParam": {
+        "label": "混淆参数",
+        "description": "通常为伪装域名"
+      }
+    },
+    "anytls": {
+      "clientMetadata": {
+        "label": "客户端元数据",
+        "description": "不透明元数据串；新版服务端默认忽略"
+      },
+      "idleSessionCheckInterval": {
+        "label": "空闲会话检查间隔 (秒)",
+        "description": "回收空闲会话的检查周期"
+      },
+      "idleSessionTimeout": {
+        "label": "空闲会话超时 (秒)",
+        "description": "超过该时长的空闲会话被关闭"
+      },
+      "minIdleSession": {
+        "label": "最少空闲会话",
+        "description": "会话池下限数量"
+      },
+      "securityLayer": {
+        "label": "安全层",
+        "description": "AnyTLS 之上的可选额外层；最多选一",
+        "none": "无"
+      }
+    },
+    "hysteria1": {
+      "authStr": {
+        "label": "认证字符串",
+        "description": "服务器的共享认证字符串"
+      },
+      "protocol": {
+        "label": "承载协议",
+        "description": "可选 udp / wechat-video / faketcp"
+      },
+      "ports": {
+        "label": "端口跳跃",
+        "description": "逗号分隔的端口/范围；填写后替代 port"
+      },
+      "fastOpen": {
+        "label": "快速打开",
+        "description": "初始握手 TCP Fast Open"
+      }
+    },
+    "ech": {
+      "enable": {
+        "label": "ECH",
+        "description": "加密客户端提示——需手动开启"
+      },
+      "config": {
+        "label": "ECH 配置 (base64)",
+        "description": "留空经 DNS 解析；否则填 base64 ECH 参数"
+      },
+      "queryServerName": {
+        "label": "查询用域名",
+        "description": "经 DNS 解析配置时使用的域名"
+      }
+    },
+    "quic": {
+      "recvWindowConn": {
+        "label": "单连接接收窗口",
+        "description": "QUIC 连接级接收窗口"
+      },
+      "recvWindow": {
+        "label": "接收窗口",
+        "description": "QUIC 接收窗口"
+      },
+      "disableMtuDiscovery": {
+        "label": "禁用 MTU 探测",
+        "description": "关闭 QUIC MTU 探测"
+      },
+      "cwnd": {
+        "label": "初始拥塞窗口",
+        "description": "启动拥塞窗口（默认 32）"
+      },
+      "maxOpenStreams": {
+        "label": "最大打开流数",
+        "description": "并发 QUIC 流数（默认 100）"
+      },
+      "handshakeTimeout": {
+        "label": "握手超时 (秒)",
+        "description": "设置后覆盖外层连接超时"
+      }
+    },
+    "wireguard": {
+      "ip": {
+        "label": "本地 IPv4",
+        "description": "隧道内接口地址"
+      },
+      "ipv6": {
+        "label": "本地 IPv6",
+        "description": "可选的隧道内 IPv6 地址"
+      },
+      "privateKey": {
+        "label": "私钥",
+        "description": "本端 base64 X25519 私钥"
+      },
+      "publicKey": {
+        "label": "公钥",
+        "description": "服务器 base64 公钥"
+      },
+      "presharedKey": {
+        "label": "预共享密钥",
+        "description": "可选的额外对称密钥"
+      },
+      "reserved": {
+        "label": "保留字节",
+        "description": "base64 或 [n,n,n] 数组（WARP 用）"
+      },
+      "keepalive": {
+        "label": "持久保活 (秒)",
+        "description": "保活间隔秒数"
+      },
+      "mtu": {
+        "label": "MTU",
+        "description": "隧道最大传输单元"
+      }
+    },
+    "amnezia": {
+      "jc": {
+        "label": "Amnezia jc",
+        "description": "垃圾包数量"
+      },
+      "jmin": {
+        "label": "Amnezia jmin",
+        "description": "垃圾包最小尺寸"
+      },
+      "jmax": {
+        "label": "Amnezia jmax",
+        "description": "垃圾包最大尺寸"
+      },
+      "s1": {
+        "label": "Amnezia s1",
+        "description": "握手发起包垃圾尺寸"
+      },
+      "s2": {
+        "label": "Amnezia s2",
+        "description": "握手响应包垃圾尺寸"
+      },
+      "h1": {
+        "label": "Amnezia h1",
+        "description": "握手发起包头类型"
+      },
+      "h2": {
+        "label": "Amnezia h2",
+        "description": "握手响应包头类型"
+      },
+      "h3": {
+        "label": "Amnezia h3",
+        "description": "Cookie 包头类型"
+      },
+      "h4": {
+        "label": "Amnezia h4",
+        "description": "传输包头类型"
+      }
+    },
+    "ssh": {
+      "username": {
+        "label": "用户名",
+        "description": "SSH 登录用户名"
+      },
+      "privateKey": {
+        "label": "私钥 (OpenSSH PEM)",
+        "description": "仅密钥内容；留空则用密码认证。mihomo 此键为驼峰拼写"
+      }
+    },
+    "mieru": {
+      "transport": {
+        "label": "承载协议",
+        "description": "TCP 或 UDP 承载"
+      },
+      "multiplexing": {
+        "label": "多路复用",
+        "description": "OFF/LOW/MIDDLE/HIGH 档位"
+      },
+      "handshakeMode": {
+        "label": "握手模式",
+        "description": "标准或免等待（0-RTT）"
+      },
+      "trafficPattern": {
+        "label": "流量特征",
+        "description": "由 mieru 工具生成的 base64 调优串"
+      }
+    },
+    "sudoku": {
+      "key": {
+        "label": "密钥",
+        "description": "ED25519 私钥或服务器 UUID"
+      },
+      "aeadMethod": {
+        "label": "AEAD 算法",
+        "description": "隧道载荷加密算法"
+      },
+      "padding": {
+        "description": "填充百分比（0-100）；上限需不小于下限"
+      },
+      "paddingMin": {
+        "label": "填充下限 (%)"
+      },
+      "paddingMax": {
+        "label": "填充上限 (%)"
+      },
+      "tableType": {
+        "label": "映射表类型",
+        "description": "字节映射表的生成方式"
+      },
+      "customTable": {
+        "label": "自定义映射表",
+        "description": "单个显式表（仅熵方向模式）"
+      },
+      "customTables": {
+        "label": "自定义表列表",
+        "description": "每行一个；覆盖单个自定义表"
+      },
+      "multiplex": {
+        "label": "多路复用",
+        "description": "off / auto / on"
+      },
+      "maskDisable": {
+        "label": "禁用 httpmask",
+        "description": "关闭 HTTP 伪装层"
+      },
+      "maskMode": {
+        "label": "httpmask 模式",
+        "description": "legacy / stream / poll / auto / ws"
+      },
+      "maskPathRoot": {
+        "label": "伪装路径前缀",
+        "description": "伪装 URL 的端点前缀"
+      }
+    },
+    "shadowquic": {
+      "quicVersions": {
+        "label": "QUIC 版本",
+        "description": "v1 和/或 v2"
+      },
+      "udpOverStream": {
+        "label": "UDP over stream",
+        "description": "以 QUIC 流承载 UDP（ss-uot 风格）"
+      },
+      "zeroRtt": {
+        "label": "零往返",
+        "description": "恢复会话使用 0-RTT 早数据"
+      },
+      "keepAliveInterval": {
+        "label": "保活间隔 (毫秒)",
+        "description": "QUIC 保活节奏"
+      },
+      "maxDatagramFrameSize": {
+        "label": "最大数据报帧大小",
+        "description": "QUIC 数据报帧上限"
+      }
+    },
+    "trusttunnel": {
+      "healthCheck": {
+        "label": "健康检查",
+        "description": "周期探测隧道可用性"
+      },
+      "quic": {
+        "label": "使用 QUIC",
+        "description": "以 QUIC 承载隧道（默认 h2）"
+      }
+    },
+    "gostRelay": {
+      "forward": {
+        "label": "转发模式",
+        "description": "中继拨向其自身配置目标而非请求目标"
+      },
+      "mux": {
+        "label": "relay+TLS 复用",
+        "description": "在启用 TLS 时开启复用"
+      }
+    },
+    "rematch": {
+      "targetRematchName": {
+        "label": "目标 rematch 名称",
+        "description": "改写元数据供 REMATCH-NAME 规则匹配"
+      },
+      "targetSubRule": {
+        "label": "目标子规则",
+        "description": "跳转到该命名子规则；留空回落主规则"
+      }
+    },
+    "ipStack": {
+      "mode": {
+        "label": "IP 协议栈模式",
+        "description": "VPN 类出站的用户态协议栈（auto/gvisor/system）"
+      }
+    },
+    "masque": {
+      "network": {
+        "label": "承载形态",
+        "description": "默认 IP 隧道、h3-l4proxy 或 h2",
+        "default": "默认（IP 隧道）"
+      },
+      "l4proxyNoUdp": "h3-l4proxy 不支持 UDP——mihomo 禁止其与 udp: true 同用",
+      "stackCc": {
+        "label": "协议栈拥塞控制",
+        "description": "用户态 IP 协议栈的拥塞控制算法"
+      }
+    },
+    "tailscale": {
+      "udp": {
+        "description": "经 tailnet 转发 UDP（默认关闭）"
+      },
+      "hostname": {
+        "label": "主机名",
+        "description": "本设备注册使用的主机名"
+      },
+      "authKey": {
+        "label": "认证密钥",
+        "description": "留空时 mihomo 日志会输出交互式登录链接"
+      },
+      "controlUrl": {
+        "label": "控制服务器地址",
+        "description": "Headscale 或其他自建控制面"
+      },
+      "stateDir": {
+        "label": "状态目录",
+        "description": "tailnet 状态保存目录"
+      },
+      "ephemeral": {
+        "label": "临时节点",
+        "description": "注册为不持久化状态的临时节点"
+      },
+      "acceptRoutes": {
+        "label": "接受路由",
+        "description": "接受 tailnet 内通告的子网路由"
+      },
+      "exitNode": {
+        "label": "出口节点",
+        "description": "IP 或 auto:any；访问公网必需"
+      },
+      "exitNodeLan": {
+        "label": "出口节点允许局域网",
+        "description": "使用出口节点时保留本地局域网访问"
+      }
+    },
+    "zerotier": {
+      "network": {
+        "label": "网络 ID",
+        "description": "要加入的 16 位 ZeroTier 网络 ID"
+      },
+      "stateDir": {
+        "description": "ZeroTier 状态保存目录",
+        "label": "状态目录"
+      },
+      "planet": {
+        "label": "planet 文件",
+        "description": "私有根服务器的自定义 planet 文件"
+      },
+      "physicalMtu": {
+        "label": "物理 MTU",
+        "description": "底层链路 MTU，默认 1432"
+      },
+      "primaryPort": {
+        "label": "主端口",
+        "description": "0 为自动选择"
+      },
+      "secondaryPort": {
+        "label": "辅助端口",
+        "description": "0 自动；-1 关闭辅助监听"
+      },
+      "tcpFallbackMode": {
+        "label": "TCP 回退模式",
+        "description": "auto / force / disable"
+      },
+      "tcpFallbackRelay": {
+        "label": "TCP 回退中继",
+        "description": "回退中继的 ip:port"
+      },
+      "remoteTraceTarget": {
+        "label": "远程跟踪目标",
+        "description": "接收跟踪信息的节点 ID 或地址"
+      },
+      "remoteTraceLevel": {
+        "label": "远程跟踪级别",
+        "description": "远程跟踪详细程度"
+      },
+      "lowBandwidth": {
+        "label": "低带宽模式",
+        "description": "在受限链路上降低开销"
+      },
+      "encryptedHello": {
+        "label": "加密 Hello",
+        "description": "加密 Hello 包"
+      }
+    },
+    "vpn": {
+      "remoteDnsResolve": {
+        "label": "远端解析 DNS",
+        "description": "域名查询送入隧道而非本地解析"
+      },
+      "dnsList": {
+        "label": "隧道内 DNS 服务器",
+        "description": "每行一个；需先开启远端解析"
+      }
+    },
+    "openvpn": {
+      "proto": {
+        "label": "传输协议",
+        "description": "udp 或 tcp 承载",
+        "udp": "UDP",
+        "tcp": "TCP"
+      },
+      "ca": {
+        "label": "CA 证书 (PEM)",
+        "description": "<ca> 段内的根证书正文，不含标签"
+      },
+      "cert": {
+        "label": "客户端证书 (PEM)",
+        "description": "与私钥配合启用证书认证"
+      },
+      "key": {
+        "label": "客户端私钥 (PEM)",
+        "description": "与上方证书配对"
+      },
+      "cipher": {
+        "label": "加密算法",
+        "description": "旧式单算法设置；AEAD 下被忽略"
+      },
+      "dataCiphers": {
+        "label": "数据加密列表",
+        "description": "协商用算法列表（IV_CIPHERS），每行一个"
+      },
+      "auth": {
+        "label": "摘要算法",
+        "description": "AEAD 加密下忽略"
+      },
+      "compLzo": {
+        "label": "LZO 压缩",
+        "description": "yes / no / adaptive"
+      },
+      "tlsAuth": {
+        "label": "tls-auth 静态密钥 (PEM)",
+        "description": "与 tls-crypt(-v2) 互斥"
+      },
+      "keyDirection": {
+        "label": "密钥方向",
+        "description": "\"1\" 或 \"0\"；留空为双向"
+      },
+      "tlsCrypt": {
+        "label": "tls-crypt 密钥 (PEM)",
+        "description": "加密并认证控制信道"
+      },
+      "tlsCryptV2": {
+        "label": "tls-crypt-v2 客户端密钥 (PEM)",
+        "description": "256 字节封装的客户端密钥"
+      },
+      "ping": {
+        "label": "Ping 间隔 (秒)",
+        "description": "保活 ping 周期"
+      },
+      "pingRestart": {
+        "label": "Ping 重启 (秒)",
+        "description": "该时长无 ping 应答则重连"
+      }
+    },
+    "xhttp": {
+      "noGrpcHeader": {
+        "label": "无 gRPC 头",
+        "description": "不携带 gRPC 风格头"
+      },
+      "xPaddingBytes": {
+        "label": "X 填充字节数",
+        "description": "如 \"100-1000\""
+      },
+      "xPaddingObfsMode": {
+        "label": "X 填充混淆模式",
+        "description": "启用可配置的填充位置与方式"
+      },
+      "xPaddingKey": {
+        "label": "X 填充参数名",
+        "description": "承载填充的参数或头名称"
+      },
+      "xPaddingHeader": {
+        "label": "X 填充头",
+        "description": "header 放置模式使用的头名称"
+      },
+      "xPaddingPlacement": {
+        "label": "X 填充放置位置",
+        "description": "queryInHeader / cookie / header / query"
+      },
+      "xPaddingMethod": {
+        "label": "X 填充方式",
+        "description": "repeat-x 或 tokenish"
+      },
+      "sessionPlacement": {
+        "label": "会话放置位置",
+        "description": "会话标识的传递位置"
+      },
+      "sessionKey": {
+        "label": "会话参数名",
+        "description": "会话标识的自定义键名"
+      },
+      "seqPlacement": {
+        "label": "序列放置位置",
+        "description": "序列号的传递位置"
+      },
+      "seqKey": {
+        "label": "序列参数名",
+        "description": "序列号的自定义键名"
+      },
+      "scMaxEachPostBytes": {
+        "label": "单次 POST 上限字节",
+        "description": "stream-one/up 模式的分块上限"
+      },
+      "scMinPostsIntervalMs": {
+        "label": "POST 最小间隔 (毫秒)",
+        "description": "两次 POST 的最小间隔"
+      },
+      "xmuxMaxConcurrency": {
+        "label": "XMUX 最大并发",
+        "description": "范围串如 \"16-32\"；与流数上限互斥"
+      },
+      "xmuxMaxConnections": {
+        "label": "XMUX 最大连接",
+        "description": "范围串如 \"0\""
+      },
+      "xmuxCMaxReuseTimes": {
+        "label": "XMUX c-max-reuse-times",
+        "description": "连接复用次数上限"
+      },
+      "xmuxHMaxRequestTimes": {
+        "label": "XMUX h-max-request-times",
+        "description": "单连接请求数上限"
+      },
+      "xmuxHMaxReusableSecs": {
+        "label": "XMUX h-max-reusable-secs",
+        "description": "连接可复用秒数"
+      },
+      "xmuxHKeepAlivePeriod": {
+        "label": "XMUX 保活周期 (秒)",
+        "description": "0 为关闭保活"
+      }
+    }
+  },
+  "proxies": {
+    "title": "代理节点"
+  },
+  "proxyProvider": {
+    "title": "代理集合",
+    "description": "由 mihomo 自行拉取并保持更新的订阅",
+    "add": "添加代理集合",
+    "edit": "编辑代理集合",
+    "deleteTitle": "删除代理集合",
+    "deleteConfirm": "确定要删除代理集合「{{name}}」吗？",
+    "deleteUsedBy": "同时会从 {{count}} 个策略组中移除：{{groups}}。策略组若因此变空，mihomo 将无法启动。",
+    "empty": "暂无代理集合。点击上方按钮添加。",
+    "name": "集合名称",
+    "namePlaceholder": "例如：my-subscription",
+    "type": "类型",
+    "url": "订阅地址",
+    "path": "文件路径",
+    "payload": "内联节点",
+    "payloadDescription": "一个 YAML 节点列表，格式与 `proxies:` 中的条目相同。",
+    "inlineNodes": "{{count}} 个内联节点",
+    "selection": "节点筛选",
+    "filter": "仅保留",
+    "filterDescription": "正则表达式，只保留名称匹配的节点。",
+    "excludeFilter": "排除",
+    "excludeType": "排除类型",
+    "excludeTypeDescription": "要排除的节点类型，用「|」分隔。不支持正则表达式。",
+    "filteredBadge": "已筛选",
+    "optionalArgs": "可选参数",
+    "healthCheck": "健康检查",
+    "healthCheckDescription": "策略组自身的健康检查不会作用于这些节点，不开启则它们没有延迟数据。",
+    "healthUrl": "测试地址",
+    "healthInterval": "间隔（秒）",
+    "healthTimeout": "超时（毫秒）",
+    "healthLazy": "仅在使用该策略组时测试",
+    "healthBadge": "健康检查",
+    "override": "覆写节点设置",
+    "overrideDescription": "作用于该集合中的每个节点。订阅是别人写的，这里用来改成你需要的样子。",
+    "overridePrefix": "名称前缀",
+    "overrideSuffix": "名称后缀",
+    "overrideUdp": "UDP",
+    "overrideSkipCertVerify": "跳过证书验证",
+    "overrideIpVersion": "IP 版本",
+    "overrideUnset": "保持订阅原样",
+    "interval": "更新间隔（秒）",
+    "intervalDescription": "多久刷新一次订阅，例如 3600 表示 1 小时。",
+    "cachePath": "缓存路径",
+    "cachePathDescription": "下载文件的存放位置，必须位于 mihomo 主目录内。",
+    "proxy": "通过代理下载",
+    "proxyDescription": "通过该代理或策略组拉取订阅。",
+    "selectProxy": "选择代理或策略组",
+    "sizeLimit": "大小限制（字节）",
+    "sizeLimitDescription": "超过该大小的下载将被拒绝，0 表示不限制。",
+    "header": "请求头",
+    "headerDescription": "每行一条「名称: 值」。同名可重复以发送多个值。",
+    "usedBy": "被 {{count}} 个策略组使用",
+    "unused": "没有策略组使用它",
+    "error": {
+      "nameRequired": "集合名称不能为空",
+      "urlRequired": "HTTP 类型必须填写订阅地址",
+      "pathRequired": "文件类型必须填写文件路径",
+      "payloadRequired": "内联类型至少需要一个节点",
+      "payloadInvalid": "内联节点不是有效的 YAML"
+    }
+  },
+  "proxyGroup": {
+    "title": "策略组",
+    "description": "管理代理策略组",
+    "add": "添加策略组",
+    "edit": "编辑策略组",
+    "delete": "删除策略组",
+    "deleteTitle": "删除策略组",
+    "deleteConfirm": "确定要删除这个策略组吗？",
+    "empty": "暂无策略组。点击上方按钮添加。",
+    "name": {
+      "label": "策略组名称",
+      "description": "策略组的显示名称"
+    },
+    "type": {
+      "label": "类型",
+      "description": "策略组类型",
+      "select": "手动选择",
+      "urlTest": "自动测速",
+      "fallback": "故障转移",
+      "loadBalance": "负载均衡",
+      "relay": "链式代理"
+    },
+    "proxies": "代理",
+    "proxies.label": "代理节点",
+    "proxies.description": "选择要包含的代理或策略组",
+    "selectedProxies": "已选代理",
+    "availableProxies": "可用代理",
+    "noProxiesAvailable": "还没有自己的代理或策略组。请先添加代理节点。",
+    "proxyNode": "代理",
+    "proxyGroup": "策略组",
+    "builtIn": "内置",
+    "url": {
+      "label": "测试地址",
+      "description": "用于连通性测试的 URL"
+    },
+    "testUrl": "测试地址",
+    "interval": "间隔",
+    "interval.label": "测试间隔",
+    "interval.description": "健康检查间隔，单位秒（默认 300，填 0 关闭定时测试）",
+    "tolerance": {
+      "label": "容差值",
+      "description": "自动测速模式下的 RTT 容差（毫秒）"
+    },
+    "lazy": {
+      "label": "懒加载",
+      "description": "未选中该策略组时不进行测试（默认开启）"
+    },
+    "strategy": {
+      "label": "策略",
+      "description": "负载均衡策略",
+      "consistentHashing": "一致性哈希",
+      "roundRobin": "轮询",
+      "stickySessions": "sticky-sessions"
+    },
+    "disableUdp": {
+      "label": "禁用 UDP",
+      "description": "禁用此策略组的 UDP 支持"
+    },
+    "filter": {
+      "label": "筛选",
+      "description": "通过正则表达式筛选代理名称（包含）"
+    },
+    "excludeFilter": {
+      "label": "排除筛选",
+      "description": "通过正则表达式筛选代理名称（排除）"
+    },
+    "validation": {
+      "nameRequired": "策略组名称不能为空",
+      "duplicateName": "配置中已有名为「{{name}}」的项，请换一个名称。",
+      "reservedName": "「{{name}}」是 mihomo 自带的出站名称，请换一个名称。"
+    },
+    "timeout": {
+      "label": "健康检查超时",
+      "description": "健康检查超时时间，单位毫秒（默认 5000）"
+    },
+    "defaultSelected": {
+      "label": "默认选择节点",
+      "description": "启动时默认选中的成员，留空则使用组中第一个节点。",
+      "first": "（组中第一个）",
+      "noMembers": "请先为该策略组添加代理节点",
+      "missing": "“{{name}}” 已不在该策略组中",
+      "fromProviders": "该策略组还引入了代理集合，其节点由 mihomo 运行时拉取，无法在此列出。"
+    },
+    "use": {
+      "label": "代理集合",
+      "description": "引入这些代理集合中的全部节点。策略组可以只用代理集合、只列出自己的成员，或者两者都有。"
+    },
+    "selectedProviders": "已选代理集合",
+    "availableProviders": "可用代理集合",
+    "noProvidersAvailable": "还没有代理集合。请先在「代理集合」标签页中添加。",
+    "providerMissing": "配置中没有名为「{{name}}」的代理集合",
+    "excludeType": {
+      "label": "排除节点类型",
+      "description": "以 | 分隔的适配器类型（非正则）；仅作用于 proxies 引入"
+    },
+    "expectedStatus": {
+      "label": "期望状态码",
+      "description": "健康检查状态码，如 200/302/400-503；* 不限"
+    },
+    "maxFailedTimes": {
+      "label": "最大失败次数",
+      "description": "超过该次数触发强制健康检查（默认 5）"
+    },
+    "emptyFallback": {
+      "label": "空组回退",
+      "description": "组为空时使用的 proxy 名（默认 COMPATIBLE）；不可填策略组"
+    },
+    "hidden": {
+      "label": "API 中隐藏",
+      "description": "向支持的面板声明隐藏该策略组"
+    },
+    "icon": {
+      "label": "图标地址",
+      "description": "支持的面板会展示该图标"
+    },
+    "includeAllProxies": {
+      "label": "引入全部出站代理",
+      "description": "按名称排序引入所有出站；不含策略组"
+    },
+    "includeAllProviders": {
+      "label": "引入全部代理集合",
+      "description": "开启后 use: 引入失效"
+    }
+  },
+  "proxyGroups": {
+    "title": "策略组"
+  },
+  "rule": {
+    "title": "规则",
+    "description": "管理路由规则",
+    "add": "添加规则",
+    "edit": "编辑规则",
+    "delete": "删除规则",
+    "deleteTitle": "删除规则",
+    "deleteConfirm": "确定要删除这条规则吗？",
+    "empty": "暂无规则。点击上方按钮添加。",
+    "noPayload": "无内容",
+    "matchPinned": "始终位于最后 — MATCH 无法调整顺序",
+    "matchHint": "匹配上面未命中的所有流量，因此其后不能有任何规则",
+    "type": {
+      "label": "规则类型",
+      "description": "路由规则的类型"
+    },
+    "payload": {
+      "label": "规则内容",
+      "description": "规则匹配内容（域名、IP、端口等）"
+    },
+    "hint": {
+      "DOMAIN": {
+        "description": "完整匹配域名。"
+      },
+      "DOMAIN-SUFFIX": {
+        "description": "匹配域名后缀：example.com 同时命中 www.example.com 与 mail.example.com。"
+      },
+      "DOMAIN-KEYWORD": {
+        "description": "匹配包含该关键字的域名。"
+      },
+      "DOMAIN-WILDCARD": {
+        "description": "通配符域名，仅支持 *（任意长度字符）与 ?（单个字符）。"
+      },
+      "DOMAIN-REGEX": {
+        "description": "对请求域名应用正则表达式匹配。"
+      },
+      "GEOSITE": {
+        "description": "从 Geosite 数据库（v2fly domain-list-community）中选择分类。"
+      },
+      "IP-CIDR": {
+        "description": "目标 IP 段（CIDR 格式）。配合 no-resolve 可避免触发 DNS 解析。"
+      },
+      "IP-CIDR6": {
+        "description": "目标 IPv6 段（CIDR 格式），是 IP-CIDR 的别名。"
+      },
+      "IP-SUFFIX": {
+        "description": "匹配 IP 后缀段，如 8.8.8.8/24。"
+      },
+      "IP-ASN": {
+        "description": "匹配目标 IP 所属 ASN。"
+      },
+      "GEOIP": {
+        "description": "通过 GeoIP 数据库匹配目标 IP 的国家代码。"
+      },
+      "SRC-GEOIP": {
+        "description": "匹配来源 IP 的国家代码。"
+      },
+      "SRC-IP-ASN": {
+        "description": "匹配来源 IP 所属 ASN。"
+      },
+      "SRC-IP-CIDR": {
+        "description": "来源 IP 段（CIDR 格式）。"
+      },
+      "SRC-IP-SUFFIX": {
+        "description": "匹配来源 IP 后缀段。"
+      },
+      "DST-PORT": {
+        "description": "匹配请求的目标端口或端口范围。"
+      },
+      "SRC-PORT": {
+        "description": "匹配请求的源端口或端口范围。"
+      },
+      "IN-PORT": {
+        "description": "匹配接收连接的入站监听端口。"
+      },
+      "IN-TYPE": {
+        "description": "匹配入站类型，可用 / 分隔多个，如 SOCKS/HTTP。"
+      },
+      "IN-USER": {
+        "description": "匹配入站认证用户名，可用 / 分隔多个。"
+      },
+      "IN-NAME": {
+        "description": "匹配入站监听器名称。"
+      },
+      "REMATCH-NAME": {
+        "description": "匹配 rematch 出站所写的名称。"
+      },
+      "PROCESS-PATH": {
+        "description": "匹配发送进程的完整可执行文件路径（仅限本机流量）。"
+      },
+      "PROCESS-PATH-WILDCARD": {
+        "description": "进程路径通配符匹配，仅支持 * 和 ?。"
+      },
+      "PROCESS-PATH-REGEX": {
+        "description": "对进程路径应用正则表达式匹配。"
+      },
+      "PROCESS-NAME": {
+        "description": "匹配发送进程名（Android 上为包名）。"
+      },
+      "PROCESS-NAME-WILDCARD": {
+        "description": "进程名通配符匹配，仅支持 * 和 ?。"
+      },
+      "PROCESS-NAME-REGEX": {
+        "description": "对进程名应用正则表达式匹配。"
+      },
+      "UID": {
+        "description": "匹配发送进程的 Linux 用户 ID。"
+      },
+      "NETWORK": {
+        "description": "匹配传输协议：tcp 或 udp。"
+      },
+      "DSCP": {
+        "description": "匹配 DSCP 标记（仅 tproxy UDP 入站）。"
+      },
+      "RULE-SET": {
+        "description": "按名称引用规则集合（rule-provider），该集合必须已定义。"
+      },
+      "AND": {
+        "description": "逻辑与。内容为括号嵌套的子规则列表，如 ((DOMAIN,baidu.com),(NETWORK,UDP))，务必注意括号。"
+      },
+      "OR": {
+        "description": "逻辑或。内容为括号嵌套的子规则列表，务必注意括号。"
+      },
+      "NOT": {
+        "description": "逻辑非。内容为括号嵌套的子规则列表，务必注意括号。"
+      },
+      "SUB-RULE": {
+        "description": "跳转到具名子规则块，内容以条件开头。"
+      },
+      "MATCH": {
+        "description": "兜底规则，匹配所有请求。无规则内容，应始终置于末位。"
+      }
+    },
+    "policy": {
+      "label": "策略",
+      "description": "目标策略组或动作（DIRECT/REJECT）",
+      "builtIn": "内置策略",
+      "proxyGroups": "策略组",
+      "customOption": "自定义输入...",
+      "customInput": "自定义输入",
+      "selectMode": "从列表选择",
+      "selectPlaceholder": "选择一个策略"
+    },
+    "noResolve": {
+      "label": "跳过解析",
+      "description": "跳过此规则的 DNS 解析"
+    },
+    "ruleSet": {
+      "label": "规则集",
+      "description": "此规则所引用的规则集。",
+      "placeholder": "选择一个规则集",
+      "new": "+ 新建规则集...",
+      "createFirst": "尚无规则集 — 点击新建",
+      "missing": "「{{name}}」不是已定义的规则集"
+    },
+    "validation": {
+      "payloadRequired": "此规则类型需要填写规则内容"
+    },
+    "geoip": {
+      "label": "GeoIP 代码",
+      "description": "GeoIP 数据库中的国家/地区或网络服务分组"
+    },
+    "geosite": {
+      "label": "GeoSite 分类",
+      "description": "可选择一个或多个分类，每个分类都会生成一条独立规则，策略相同。",
+      "expand": "将生成 {{total}} 条规则，每个分类一条。"
+    },
+    "dangling": {
+      "provider": "没有名为「{{name}}」的规则集 —— mihomo 将拒绝启动",
+      "policy": "配置中没有名为「{{name}}」的代理或代理组 —— mihomo 将拒绝启动"
+    },
+    "src": {
+      "label": "匹配来源地址",
+      "description": "将目标 IP 规则转为来源 IP 匹配"
+    }
+  },
+  "rules": {
+    "title": "规则"
+  },
+  "ruleProvider": {
+    "title": "规则集",
+    "description": "管理规则集",
+    "add": "添加规则集",
+    "edit": "编辑规则集",
+    "delete": "删除规则集",
+    "deleteTitle": "删除规则集",
+    "deleteConfirm": "确定要删除规则集「{{name}}」吗？",
+    "empty": "暂无规则集。点击上方按钮添加。",
+    "name": "规则集名称",
+    "namePlaceholder": "例如：reject-rules",
+    "type": "类型",
+    "behavior": "行为",
+    "url": "URL",
+    "path": "文件路径",
+    "payload": "内联规则",
+    "payloadDescription": "每行一条规则，格式需符合所选的 behavior。",
+    "inlineRules": "{{count}} 条内联规则",
+    "optionalArgs": "可选参数",
+    "format": "文件格式",
+    "formatDescription": "规则集的文件格式，默认为 yaml。mrs 仅支持 domain 与 ipcidr 行为。",
+    "mrsUnavailable": "仅限 domain/ipcidr",
+    "interval": "更新间隔（秒）",
+    "intervalDescription": "规则集的刷新频率，例如 86400 = 24 小时。",
+    "cachePath": "缓存路径",
+    "cachePathDescription": "下载文件的存放位置，必须位于 mihomo 主目录内。",
+    "proxy": "通过代理下载",
+    "proxyDescription": "使用指定的代理或策略组拉取该规则集。",
+    "selectProxy": "选择代理或策略组",
+    "sizeLimit": "大小限制（字节）",
+    "sizeLimitDescription": "拒绝超过此大小的下载，0 表示不限制。",
+    "header": "请求头",
+    "headerDescription": "每行一个「名称: 值」，同名可重复以发送多个值。",
+    "error": {
+      "nameRequired": "规则集名称不能为空",
+      "urlRequired": "HTTP 类型需要填写 URL",
+      "pathRequired": "文件类型需要填写文件路径",
+      "payloadRequired": "内联类型至少需要一条规则"
+    }
+  },
+  "import": {
+    "title": "导入代理 URI",
+    "description": "粘贴代理 URI 以导入（每行一个）。支持：",
+    "formats": {
+      "vless": "VLESS (vless://...)",
+      "hysteria2": "Hysteria2 (hysteria2:// 或 hy2://...)",
+      "tuic": "TUIC (tuic://...)",
+      "trojan": "Trojan (trojan://...)"
+    },
+    "label": "代理 URI",
+    "placeholder": "vless://uuid@server:port?...\nhysteria2://password@server:port?...\n...",
+    "pasteFromClipboard": "从剪贴板粘贴",
+    "import": "导入",
+    "processing": "处理中...",
+    "success": "成功导入 {{count}} 个代理节点",
+    "error": {
+      "empty": "请至少输入一个 URI",
+      "parse": "解析 URI 失败",
+      "clipboard": "读取剪贴板失败",
+      "unknown": "发生未知错误"
+    }
+  },
+  "subscription": {
+    "title": "导入订阅",
+    "description": "输入订阅 URL 以获取和导入代理节点。",
+    "note": "订阅内容将被自动获取和解析。",
+    "label": "订阅 URL",
+    "placeholder": "https://example.com/subscription",
+    "fetch": "获取",
+    "fetching": "获取中...",
+    "selectTitle": "选择要导入的节点",
+    "selectAll": "全选",
+    "selectNone": "全不选",
+    "selectedCount": "已选 {{count}} / {{total}}",
+    "alreadyExists": "已存在",
+    "importSelected": "导入 {{count}} 个",
+    "back": "修改链接",
+    "clashDetected": "这是一份完整的 Mihomo 配置。此处仅列出其中的节点，其包含的 {{groups}} 个策略组和 {{rules}} 条规则未被导入。如需导入整个文件，请使用编辑器面板的 YAML 导入。",
+    "skippedTitle": "以下条目已跳过：",
+    "success": "成功从订阅导入 {{count}} 个代理节点",
+    "error": {
+      "empty": "请输入订阅 URL",
+      "invalidUrl": "无效的 URL 格式",
+      "parse": "解析订阅内容失败"
+    },
+    "clashProviders": "其中还定义了 {{count}} 个代理集合，这些节点由 mihomo 运行时拉取，无法在此列出。"
+  },
+  "remoteFetch": {
+    "viaServer": "通过服务器获取",
+    "viaServerHint": "当对方服务器拒绝浏览器直接请求时启用，改由服务器代为获取。",
+    "signInForServer": "登录后可通过服务器获取。",
+    "error": {
+      "fetchFailed": "获取失败（状态：{{status}}）",
+      "unreachable": "无法访问该服务器。它可能不允许浏览器直接请求 —— 请尝试\"通过服务器获取\"。",
+      "serverUnreachable": "无法连接到配置服务器",
+      "serverFetch": "服务器无法获取该链接",
+      "signInRequired": "请重新登录后再通过服务器获取",
+      "unknown": "发生未知错误"
+    }
+  },
+  "editor": {
+    "title": "配置预览",
+    "format": "输出格式",
+    "copy": "复制到剪贴板",
+    "download": "下载配置",
+    "copied": "已复制!",
+    "newConfigName": "未命名",
+    "notSavedYet": "尚未保存到账户",
+    "signInRequired": "该配置保存在你的账户中，请先在首页登录后再打开。",
+    "validate": {
+      "button": "真实校验",
+      "title": "在服务端用真实 mihomo 二进制校验当前配置",
+      "running": "校验中…",
+      "valid": "服务端校验通过 · {{s}}s",
+      "validTitle": "服务端真实 mihomo -t 校验通过",
+      "invalidMore": "等共 {{count}} 条",
+      "invalid": "被 mihomo 拒绝（{{count}}）",
+      "unavailable": "此部署未配置 mihomo——仅本地检查",
+      "error": "校验失败：{{message}}"
+    },
+    "generate": "生成安全随机值",
+    "generateOverwriteTitle": "替换当前值？",
+    "generateOverwriteBody": "生成新值会覆盖字段中的现有内容。",
+    "generateKeypair": "生成密钥对",
+    "keypairPublicKey": "公钥 —— 请提供给对端",
+    "keypairPublicKeyHint": "请立即复制；该值仅在生成后展示一次。"
+  },
+  "yamlImport": {
+    "title": "导入 YAML 配置",
+    "description": "导入 Mihomo YAML 配置 —— 上传文件、从链接获取，或粘贴文本。",
+    "label": "YAML 内容",
+    "placeholder": "mode: rule\nmixed-port: 7890\nproxies:\n  - name: My Proxy\n    type: vless\n    ...",
+    "clickToUpload": "点击上传 YAML 文件",
+    "fromUrl": "从链接导入",
+    "urlPlaceholder": "https://example.com/config.yaml",
+    "fetch": "获取",
+    "fetching": "获取中...",
+    "fetched": "已获取配置，请在下方确认后点击导入。",
+    "pasteFromClipboard": "从剪贴板粘贴",
+    "import": "导入",
+    "processing": "处理中...",
+    "success": "配置导入成功",
+    "replaceTitle": "替换配置",
+    "confirmReplace": "导入将替换您当前的配置。是否继续？",
+    "error": {
+      "empty": "请输入 YAML 内容",
+      "emptyUrl": "请输入配置链接",
+      "invalidUrl": "无效的 URL 格式",
+      "invalidYaml": "无效的 YAML 格式",
+      "parseFailed": "解析 YAML 配置失败",
+      "notAConfig": "该链接返回的不是有效的 Mihomo YAML 配置。如果它是节点订阅，请使用「代理节点」标签页的导入订阅。",
+      "clipboard": "读取剪贴板失败",
+      "unknown": "发生未知错误"
+    }
+  },
+  "geoip": {
+    "none": "(无)",
+    "countries": "国家 / 地区",
+    "networks": "网络服务",
+    "unknown": "“{{code}}” 不在内置 GeoIP 数据库中"
+  },
+  "geosite": {
+    "none": "尚未选择分类",
+    "search": "点击浏览分类，或输入关键词搜索",
+    "category": "分类",
+    "loading": "正在加载 GeoSite 列表…",
+    "error": "无法连接 GeoSite 服务（{{message}}）。",
+    "errorCached": "正在使用缓存列表 — 刷新失败（{{message}}）。",
+    "retry": "重试",
+    "unknown": "“{{name}}” 不在 GeoSite 列表中",
+    "remove": "移除 {{name}}",
+    "more": "还有 {{remaining}} 个匹配项，请细化搜索条件",
+    "noMatches": "没有匹配 “{{query}}” 的分类",
+    "unavailable": "暂无可选分类 — 无法连接 GeoSite 服务。",
+    "allSelected": "所有分类均已选择"
+  },
+  "validation": {
+    "duplicateName": "有两个出站都叫「{{name}}」",
+    "reservedName": "「{{name}}」是 mihomo 自带的出站名称，使用它的代理或策略组需要改名",
+    "emptyGroup": "代理组「{{group}}」没有任何成员",
+    "groupMember": "代理组「{{group}}」引用了已不存在的「{{name}}」",
+    "rulePolicy": "规则「{{rule}}」指向已不存在的「{{policy}}」",
+    "ruleProvider": "RULE-SET 规则引用了「{{name}}」，但没有这个规则集",
+    "providerProxy": "规则集「{{provider}}」通过已不存在的「{{name}}」下载",
+    "more": "……另有 {{count}} 项",
+    "groupProvider": "策略组「{{group}}」引入了「{{name}}」，但配置中没有这个代理集合",
+    "proxyProviderProxy": "代理集合「{{provider}}」通过「{{name}}」下载，但该名称已不存在"
+  },
+  "server": {
+    "anytls": {
+      "paddingScheme": {
+        "description": "AnyTLS 的流量填充方案。",
+        "label": "填充方案"
+      }
+    },
+    "backHome": "返回首页",
+    "bandwidth": {
+      "mbps": {
+        "description": "带宽（Mbps），例如 100。"
+      }
+    },
+    "category": {
+      "app-proxy": "应用代理",
+      "encrypted": "加密代理服务端",
+      "other": "其他",
+      "quic": "QUIC / UDP 服务端",
+      "transparent": "透明代理与系统接管"
+    },
+    "editor": {
+      "fields": "字段",
+      "raw": "原始 YAML",
+      "rawApply": "应用",
+      "showAdvanced": "显示高级选项",
+      "showBasic": "隐藏高级选项"
+    },
+    "enc": {
+      "allowInsecure": {
+        "description": "跳过 TLS 证书校验。",
+        "label": "允许不安全连接"
+      }
+    },
+    "export": {
+      "blocked": "请先修复错误再导出",
+      "title": "导出 YAML"
+    },
+    "field": {
+      "alpn": {
+        "label": "ALPN"
+      },
+      "listen": {
+        "description": "0.0.0.0 表示监听所有网卡。",
+        "label": "监听地址"
+      },
+      "name": {
+        "description": "入站名称，可用于入站规则匹配。",
+        "label": "名称",
+        "placeholder": "my-inbound"
+      },
+      "network": {
+        "description": "",
+        "label": "网络类型",
+        "tcp": "TCP",
+        "udp": "UDP"
+      },
+      "port": {
+        "description": "支持 mihomo ports 格式。",
+        "label": "监听端口"
+      },
+      "proxy": {
+        "description": "直接交由指定出站或策略组处理。",
+        "label": "出站代理"
+      },
+      "routingMark": {
+        "description": "仅支持 Linux。",
+        "label": "routing-mark"
+      },
+      "rule": {
+        "description": "将该入站流量交给指定子规则。",
+        "label": "子规则"
+      },
+      "target": {
+        "description": "隧道流量的转发目标。",
+        "label": "目标地址",
+        "placeholder": "target.com:443"
+      },
+      "udp": {
+        "description": "同时监听 UDP。",
+        "label": "UDP"
+      },
+      "user": {
+        "password": {
+          "label": "密码"
+        }
+      },
+      "users": {
+        "appAuthDescription": "留空时遵循全局用户验证设置。",
+        "label": "用户列表"
+      }
+    },
+    "fields": {
+      "addEntry": "添加条目",
+      "addUser": "添加用户",
+      "cryptoNote": "由加密安全随机源生成。",
+      "generate": "生成安全随机值",
+      "hide": "隐藏",
+      "moveDown": "下移",
+      "moveUp": "上移",
+      "openDocs": "查看官方文档",
+      "portHint": "示例：443 · 200,302 · 114-514/810-1919,65530",
+      "portNormalized": "将规范为 {{normalized}}",
+      "show": "显示",
+      "user": {
+        "alterId": "Alter ID",
+        "flow": "Flow",
+        "name": "名称",
+        "password": "密码",
+        "username": "用户名",
+        "uuid": "UUID"
+      },
+      "generateKeypair": "生成 REALITY 密钥对",
+      "generateEntry": "生成并添加一项",
+      "generateOverwriteTitle": "替换当前值？",
+      "generateOverwriteBody": "生成新值会覆盖字段中的现有内容。持有旧值的客户端将无法连接。",
+      "generateReplace": "生成并替换",
+      "realityPublicKey": "公钥 —— 请提供给客户端",
+      "realityPublicKeyHint": "客户端将其填入 reality-opts.public-key。公钥已随配置一起保存，分享链接会自动带上。",
+      "generatedOffline": "已在本地生成——账号服务不可用，密钥对仅保存在本文档中。"
+    },
+    "hy2": {
+      "down": {
+        "label": "下行带宽（Mbps）"
+      },
+      "ignoreClientBw": {
+        "description": "忽略客户端上报的带宽，按服务端设置执行。",
+        "label": "忽略客户端带宽"
+      },
+      "masquerade": {
+        "description": "非代理流量的请求将被转发到此 URL。",
+        "label": "伪装站点 URL",
+        "placeholder": "https://example.com"
+      },
+      "obfs": {
+        "description": "Salamander 混淆，需与客户端一致。",
+        "label": "混淆模式",
+        "off": "关闭"
+      },
+      "obfsPassword": {
+        "label": "混淆密码"
+      },
+      "up": {
+        "label": "上行带宽（Mbps）"
+      },
+      "usersNote": {
+        "description": "用户在下方用户列表中定义。"
+      }
+    },
+    "import": {
+      "extensionsPreserved": "监听器“{{name}}”的未知字段已原样保留：{{keys}}。",
+      "listenerSkipped": "监听器 #{{index}} 已跳过 —— 其类型暂不支持在编辑器中编辑。",
+      "listenersNotList": "“listeners”必须是列表。",
+      "noListeners": "未找到“listeners”部分。",
+      "notMapping": "文档必须是 YAML 映射（键: 值）。",
+      "topLevelIgnored": "以下顶层部分不会进入编辑器：{{keys}}。",
+      "yamlInvalid": "YAML 无效：{{message}}",
+      "outboundSkipped": "proxies 第 {{index}} 项不是映射，已跳过。",
+      "outboundIgnored": "出站“{{name}}”的类型为 {{type}}，本编辑器未建模，已跳过。"
+    },
+    "jls": {
+      "dest": {
+        "description": "用于伪装的握手目标。",
+        "label": "伪装目标",
+        "placeholder": "example.com:443"
+      },
+      "enable": {
+        "label": "启用 JLS"
+      },
+      "rateLimit": {
+        "label": "限速（kb/s）"
+      },
+      "sni": {
+        "description": "握手时呈现的服务器名称。",
+        "label": "SNI"
+      },
+      "users": {
+        "label": "用户列表"
+      }
+    },
+    "kcp": {
+      "congestion": {
+        "label": "拥塞控制"
+      },
+      "downlink": {
+        "label": "下行带宽"
+      },
+      "header": {
+        "label": "流量伪装类型",
+        "none": "无"
+      },
+      "mtu": {
+        "label": "MTU"
+      },
+      "readBuffer": {
+        "label": "读缓冲区"
+      },
+      "seed": {
+        "description": "加密 KCP 会话的共享密钥。",
+        "label": "种子"
+      },
+      "tti": {
+        "label": "TTI"
+      },
+      "uplink": {
+        "label": "上行带宽"
+      },
+      "writeBuffer": {
+        "label": "写缓冲区"
+      }
+    },
+    "kcptun": {
+      "enable": {
+        "label": "启用 KCPTun"
+      }
+    },
+    "list": {
+      "add": "添加监听器",
+      "deleteMessage": "确定删除「{{name}}」？此操作不可撤销。",
+      "deleteTitle": "删除监听器",
+      "dragHandle": "拖动排序",
+      "duplicate": "创建副本",
+      "empty": "还没有监听器，先添加一个吧。",
+      "errorBadge": "{{count}} 个错误",
+      "toggleEnabled": "启用或停用",
+      "share": "分享链接"
+    },
+    "mekya": {
+      "maxSimultaneous": {
+        "label": "最大并发写入数"
+      },
+      "maxWriteDurationMs": {
+        "label": "最大写入时长（ms）"
+      },
+      "maxWriteSize": {
+        "label": "最大写入大小"
+      },
+      "packetWritingBuffer": {
+        "label": "包写入缓冲区"
+      }
+    },
+    "mieru": {
+      "trafficPattern": {
+        "description": "伪装流量的形态。",
+        "label": "流量形态"
+      },
+      "transport": {
+        "label": "传输方式"
+      },
+      "userHint": {
+        "description": "客户端配置中必须包含用户名提示。",
+        "label": "必须携带用户提示"
+      }
+    },
+    "mux": {
+      "bandwidth": {
+        "description": "Brutal 带宽（Mbps）。"
+      },
+      "brutal": {
+        "label": "Brutal"
+      },
+      "down": {
+        "label": "下行带宽（Mbps）"
+      },
+      "padding": {
+        "label": "填充"
+      },
+      "up": {
+        "label": "上行带宽（Mbps）"
+      }
+    },
+    "overview": {
+      "listeners": "监听器（启用中）",
+      "publicBind": "公网绑定",
+      "tls": "启用 TLS",
+      "udp": "支持 UDP",
+      "validation": "校验摘要",
+      "servers": "服务器（Server）",
+      "serversTip": "将使用此配置文件的主机 IP 或域名 —— 每个监听器会按每个地址生成一条分享链接。",
+      "serversPlaceholder": "vpn.example.com 或 203.0.113.7",
+      "serversInvalid": "不是有效的域名或 IP 地址：“{{value}}”"
+    },
+    "picker": {
+      "search": "搜索协议…",
+      "title": "添加监听器",
+      "noMatch": "没有符合搜索的协议。"
+    },
+    "preview": {
+      "error": "预览不可用",
+      "title": "配置预览"
+    },
+    "problem": {
+      "aboveMax": "不能大于 {{max}}。",
+      "belowMin": "不能小于 {{min}}。",
+      "bindConflict": "「{{nameA}}」与「{{nameB}}」的地址/端口/协议存在重叠。",
+      "brutalBandwidthRequired": "启用 brutal 后 up/down 必须大于 0。",
+      "certPairMismatch": "certificate 与 private-key 必须成对填写。",
+      "clientAuthCertRequired": "client-auth-type 为 {{clientAuthType}} 时必须提供 client-auth-cert。",
+      "conflictingFields": "“{{fieldA}}” 与 “{{fieldB}}” 不能同时使用。",
+      "duplicateName": "监听器名称「{{name}}」重复。",
+      "fieldRequired": "此字段必填。",
+      "fieldRequiredConditionally": "当前配置下此项必填。",
+      "globalAuthFallback": "未填写用户，遵循全局用户验证设置。",
+      "handshakeDestRequired": "必须填写握手目标 dest。",
+      "hy2CertRequired": "Hysteria2 必须提供证书与私钥。",
+      "insecureLayerRequired": "{{protocol}}：请开启 allow-insecure，或至少提供一种安全层（证书 / Reality / ShadowTLS 等）。",
+      "jlsDestRequired": "必须填写 jls-config dest。",
+      "jlsUsersRequired": "jls-config 需要用户列表。",
+      "listenInvalid": [
+        "「{{value}}」不是有效的监听地址。"
+      ],
+      "masqueradeInvalid": "masquerade 必须是 file:///… 或 http(s) 地址。",
+      "mieruPatternNotBase64": "traffic-pattern 应为 base64 字符串。",
+      "nameRequired": "必须填写监听器名称。",
+      "networkInvalid": "network 只能包含 tcp / udp。",
+      "networkRequired": "至少选择 tcp 或 udp。",
+      "notANumber": "请输入数字。",
+      "notStringList": "应为字符串列表。",
+      "patternMismatch": "格式不符合要求。",
+      "pemInvalid": "PEM 内容不完整或格式错误。",
+      "plaintextPublicBind": "公网绑定且未启用 TLS——请在前置层做好防护。",
+      "plaintextPublicNoAuth": "公网明文且未启用认证——请勿直接暴露到公网。",
+      "portBounds": [
+        "端口必须在 1–65535 内{{#token}}（“{{token}}”）{{/token}}。"
+      ],
+      "portRequired": "必须填写端口。",
+      "portSyntax": [
+        "端口表达式无效{{#token}}（“{{token}}”）{{/token}}。"
+      ],
+      "realityDestRequired": "必须填写 Reality dest。",
+      "realityKeyRequired": "必须填写 Reality 私钥。",
+      "realityXorCertificate": "Reality 不能与 certificate/private-key 同时使用。",
+      "realmPatternInvalid": "realm-name-pattern 不是合法正则。",
+      "realmServerUrlInvalid": "realm-opts.server-url 必须是 http(s) 地址。",
+      "reservedName": "「{{name}}」是 mihomo 保留名。",
+      "restlsDestRequired": "必须填写 res-tls dest。",
+      "restlsPasswordRequired": "必须填写 res-tls 密码。",
+      "routingMarkBounds": "routing-mark 超出范围。",
+      "shortIdInvalid": "“{{value}}” 必须为十六进制且不超过 16 位。",
+      "ss2022PasswordLength": "SS2022 密码必须是 {{expectedBytes}} 字节的 base64。",
+      "ssNoneCipher": "cipher 为 none 时没有加密保护。",
+      "ssUnknownCipher": "未知加密方法 “{{cipher}}”（已原样保留）。",
+      "stlsPasswordRequired": "ShadowTLS v2 需要密码。",
+      "stlsUsersRequired": "ShadowTLS v3 需要用户列表。",
+      "sudokuAeadNone": "aead 为 none 时无 AEAD 保护。",
+      "sudokuFallbackInvalid": "fallback 必须是 host:port 形式。",
+      "sudokuPaddingRange": "padding-min 不能大于 padding-max。",
+      "sudokuSinglePort": "Sudoku 仅支持单端口。",
+      "sudokuTableInvalid": "“{{value}}” 不是合法的字节布局。",
+      "targetRequired": "必须填写 tunnel 目标地址。",
+      "trusttunnelCertRequired": "TrustTunnel 必须提供证书与私钥。",
+      "tunAdvanced": "监听器 TUN 面向高级场景——普通用户建议使用顶层 TUN。",
+      "unknownOption": "“{{value}}” 不是已知选项（已原样保留）。",
+      "xhttpSessionLengthZero": "设置了 session-table 时 session-length 起始值不能为 0。",
+      "server.problem.tunDnsHijackInvalid": "dns-hijack 条目无效：“{{value}}”——应为 [tcp://|udp://]主机:端口 或裸地址",
+      "server.problem.tunAutoRedirectNeedsAutoRoute": "auto-redirect 需要开启 auto-route",
+      "server.problem.tunStrictRouteNeedsAutoRoute": "strict-route 仅在开启 auto-route 时生效",
+      "server.problem.tunFilterNeedsAutoRoute": "该过滤项由 auto-route 应用；请开启 auto-route 或移除该项",
+      "server.problem.tunInterfaceConflict": "include-interface 与 exclude-interface 互斥，不可同时配置",
+      "outboundNameRequired": "存在缺少名称的出站。",
+      "outboundReservedName": "“{{name}}”是内置策略名，不能重复定义。",
+      "outboundDuplicateName": "出站名称“{{name}}”重复。",
+      "outboundServerRequired": "出站“{{name}}”缺少服务器地址。",
+      "outboundPortInvalid": "出站“{{name}}”端口无效。",
+      "ruleTargetRequired": "存在缺少目标策略的规则。",
+      "ruleTargetUnknown": "规则目标“{{target}}”不匹配任何内置策略或自定义出站。",
+      "rulePayloadRequired": "{{type}} 规则缺少内容。",
+      "listenerProxyUnknown": "监听器的出站引用“{{proxy}}”无法解析。"
+    },
+    "proto": {
+      "anytls": {
+        "description": "AnyTLS 服务端",
+        "label": "AnyTLS"
+      },
+      "http": {
+        "description": "纯 HTTP 代理入站",
+        "label": "HTTP"
+      },
+      "hysteria2": {
+        "description": "Hysteria2 QUIC 服务端",
+        "label": "Hysteria2"
+      },
+      "hysteria2realm": {
+        "description": "带 Realm 多用户支持的 Hysteria2。",
+        "label": "Hysteria2 Realm"
+      },
+      "mieru": {
+        "description": "Mieru 服务端",
+        "label": "Mieru"
+      },
+      "mixed": {
+        "description": "同端口混合 HTTP 与 SOCKS5",
+        "label": "Mixed"
+      },
+      "redir": {
+        "description": "iptables REDIRECT 透明代理",
+        "label": "Redirect"
+      },
+      "shadowquic": {
+        "description": "ShadowQUIC 服务端",
+        "label": "ShadowQUIC"
+      },
+      "shadowsocks": {
+        "description": "AEAD / SS2022 服务端",
+        "label": "Shadowsocks"
+      },
+      "snell": {
+        "description": "Snell 服务端",
+        "label": "Snell"
+      },
+      "socks": {
+        "description": "SOCKS5 代理入站",
+        "label": "SOCKS"
+      },
+      "sudoku": {
+        "description": "Sudoku 服务端",
+        "label": "Sudoku"
+      },
+      "tproxy": {
+        "description": "iptables TPROXY 透明代理",
+        "label": "TProxy"
+      },
+      "trojan": {
+        "description": "Trojan 服务端",
+        "label": "Trojan"
+      },
+      "trusttunnel": {
+        "description": "TrustTunnel HTTP/2·3 服务端",
+        "label": "TrustTunnel"
+      },
+      "tuicv4": {
+        "description": "TUIC v4（token 认证）",
+        "label": "TUIC v4"
+      },
+      "tuicv5": {
+        "description": "TUIC v5（UUID:密码 用户表）",
+        "label": "TUIC v5"
+      },
+      "tun": {
+        "description": "高级：虚拟网卡接管（普通用户请用顶层 TUN）",
+        "label": "TUN"
+      },
+      "tunnel": {
+        "description": "把固定端口转发到单一目标",
+        "label": "Tunnel"
+      },
+      "vless": {
+        "description": "XTLS VLESS 服务端",
+        "label": "VLESS"
+      },
+      "vmess": {
+        "description": "V2Ray VMess 服务端",
+        "label": "VMess"
+      }
+    },
+    "quic": {
+      "bbrProfile": {
+        "default": "Default",
+        "label": "BBR 配置档"
+      },
+      "cc": {
+        "label": "拥塞控制算法"
+      }
+    },
+    "rateLimit": {
+      "description": "最大速率（kb/s）。"
+    },
+    "rateLimitShort": {
+      "label": "限速"
+    },
+    "reality": {
+      "afterBytes": {
+        "label": "开始限速前的字节数"
+      },
+      "burst": {
+        "label": "突发速度（字节/秒）"
+      },
+      "dest": {
+        "description": "TLS 握手将被转发到的目标站点。",
+        "label": "伪装目标",
+        "placeholder": "example.com:443"
+      },
+      "downloadRate": {
+        "label": "下载速率（字节/秒）"
+      },
+      "limit": {
+        "description": "速度限制（字节/秒）。"
+      },
+      "maxTimeDiff": {
+        "label": "最大时间差（ms）"
+      },
+      "privateKey": {
+        "description": "由 mihomo 生成的 x25519 私钥。",
+        "label": "私钥"
+      },
+      "serverNames": {
+        "label": "服务器名称（SNI）"
+      },
+      "shortIds": {
+        "description": "客户端 Short ID，留空表示不做限制。",
+        "label": "Short ID 列表"
+      },
+      "uploadRate": {
+        "label": "上传速率（字节/秒）"
+      }
+    },
+    "realm": {
+      "alpn": {
+        "description": "向客户端通告的 ALPN。"
+      },
+      "bearerToken": {
+        "description": "受信任上游出示的 Bearer 令牌。",
+        "label": "Bearer 令牌"
+      },
+      "enable": {
+        "label": "启用 Realm"
+      },
+      "maxRealms": {
+        "label": "Realm 数量上限"
+      },
+      "maxRealmsPerIp": {
+        "label": "每 IP Realm 上限"
+      },
+      "namePattern": {
+        "description": "用于生成 Realm 名称的模板。",
+        "label": "名称模板"
+      },
+      "realmId": {
+        "label": "Realm ID"
+      },
+      "serverUrl": {
+        "label": "服务器 URL",
+        "placeholder": "https://api.example.com"
+      },
+      "stunServers": {
+        "label": "STUN 服务器列表"
+      },
+      "token": {
+        "label": "Realm 令牌"
+      },
+      "trustedProxyHeader": {
+        "label": "受信任代理头",
+        "placeholder": "X-Real-IP"
+      }
+    },
+    "restls": {
+      "dest": {
+        "label": "伪装目标"
+      },
+      "enable": {
+        "label": "启用 Restls"
+      },
+      "minRecordLen": {
+        "label": "最小记录长度"
+      },
+      "password": {
+        "label": "密码"
+      },
+      "rateLimit": {
+        "label": "限速（kb/s）"
+      },
+      "script": {
+        "label": "Restls 脚本"
+      }
+    },
+    "section": {
+      "auth": "认证",
+      "common": "通用",
+      "protocol": "协议",
+      "security": "附加安全层",
+      "tls": "TLS / 安全",
+      "transport": "传输层"
+    },
+    "share": {
+      "badge": {
+        "supported": "支持",
+        "unsupported": "不支持"
+      },
+      "badgeLabel": "分享",
+      "missingHost": "填写对外地址后即可生成分享内容。",
+      "realityPublicKeyManual": "REALITY 公钥需手动补充（服务端仅持有私钥）。",
+      "echConfigManual": "ECH 客户端配置（ech-opts.config）需手动补充——服务端仅保存完整密钥对。",
+      "restlsVersionHint": "restls-opts 可能需要手动补充 version-hint（tls12/tls13），监听器模型中不包含该字段。",
+      "sudokuKeyNote": "若服务端填写的是 ED25519 密钥对的一半作为 key，客户端需要另一半；仅 uuid 形式的 key 可原样复制。",
+      "ssContainsCredentials": "分享内容包含凭据，请谨慎分享。",
+      "unsupported": "该协议没有对应的客户端代理节点。",
+      "unsupportedPrefix": "暂不支持分享：",
+      "unsupportedMekya": "VMess 的 Mekya 传输无法转换为客户端代理节点——客户端通过 URL 连接，而入站配置中没有定义 URL。",
+      "anytlsRealityUnsupported": "AnyTLS 不支持 REALITY——该组合没有可用的客户端代理节点。",
+      "copyFailed": "复制失败——剪贴板拒绝了访问。",
+      "perServerHint": "每个服务器地址一段 proxies: 片段——多用户协议下每个用户各一段。直接粘贴到客户端配置的 proxies 列表即可。片段下方的说明标明对应的地址与身份。",
+      "noServers": "还没有服务器地址，请先到“概览”页添加。",
+      "needsServer": "请先在“概览”页设置至少一个服务器地址，才能分享",
+      "hasErrors": "请先解决此监听器的校验错误，再进行分享",
+      "linkTip": "服务器：{{server}}",
+      "linkTipUser": "服务器：{{server}} · 用户：{{user}}"
+    },
+    "snell": {
+      "obfsHost": {
+        "label": "混淆主机"
+      },
+      "obfsMode": {
+        "label": "混淆模式",
+        "off": "关闭"
+      },
+      "psk": {
+        "label": "预共享密钥（PSK）"
+      },
+      "version": {
+        "label": "版本"
+      }
+    },
+    "sobfs": {
+      "enable": {
+        "label": "启用 Simple Obfs"
+      },
+      "host": {
+        "label": "混淆主机"
+      },
+      "mode": {
+        "label": "混淆模式"
+      }
+    },
+    "sq": {
+      "cwnd": {
+        "label": "初始拥塞窗口"
+      },
+      "disableMtuDiscovery": {
+        "label": "禁用 MTU 探测"
+      },
+      "jlsAddr": {
+        "description": "包裹此监听器的 JLS 端点。",
+        "label": "JLS 地址",
+        "placeholder": "example.com:443"
+      },
+      "jlsSni": {
+        "description": "JLS 包装层使用的服务器名称。",
+        "label": "JLS SNI"
+      },
+      "maxDatagramFrame": {
+        "label": "数据报帧大小上限"
+      },
+      "recvWindow": {
+        "label": "接收窗口"
+      },
+      "recvWindowConn": {
+        "label": "单连接接收窗口"
+      },
+      "versions": {
+        "label": "版本"
+      },
+      "zeroRtt": {
+        "label": "0-RTT"
+      }
+    },
+    "ss": {
+      "cipher": {
+        "label": "加密方式",
+        "none": "无"
+      },
+      "password": {
+        "description": "服务端与客户端共用的密码。",
+        "label": "密码"
+      }
+    },
+    "stls": {
+      "enable": {
+        "label": "启用 Shadow TLS"
+      },
+      "handshakeDest": {
+        "description": "用于伪装握手的服务器。",
+        "label": "握手目标",
+        "placeholder": "example.com:443"
+      },
+      "password": {
+        "label": "密码"
+      },
+      "users": {
+        "label": "用户列表"
+      },
+      "version": {
+        "label": "版本",
+        "v1": "V1",
+        "v2": "V2",
+        "v3": "V3"
+      }
+    },
+    "sudoku": {
+      "aead": {
+        "label": "AEAD",
+        "none": "无"
+      },
+      "customTable": {
+        "description": "类型为自定义时使用的映射表。",
+        "label": "自定义映射表"
+      },
+      "customTables": {
+        "label": "自定义映射表列表"
+      },
+      "fallback": {
+        "description": "未匹配流量的去向。",
+        "label": "回退目标",
+        "placeholder": "127.0.0.1:80"
+      },
+      "handshakeTimeout": {
+        "label": "握手超时"
+      },
+      "httpmaskDisable": {
+        "label": "禁用 HTTP 伪装"
+      },
+      "httpmaskMode": {
+        "label": "HTTP 伪装模式"
+      },
+      "key": {
+        "description": "Sudoku 协议使用的共享密钥。",
+        "label": "密钥"
+      },
+      "paddingMax": {
+        "label": "最大填充"
+      },
+      "paddingMin": {
+        "label": "最小填充"
+      },
+      "pathRoot": {
+        "label": "路径根"
+      },
+      "pureDownlink": {
+        "label": "纯下行模式"
+      },
+      "tableType": {
+        "label": "映射表类型"
+      }
+    },
+    "tab": {
+      "dns": "DNS",
+      "listeners": "监听器",
+      "overview": "总览",
+      "validation": "校验",
+      "outbound": "出站",
+      "rules": "规则",
+      "general": "通用"
+    },
+    "title": "服务端配置编辑器",
+    "tls": {
+      "caPath": {
+        "placeholder": "/path/to/ca.pem"
+      },
+      "certPath": {
+        "placeholder": "/path/to/fullchain.pem"
+      },
+      "certPem": {
+        "placeholder": "-----BEGIN CERTIFICATE-----"
+      },
+      "certSource": {
+        "label": "证书来源",
+        "path": "文件路径",
+        "pem": "PEM"
+      },
+      "certificate": {
+        "label": "证书"
+      },
+      "clientAuthCert": {
+        "label": "客户端 CA 证书"
+      },
+      "clientAuthType": {
+        "description": "要求并校验客户端证书。",
+        "label": "客户端认证",
+        "off": "关闭",
+        "request": "Request",
+        "requireAndVerify": "Require And Verify",
+        "requireAny": "Require Any",
+        "verifyIfGiven": "Verify If Given"
+      },
+      "echKey": {
+        "description": "发布给客户端的 ECH 配置。",
+        "label": "ECH 密钥"
+      },
+      "keyPath": {
+        "placeholder": "/path/to/privkey.pem"
+      },
+      "keyPem": {
+        "placeholder": "-----BEGIN PRIVATE KEY-----"
+      },
+      "keySource": {
+        "label": "私钥来源"
+      },
+      "mode": {
+        "description": "此入站使用的安全层。",
+        "label": "TLS 模式",
+        "none": "无",
+        "reality": "Reality",
+        "tls": "TLS",
+        "tlsmirror": "Tlsmirror"
+      },
+      "privateKey": {
+        "label": "私钥"
+      }
+    },
+    "tlsmirror": {
+      "dest": {
+        "label": "镜像目标"
+      },
+      "primaryKey": {
+        "description": "被镜像证书对应的私钥。",
+        "label": "主私钥"
+      },
+      "watermark": {
+        "label": "序列号水印"
+      }
+    },
+    "transport": {
+      "grpc": "gRPC",
+      "grpcServiceName": {
+        "label": "gRPC 服务名",
+        "placeholder": "my-service"
+      },
+      "kind": {
+        "description": "叠加在协议之上的传输层。",
+        "label": "传输层"
+      },
+      "mekya": "MEKYA",
+      "mkcp": "mKCP",
+      "tcp": "TCP",
+      "ws": "WebSocket",
+      "wsPath": {
+        "label": "WS 路径",
+        "placeholder": "/ws"
+      },
+      "xhttp": "XHTTP"
+    },
+    "trojan": {
+      "ssMethod": {
+        "label": "加密方式"
+      },
+      "ssOption": {
+        "description": "让 Trojan 额外承载 Shadowsocks 加密层。",
+        "label": "Shadowsocks 附带加密"
+      }
+    },
+    "trusttunnel": {
+      "network": {
+        "description": "隧道使用的网络类型。"
+      }
+    },
+    "tuic": {
+      "authTimeout": {
+        "label": "认证超时（秒）"
+      },
+      "maxIdleTime": {
+        "label": "最大空闲时间（秒）"
+      },
+      "maxUdpPacket": {
+        "label": "UDP 包大小上限"
+      },
+      "tokenList": {
+        "description": "供旧版客户端使用的 v4 令牌。",
+        "label": "令牌列表"
+      },
+      "usersMap": {
+        "label": "用户列表"
+      }
+    },
+    "tun": {
+      "autoDetectInterface": {
+        "label": "自动检测接口"
+      },
+      "autoRoute": {
+        "label": "自动路由"
+      },
+      "dnsHijack": {
+        "label": "DNS 劫持"
+      },
+      "einat": {
+        "label": "端点无关 NAT"
+      },
+      "excludeMac": {
+        "label": "排除 MAC"
+      },
+      "excludePackage": {
+        "label": "排除应用包"
+      },
+      "excludeUid": {
+        "label": "排除 UID"
+      },
+      "excludeUidRange": {
+        "label": "排除 UID 范围"
+      },
+      "includeAndroidUser": {
+        "label": "包含 Android 用户"
+      },
+      "includeMac": {
+        "label": "包含 MAC"
+      },
+      "includePackage": {
+        "label": "包含应用包"
+      },
+      "includeUid": {
+        "label": "包含 UID"
+      },
+      "includeUidRange": {
+        "label": "包含 UID 范围"
+      },
+      "inet4Address": {
+        "label": "IPv4 地址"
+      },
+      "inet4RouteAddress": {
+        "label": "IPv4 路由地址"
+      },
+      "inet6Address": {
+        "label": "IPv6 地址"
+      },
+      "inet6RouteAddress": {
+        "label": "IPv6 路由地址"
+      },
+      "mtu": {
+        "label": "MTU"
+      },
+      "stack": {
+        "label": "协议栈"
+      },
+      "strictRoute": {
+        "label": "严格路由"
+      }
+    },
+    "validation": {
+      "allClear": "未发现问题。",
+      "error": "错误",
+      "info": "提示",
+      "pemInvalid": "PEM Invalid",
+      "portInvalid": "Port Invalid",
+      "warning": "警告"
+    },
+    "vless": {
+      "decryption": {
+        "description": "除特殊场景外应保持 none。",
+        "label": "解密方式"
+      }
+    },
+    "xhttp": {
+      "data": {
+        "body": "Body",
+        "cookie": "Cookie",
+        "header": "Header"
+      },
+      "host": {
+        "label": "主机名"
+      },
+      "mode": {
+        "default": "Default",
+        "label": "工作模式",
+        "packetUp": "Packet Up",
+        "streamOne": "Stream One",
+        "streamUp": "Stream Up"
+      },
+      "noSseHeader": {
+        "label": "省略 SSE 头"
+      },
+      "paddingMethod": {
+        "repeatX": "Repeat X",
+        "tokenish": "Tokenish"
+      },
+      "path": {
+        "label": "路径",
+        "placeholder": "/xhttp"
+      },
+      "placement": {
+        "cookie": "Cookie",
+        "header": "Header",
+        "query": "Query",
+        "queryInHeader": "Query In Header"
+      },
+      "range20to80": {
+        "placeholder": "50-70"
+      },
+      "scMaxBufferedPosts": {
+        "label": "缓冲 POST 数上限"
+      },
+      "scMaxEachPostBytes": {
+        "label": "单个 POST 上限（字节）"
+      },
+      "scStreamUpServerSecs": {
+        "label": "流式上行窗口（秒）"
+      },
+      "seqKey": {
+        "label": "序列密钥"
+      },
+      "seqPlacement": {
+        "label": "序列位置"
+      },
+      "session": {
+        "cookie": "Cookie",
+        "header": "Header",
+        "path": "路径",
+        "query": "Query"
+      },
+      "sessionKey": {
+        "label": "会话密钥"
+      },
+      "sessionLength": {
+        "description": "每个会话标识携带的字符数。",
+        "label": "会话长度",
+        "placeholder": "20-40"
+      },
+      "sessionPlacement": {
+        "label": "会话位置"
+      },
+      "sessionTable": {
+        "label": "会话表"
+      },
+      "table": {
+        "off": "关闭",
+        "uuid": "Uuid"
+      },
+      "uplinkChunkSize": {
+        "label": "上行分块大小"
+      },
+      "uplinkDataKey": {
+        "label": "上行数据键名"
+      },
+      "uplinkDataPlacement": {
+        "label": "上行数据位置"
+      },
+      "uplinkHttpMethod": {
+        "label": "上行 HTTP 方法"
+      },
+      "xPaddingBytes": {
+        "label": "填充字节数",
+        "placeholder": "100-500"
+      },
+      "xPaddingHeader": {
+        "label": "填充头"
+      },
+      "xPaddingKey": {
+        "label": "填充键名"
+      },
+      "xPaddingMethod": {
+        "label": "填充方式"
+      },
+      "xPaddingObfsMode": {
+        "label": "填充混淆模式"
+      },
+      "xPaddingPlacement": {
+        "label": "填充位置"
+      }
+    },
+    "outbound": {
+      "builtInTitle": "内置策略",
+      "builtInNote": "这些策略在所有 mihomo 配置中无需定义即可使用，规则与监听器的出站字段都可直接引用。",
+      "listTitle": "自定义出站",
+      "pickKind": "direct",
+      "pickHint": "选择类型后添加",
+      "empty": "暂无自定义出站。规则仍可引用上方内置策略。",
+      "name": "名称",
+      "namePlaceholder": "upstream-out",
+      "server": "服务器",
+      "port": "端口",
+      "username": "用户名",
+      "password": "密码",
+      "deleteTitle": "删除出站",
+      "deleteConfirm": "删除出站“{{name}}”？引用它的规则将无法通过校验。"
+    },
+    "rule": {
+      "title": "路由规则",
+      "add": "添加规则",
+      "type": "类型",
+      "payload": "规则内容",
+      "payloadPlaceholder": "example.com",
+      "target": "目标策略",
+      "moveUp": "上移",
+      "moveDown": "下移",
+      "empty": "暂无规则，流量按各监听器自身配置路由。",
+      "deleteTitle": "删除规则",
+      "description": "规则自上而下匹配，先命中先生效。MATCH 兜底所有请求，应始终置于末位。",
+      "edit": "编辑规则",
+      "noPayload": "无内容",
+      "matchHint": "匹配上面未命中的所有流量，因此其后不能有任何规则",
+      "danglingTarget": "目标“{{name}}”不是内置策略，也未在出站页中定义。",
+      "validation": {
+        "payloadRequired": "该规则类型需要填写内容。",
+        "targetRequired": "请选择目标策略。"
+      }
+    },
+    "cloud": {
+      "saveTitle": "保存服务端配置到云端",
+      "signInRequired": "登录后才能打开已保存的服务端配置。",
+      "error": {
+        "open": "无法加载该服务端配置。",
+        "save": "保存服务端配置失败。",
+        "delete": "删除服务端配置失败。",
+        "invalid": "当前配置存在校验错误，修复后才能保存。",
+        "list": "无法加载服务端配置列表。"
+      }
+    },
+    "newConfigName": "未命名"
+  },
+  "ntp": {
+    "title": "NTP 校时",
+    "enable": {
+      "label": "启用 NTP",
+      "description": "与 NTP 服务器同步时间（部分协议校验时钟）"
+    },
+    "server": {
+      "label": "服务器",
+      "description": "NTP 服务地址"
+    },
+    "port": {
+      "label": "端口",
+      "description": "NTP 服务端口"
+    },
+    "interval": {
+      "label": "同步间隔 (分)",
+      "description": "两次同步的间隔分钟数"
+    },
+    "writeToSystem": {
+      "label": "写入系统时间",
+      "description": "需要 root/管理员权限"
+    },
+    "dialerProxy": {
+      "description": "强制 NTP 流量经该代理而非直连"
+    }
+  },
+  "profile": {
+    "title": "配置缓存",
+    "storeSelected": {
+      "label": "记住策略组选择",
+      "description": "重启后保留手动选择的节点"
+    },
+    "storeFakeIp": {
+      "label": "持久化 fake-ip 映射",
+      "description": "重启后沿用原 fake-ip 映射"
+    }
+  },
+  "experimental": {
+    "title": "实验性配置",
+    "gso": {
+      "label": "禁用 quic-go GSO",
+      "description": "绕过 Linux GSO 问题；有性能代价"
+    },
+    "ecn": {
+      "label": "禁用 quic-go ECN",
+      "description": "关闭显式拥塞通知"
+    },
+    "ip4p": {
+      "label": "IP4P 地址转换",
+      "description": "拨号时转换 IP4P 地址（natmap）"
+    }
+  },
+  "geodata": {
+    "title": "GEO 数据",
+    "mode": {
+      "label": "使用 dat 格式 (geodata-mode)",
+      "description": "true 使用 geoip.dat；false 使用 mmdb"
+    },
+    "loader": {
+      "label": "加载器",
+      "description": "memconservative 适合小内存设备"
+    },
+    "matcher": {
+      "label": "Geosite 匹配器",
+      "description": "succinct（默认）或 mph"
+    },
+    "autoUpdate": {
+      "label": "自动更新 GEO",
+      "description": "定期刷新 GEO 数据"
+    },
+    "updateInterval": {
+      "label": "更新间隔 (小时)",
+      "description": "更新的间隔小时数"
+    },
+    "geoipUrl": {
+      "label": "geoip 下载地址",
+      "description": "自定义 geoip.dat 来源"
+    },
+    "geositeUrl": {
+      "label": "geosite 下载地址",
+      "description": "自定义 geosite.dat 来源"
+    },
+    "mmdbUrl": {
+      "label": "mmdb 下载地址",
+      "description": "自定义 country.mmdb 来源"
+    },
+    "asnUrl": {
+      "label": "ASN 下载地址",
+      "description": "自定义 GeoLite2-ASN.mmdb 来源"
+    }
+  },
+  "accessControl": {
+    "title": "访问控制",
+    "authentication": {
+      "label": "用户验证 (user:pass)",
+      "description": "每行一条 user:pass，作用于 http/socks/mixed 入站"
+    },
+    "skipAuthPrefixes": {
+      "label": "免验证网段",
+      "description": "每行一个 CIDR；来源匹配则跳过验证"
+    },
+    "lanAllowedIps": {
+      "label": "允许连接网段",
+      "description": "仅在 allow-lan 开启时生效的白名单"
+    },
+    "lanDisallowedIps": {
+      "label": "禁止连接网段",
+      "description": "黑名单优先级高于白名单"
+    }
+  },
+  "hosts": {
+    "title": "Hosts",
+    "lines": {
+      "label": "映射条目",
+      "description": "每行 name: ip[,ip]；值可为 lan 或别名域名。导入的键将原样保留。"
+    }
+  },
+  "tun": {
+    "device": {
+      "label": "网卡名称",
+      "description": "macOS 需以 utun 开头"
+    },
+    "autoRedirect": {
+      "label": "自动重定向",
+      "description": "仅 Linux；随 auto-route 配置 iptables/nftables 重定向 TCP"
+    },
+    "strictRoute": {
+      "label": "严格路由",
+      "description": "防泄漏严格路由；可能影响部分应用"
+    },
+    "mtu": {
+      "label": "MTU",
+      "description": "最大传输单元"
+    },
+    "gso": {
+      "label": "GSO",
+      "description": "通用分段卸载，仅 Linux"
+    },
+    "gsoMaxSize": {
+      "label": "GSO 最大长度",
+      "description": "GSO 数据块最大长度"
+    },
+    "inet6Address": {
+      "label": "inet6 地址",
+      "description": "TUN 的 IPv6 地址；需顶层 ipv6 开启"
+    },
+    "udpTimeout": {
+      "label": "UDP 超时 (秒)",
+      "description": "UDP NAT 过期时间，默认 300"
+    },
+    "tableIndex": {
+      "label": "iproute2 路由表索引",
+      "description": "默认 2022"
+    },
+    "ruleIndex": {
+      "label": "iproute2 规则起始索引",
+      "description": "默认 9000"
+    },
+    "einat": {
+      "label": "端点无关 NAT",
+      "description": "开启后有轻微性能开销"
+    },
+    "routeAddressSet": {
+      "label": "路由地址集",
+      "description": "将规则集内 CIDR 加入防火墙；需 Linux+nftables+auto-redirect"
+    },
+    "routeExcludeAddressSet": {
+      "label": "排除地址集",
+      "description": "匹配流量绕过路由"
+    },
+    "routeAddress": {
+      "label": "自定义路由网段",
+      "description": "每行一个 CIDR；替代默认路由"
+    },
+    "routeExcludeAddress": {
+      "label": "排除网段",
+      "description": "每行一个 CIDR"
+    },
+    "includeInterface": {
+      "label": "限定路由接口",
+      "description": "与排除接口互斥"
+    },
+    "excludeInterface": {
+      "label": "排除接口",
+      "description": "与限定接口互斥"
+    },
+    "includeUid": {
+      "label": "包含用户 UID",
+      "description": "仅 Linux，需 auto-route；每行一个"
+    },
+    "excludeUid": {
+      "label": "排除用户 UID",
+      "description": "每行一个"
+    },
+    "uidRange": {
+      "description": "每行 start:end，如 1000:9999"
+    },
+    "includeMac": {
+      "label": "包含 MAC 地址"
+    },
+    "excludeMac": {
+      "label": "排除 MAC 地址"
+    },
+    "macList": {
+      "description": "每行一个；需 Linux + auto-route + auto-redirect"
+    },
+    "androidUser": {
+      "description": "Android 用户 ID（0 机主、10 分身）；需 auto-route"
+    },
+    "packageList": {
+      "description": "Android 应用包名，每行一个；需 auto-route"
+    },
+    "includeUidRange": {
+      "label": "包含用户范围"
+    },
+    "excludeUidRange": {
+      "label": "排除用户范围"
+    },
+    "includeAndroidUser": {
+      "label": "包含 Android 用户"
+    },
+    "includePackage": {
+      "label": "包含应用包名"
+    },
+    "excludePackage": {
+      "label": "排除应用包名"
+    }
+  },
+  "sniffer": {
+    "title": "域名嗅探",
+    "enable": {
+      "label": "启用嗅探",
+      "description": "从流量中嗅探还原域名"
+    },
+    "forceDnsMapping": {
+      "label": "无域名时强制嗅探",
+      "description": "对 redir-host 类流量强制嗅探"
+    },
+    "parsePureIp": {
+      "label": "嗅探纯 IP 流量",
+      "description": "未获取到域名时强制嗅探"
+    },
+    "overrideDestination": {
+      "label": "覆盖目标",
+      "description": "以嗅探结果作为实际访问目标（上游默认 true）"
+    },
+    "protoHttp": {
+      "label": "嗅探 HTTP"
+    },
+    "protoTls": {
+      "label": "嗅探 TLS"
+    },
+    "protoQuic": {
+      "label": "嗅探 QUIC"
+    },
+    "protoEnabled": {
+      "description": "启用该协议条目（默认端口：TLS/QUIC 443、HTTP 80）"
+    },
+    "protoPorts": {
+      "label": "端口列表",
+      "description": "每行一个端口或范围"
+    },
+    "forceDomain": {
+      "label": "强制嗅探域名"
+    },
+    "domainList": {
+      "description": "每行一个通配域名"
+    },
+    "skipDomain": {
+      "label": "跳过嗅探域名"
+    },
+    "addrList": {
+      "description": "每行一个 CIDR"
+    },
+    "skipSrcAddress": {
+      "label": "跳过来源网段"
+    },
+    "skipDstAddress": {
+      "label": "跳过目标网段"
+    }
+  }
+}
