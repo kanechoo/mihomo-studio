@@ -1,0 +1,33 @@
+# Build context for the web image. Everything here is either rebuilt inside the
+# image, irrelevant to it, or must not be in it.
+#
+# deploy/ is deliberately absent from this list: web.Dockerfile copies
+# deploy/nginx.conf out of the context, and excluding it would break the build.
+
+node_modules
+dist
+dist-ssr
+
+# Secrets, and local overrides that would silently change what gets built into
+# the bundle. The build takes its VITE_ values from build arguments instead —
+# see deploy/web.Dockerfile.
+.env
+.env.*
+!.env.example
+
+.git
+.github
+.history
+.claude
+.vscode
+.idea
+.DS_Store
+
+# The API has its own image and its own build context.
+server
+
+# Notes and docs: none of them reach the browser.
+*.md
+
+docker-compose.yml
+.dockerignore

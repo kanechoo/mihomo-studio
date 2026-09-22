@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/waypoints.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/400.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/500.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/600.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/700.css" />
+    <title>Mihomo Studio | 可视化 Mihomo 配置工作台</title>
+    <script>
+      // Paints the theme before the bundle loads, so a dark-mode visitor does
+      // not get a flash of the light palette on first render. This mirrors
+      // resolveTheme() in src/store/uiStore.ts, which re-applies the same
+      // class on boot — this copy only exists to run earlier.
+      (function () {
+        try {
+          var stored = localStorage.getItem('mihomo-ui-storage');
+          var pref = (stored && JSON.parse(stored).state.theme) || 'system';
+          if (
+            pref === 'dark' ||
+            (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          // Unreadable storage just means the default applies a moment later.
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
