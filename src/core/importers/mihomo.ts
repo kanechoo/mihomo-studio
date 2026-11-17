@@ -237,6 +237,7 @@ export class MihomoYAMLImporter implements IImporter {
       general.tun = {
         enable: parsed.tun.enable || false,
         stack: parsed.tun.stack,
+        'dns-mode': parsed.tun['dns-mode'] || undefined,
         device: parsed.tun.device,
         'dns-hijack': parsed.tun['dns-hijack'],
         'auto-route': parsed.tun['auto-route'],

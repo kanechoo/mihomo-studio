@@ -239,6 +239,15 @@
       "autoDetectInterface": {
         "label": "自动检测接口",
         "description": "自动检测出站网卡"
+      },
+      "dnsMode": {
+        "label": "系统 DNS",
+        "description": "系统 DNS 配置方式",
+        "legacy": "旧版默认：Windows/Linux 在 auto-route 开启时使用 hijack，否则使用 disabled；macOS 使用 disabled",
+        "clear": "清除模式，使用 Mihomo 默认行为",
+        "disabled": "disabled — 不设置系统 DNS",
+        "native": "native — 将 TUN 地址设为系统 DNS",
+        "hijack": "hijack — 额外拦截发往其他网卡的 53 端口流量"
       }
     },
     "port": {
@@ -3694,11 +3703,11 @@
     },
     "autoRedirect": {
       "label": "自动重定向",
-      "description": "仅 Linux；随 auto-route 配置 iptables/nftables 重定向 TCP"
+      "description": "仅 Linux；随 auto-route 配置 iptables/nftables 重定向 TCP。dns-mode 选择 hijack 时必需"
     },
     "strictRoute": {
       "label": "严格路由",
-      "description": "防泄漏严格路由；可能影响部分应用"
+      "description": "防泄漏严格路由；可能影响部分应用。Windows 上 dns-mode 选择 hijack 时必需"
     },
     "mtu": {
       "label": "MTU",

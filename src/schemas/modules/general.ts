@@ -130,6 +130,21 @@ export const generalSchema: ModuleSchema = {
       description: 'general.tun.autoDetectInterface.description',
       showIf: { field: 'tun.enable', operator: 'eq', value: true },
     },
+    {
+      fieldKey: 'tun.dns-mode',
+      label: 'general.tun.dnsMode.label',
+      type: 'select',
+      placeholder: 'general.tun.dnsMode.legacy',
+      clearable: true,
+      clearLabel: 'general.tun.dnsMode.clear',
+      description: 'general.tun.dnsMode.description',
+      options: [
+        { value: 'disabled', label: 'general.tun.dnsMode.disabled' },
+        { value: 'native', label: 'general.tun.dnsMode.native' },
+        { value: 'hijack', label: 'general.tun.dnsMode.hijack' },
+      ],
+      showIf: TUN_ON,
+    },
   // ---- Phase-8 TUN: full documented surface ----
   { fieldKey: 'tun.device', label: 'tun.device.label', type: 'text', placeholder: 'utun0', description: 'tun.device.description', showIf: TUN_ON },
   { fieldKey: 'tun.auto-redirect', label: 'tun.autoRedirect.label', type: 'boolean', default: false, description: 'tun.autoRedirect.description', showIf: [{ field: 'tun.enable', operator: 'eq', value: true }, { field: 'tun.auto-route', operator: 'eq', value: true }] },

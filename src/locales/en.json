@@ -239,6 +239,15 @@
       "autoDetectInterface": {
         "label": "Auto Detect Interface",
         "description": "Automatically detect outbound interface"
+      },
+      "dnsMode": {
+        "label": "System DNS",
+        "description": "System DNS configuration mode",
+        "legacy": "Legacy default: Windows/Linux use hijack with auto-route and disabled otherwise; macOS uses disabled",
+        "clear": "Clear mode and use Mihomo's default behavior",
+        "disabled": "disabled — Do not set system DNS",
+        "native": "native — Set system DNS to the TUN address",
+        "hijack": "hijack — Also intercept other interfaces' port 53 traffic"
       }
     },
     "port": {
@@ -3694,11 +3703,11 @@
     },
     "autoRedirect": {
       "label": "Auto redirect",
-      "description": "Linux only; iptables/nftables TCP redirect with auto-route"
+      "description": "Linux only; iptables/nftables TCP redirect with auto-route. Required for dns-mode hijack."
     },
     "strictRoute": {
       "label": "Strict route",
-      "description": "Anti-leak strict routing; may break some apps"
+      "description": "Anti-leak strict routing; may break some apps. Required for dns-mode hijack on Windows."
     },
     "mtu": {
       "label": "MTU",
