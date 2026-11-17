@@ -280,6 +280,7 @@ function generalToYaml(general: ServerGeneralIR): Record<string, unknown> {
     const block: Record<string, unknown> = { enable: true };
     const scalarKeys = [
       'stack',
+      'dns-mode',
       'device',
       'auto-route',
       'auto-redirect',

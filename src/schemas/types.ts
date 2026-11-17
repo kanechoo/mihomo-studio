@@ -81,6 +81,10 @@ export interface FieldSchema {
   required?: boolean;
   placeholder?: string;
   description?: string; // Tooltip description
+  // Allow an optional select value to be removed and fall back to its
+  // placeholder state, rather than forcing the user to keep one choice.
+  clearable?: boolean;
+  clearLabel?: string;
 
   // For select/multiselect types
   options?: Array<{

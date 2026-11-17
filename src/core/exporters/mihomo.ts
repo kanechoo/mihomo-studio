@@ -151,6 +151,7 @@ export class MihomoExporter implements IExporter {
       config.tun = { enable: true };
       const tunKeys = [
         'stack',
+        'dns-mode',
         'device',
         'auto-route',
         'auto-redirect',

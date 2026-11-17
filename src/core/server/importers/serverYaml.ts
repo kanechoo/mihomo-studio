@@ -376,6 +376,7 @@ const GENERAL_SCALAR_KEYS = [
 
 const TUNABLE_SCALAR_KEYS = [
   'stack',
+  'dns-mode',
   'device',
   'auto-route',
   'auto-redirect',
@@ -412,7 +413,12 @@ export function parseGeneralNode(raw: Record<string, any> | undefined): ServerGe
   if (raw.tun && typeof raw.tun === 'object' && raw.tun.enable === true) {
     const tun: Record<string, unknown> = { enable: true };
     for (const key of TUNABLE_SCALAR_KEYS) {
-      if (key in raw.tun && raw.tun[key] !== undefined && raw.tun[key] !== null) {
+      if (
+        key in raw.tun &&
+        raw.tun[key] !== undefined &&
+        raw.tun[key] !== null &&
+        (key !== 'dns-mode' || raw.tun[key] !== '')
+      ) {
         tun[key] = raw.tun[key];
       }
     }

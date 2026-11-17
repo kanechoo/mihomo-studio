@@ -122,6 +122,7 @@ export type HostsEntry = Record<string, HostsValue>;
 export interface TunConfig {
   enable: boolean;
   stack?: 'system' | 'gvisor' | 'mixed';
+  'dns-mode'?: 'disabled' | 'native' | 'hijack';
   'dns-hijack'?: string[];
   'auto-route'?: boolean;
   'auto-detect-interface'?: boolean;

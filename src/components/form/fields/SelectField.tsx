@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { X } from 'lucide-react';
 import { Select } from '../../common/Select';
 import type { FieldSchema } from '../../../schemas/types';
 
@@ -53,17 +54,38 @@ export function SelectField({
           {t(note)}
         </p>
       )}
-      <Select
-        id={field.fieldKey}
-        value={current}
-        disabled={disabled}
-        onChange={(val) => {
-          // Try to preserve the original type
-          const option = field.options?.find((o) => o.value.toString() === val);
-          onChange(option ? option.value : val);
-        }}
-        items={items}
-      />
+      <div className={field.clearable ? 'flex items-center gap-2' : undefined}>
+        <div className={field.clearable ? 'min-w-0 flex-1' : undefined}>
+          <Select
+            id={field.fieldKey}
+            value={current}
+            placeholder={field.placeholder ? t(field.placeholder) : undefined}
+            disabled={disabled}
+            onChange={(val) => {
+              // Try to preserve the original type
+              const option = field.options?.find((o) => o.value.toString() === val);
+              onChange(option ? option.value : val);
+            }}
+            items={items}
+          />
+        </div>
+        {field.clearable && current !== '' && !disabled && (
+          <button
+            type="button"
+            onClick={() => onChange('')}
+            aria-label={t(field.clearLabel ?? 'common.reset')}
+            title={t(field.clearLabel ?? 'common.reset')}
+            className="p-2 rounded-md border shrink-0"
+            style={{
+              backgroundColor: 'var(--bg-primary)',
+              borderColor: 'var(--border-color)',
+              color: 'var(--text-secondary)',
+            }}
+          >
+            <X size={14} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
